@@ -2,7 +2,7 @@ import React from 'react';
 
 
 class SearchBar extends React.Component {
-  state = {term: 'lexus'}
+  state = {term: 'psec'}
 
   // onFormSubmit(event) {
   //   event.preventDefault();
@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
       <div className="ui segment">
         <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
-            <label>Image search</label>
+            <label>Stock search</label>
             <input
              type="text"
              value={this.state.term}
