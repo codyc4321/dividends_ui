@@ -10,6 +10,7 @@ class App extends React.Component {
 
   state = {
     current_price: null,
+    recent_dividend_rate: null,
     current_yield: null,
     dividend_change_1_year: null,
     dividend_change_3_year: null,
@@ -22,6 +23,10 @@ class App extends React.Component {
     const price_url = 'http://localhost:8000/dividends/current_price/' + term
     const price_response = await axios.get(price_url, {});
     this.setState({current_price: price_response.data['current_price']});
+
+    const recent_rate_url = 'http://localhost:8000/dividends/recent_dividend_rate/' + term
+    const recent_rate_response = await axios.get(recent_rate_url, {});
+    this.setState({recent_dividend_rate: recent_rate_response.data['year_dividend_rate']});
 
     const yield_url = 'http://localhost:8000/dividends/current_yield/' + term
     const yield_response = await axios.get(yield_url, {});
@@ -57,7 +62,8 @@ class App extends React.Component {
     return (
       <div className="ui container" style={{marginTop: '10px'}}>
         <SearchBar onSubmit={this.onSearchSubmit} />
-        <h3>The current price for this stock is: {this.state.current_price}%</h3>
+        <h3>The current price for this stock is: {this.state.current_price}</h3>
+        <h3>The one year dividend rate for this stock is: {this.state.recent_dividend_rate}</h3>
         <h3>The current yield for this stock is: {this.state.current_yield}%</h3>
         <h3>The 1 year dividend change for this stock is: {this.state.dividend_change_1_year}%</h3>
         <h3>The 3 year dividend change for this stock is: {this.state.dividend_change_3_year}%</h3>
