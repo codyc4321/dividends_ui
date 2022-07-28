@@ -70,17 +70,14 @@ class App extends React.Component {
     return (
       <div className="ui container" style={{marginTop: '10px'}}>
         <SearchBar onSubmit={this.onSearchSubmit} />
-        The current_yield for this stock is: {this.state.current_yield}%
-        <br/><br/>
-        The 1 year dividend change for this stock is: {this.state.dividend_change_1_year}%
-        <br/>
-        The 3 year dividend change for this stock is: {this.state.dividend_change_3_year}%
-        <br/>
-        The 5 year dividend change for this stock is: {this.state.dividend_change_5_year}%
-        <br/>
-        The 10 year dividend change for this stock is: {this.state.dividend_change_10_year}%
-        <br/><br/>
-        The dividends for the last 3 years:
+        <h3>The current_yield for this stock is: {this.state.current_yield}%</h3>
+
+        <h3>The 1 year dividend change for this stock is: {this.state.dividend_change_1_year}%</h3>
+        <h3>The 3 year dividend change for this stock is: {this.state.dividend_change_3_year}%</h3>
+        <h3>The 5 year dividend change for this stock is: {this.state.dividend_change_5_year}%</h3>
+        <h3>The 10 year dividend change for this stock is: {this.state.dividend_change_10_year}%</h3>
+
+        <h3>The dividends for the last 3 years:</h3>
         <br/>
         <DividendResults all_dividends={this.state.all_dividends} />
       </div>
