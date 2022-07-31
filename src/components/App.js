@@ -64,13 +64,32 @@ class App extends React.Component {
     return (
       <div className="ui container" style={{marginTop: '10px'}}>
         <SearchBar onSubmit={this.onSearchSubmit} />
-        <h3>The current price for this stock is: {this.state.current_price}</h3>
-        <h3>The one year dividend rate for this stock is: {this.state.recent_dividend_rate}</h3>
-        <h3>The current yield for this stock is: {this.state.current_yield}%</h3>
-        <h3>The 1 year dividend change for this stock is: {this.state.dividend_change_1_year}%</h3>
-        <h3>The 3 year dividend change for this stock is: {this.state.dividend_change_3_year}%</h3>
-        <h3>The 5 year dividend change for this stock is: {this.state.dividend_change_5_year}%</h3>
-        <h3>The 10 year dividend change for this stock is: {this.state.dividend_change_10_year}%</h3>
+        <h3>Price: ${this.state.current_price}</h3>
+        <h3>Yearly dividend rate: ${this.state.recent_dividend_rate}</h3>
+        <h3>Current yield: {this.state.current_yield}%</h3>
+
+        <h3>The dividend yield change over time...</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>1 year</td>
+              <td>{this.state.dividend_change_1_year}%</td>
+            </tr>
+            <tr>
+              <td>3 year</td>
+              <td>{this.state.dividend_change_3_year}%</td>
+            </tr>
+            <tr>
+              <td>5 year</td>
+              <td>{this.state.dividend_change_5_year}%</td>
+            </tr>
+            <tr>
+              <td>10 year</td>
+              <td>{this.state.dividend_change_10_year}%</td>
+            </tr>
+          </tbody>
+        </table>
+
         <h3>The dividends for the last 3 years:</h3>
         <br/>
         <DividendResults all_dividends={this.state.all_dividends} />
