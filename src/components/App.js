@@ -64,9 +64,25 @@ class App extends React.Component {
     return (
       <div className="ui container" style={{marginTop: '10px'}}>
         <SearchBar onSubmit={this.onSearchSubmit} />
-        <h3>Price: ${this.state.current_price}</h3>
-        <h3>Yearly dividend rate: ${this.state.recent_dividend_rate}</h3>
-        <h3>Current yield: {this.state.current_yield}%</h3>
+
+        <table>
+          <tbody>
+            <tr>
+              <td>Price</td>
+              <td>${this.state.current_price}</td>
+            </tr>
+
+            <tr>
+              <td>Yearly dividends</td>
+              <td>${this.state.recent_dividend_rate}</td>
+            </tr>
+
+            <tr>
+              <td>Yield</td>
+              <td>{this.state.current_yield}%</td>
+            </tr>
+          </tbody>
+        </table>
 
         <h3>The dividend yield change over time...</h3>
         <table>
