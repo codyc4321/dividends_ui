@@ -2,6 +2,7 @@ import React from 'react';
 
 import SearchBar from './SearchBar';
 import DividendResults from './DividendResults';
+import ResultsDisplay from './ResultsDisplay';
 
 import axios from 'axios';
 
@@ -64,25 +65,11 @@ class App extends React.Component {
     return (
       <div className="ui container" style={{marginTop: '10px'}}>
         <SearchBar onSubmit={this.onSearchSubmit} />
-
-        <table>
-          <tbody>
-            <tr>
-              <td>Price</td>
-              <td>${this.state.current_price}</td>
-            </tr>
-
-            <tr>
-              <td>Yearly dividends</td>
-              <td>${this.state.recent_dividend_rate}</td>
-            </tr>
-
-            <tr>
-              <td>Yield</td>
-              <td>{this.state.current_yield}%</td>
-            </tr>
-          </tbody>
-        </table>
+        <ResultsDisplay
+          current_price={this.state.current_price}
+          recent_dividend_rate={this.state.recent_dividend_rate}
+          current_yield={this.state.current_yield}
+        />
 
         <h3>The dividend yield change over time...</h3>
         <table>
