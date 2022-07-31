@@ -20,7 +20,8 @@ class App extends React.Component {
   }
 
   onSearchSubmit = async (term) => {
-    const base_url = 'http:///137.184.57.44:8000';
+    const base_url = 'http:///localhost:8000';
+
     const price_url = base_url + '/dividends/current_price/' + term
     const price_response = await axios.get(price_url, {});
     this.setState({current_price: price_response.data['current_price']});
