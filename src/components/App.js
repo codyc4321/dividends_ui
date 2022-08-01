@@ -36,33 +36,39 @@ class App extends React.Component {
 
 
     const base_url = 'http:///localhost:8000';
-
     const price_url = base_url + '/dividends/current_price/' + term
-    axios.get(price_url, {})
-      .then(response => {
-        this.setState({current_price: response.data['current_price']});
-      })
-      .catch(err => {
-        console.log(err);
-      })
-
     const recent_rate_url = base_url + '/dividends/recent_dividend_rate/' + term
-    axios.get(recent_rate_url, {})
-      .then(response => {
-        this.setState({recent_dividend_rate: response.data['year_dividend_rate']});
-      })
-      .catch(err => {
-        console.log(err);
-      })
-
     const yield_url = base_url + '/dividends/current_yield/' + term
-    axios.get(yield_url, {})
-      .then(response => {
-        this.setState({current_yield: response.data['current_yield']});
-      })
-      .catch(err => {
-        console.log(err);
-      })
+
+    const REQUEST_MAPPER = [
+      {
+        url: price_url,
+        state_key: 'current_price',
+        response_key: 'current_price'
+      },
+      {
+        url: recent_rate_url,
+        state_key: 'recent_dividend_rate',
+        response_key: 'year_dividend_rate'
+      },
+      {
+        url: yield_url,
+        state_key: 'current_yield',
+        response_key: 'current_yield'
+      },
+
+    ];
+
+    REQUEST_MAPPER.map(request_data => {
+      axios.get(request_data.url, {})
+        .then(response => {
+          this.setState({[request_data.state_key]: response.data[request_data.response_key]});
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    });
+
 
     const YEARS = [1, 3, 5, 10];
 
@@ -77,6 +83,7 @@ class App extends React.Component {
           console.log(err);
         });
     });
+
 
     const all_dividends_url = base_url + '/dividends/all_dividends/' + term + '/3';
     axios.get(all_dividends_url, {})
