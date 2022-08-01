@@ -69,6 +69,10 @@ class App extends React.Component {
           current_price={this.state.current_price}
           recent_dividend_rate={this.state.recent_dividend_rate}
           current_yield={this.state.current_yield}
+          dividend_change_1_year={this.state.dividend_change_1_year}
+          dividend_change_3_year={this.props.dividend_change_3_year}
+          dividend_change_5_year={this.props.dividend_change_5_year}
+          dividend_change_10_year={this.props.dividend_change_10_year}
         />
 
         <h3>The dividend yield change over time...</h3>
