@@ -4,7 +4,7 @@ import MainDividendResultsDisplay from './MainDividendResultsDisplay';
 import DividendYieldChangeDisplay from './DividendYieldChangeDisplay';
 
 
-class ResultsDisplay extends React.Component {
+class DividendResultsDisplay extends React.Component {
 
   render() {
     return (
@@ -26,4 +26,4 @@ class ResultsDisplay extends React.Component {
   }
 }
 
-export default ResultsDisplay;
+export default DividendResultsDisplay;
