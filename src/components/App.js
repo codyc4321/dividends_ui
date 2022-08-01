@@ -13,10 +13,10 @@ class App extends React.Component {
     current_price: null,
     recent_dividend_rate: null,
     current_yield: null,
-    dividend_change_1_year: null,
-    dividend_change_3_year: null,
-    dividend_change_5_year: null,
-    dividend_change_10_year: null,
+    dividend_change_1_year: '',
+    dividend_change_3_year: '',
+    dividend_change_5_year: '',
+    dividend_change_10_year: '',
     all_dividends: [],
   }
 
@@ -70,9 +70,9 @@ class App extends React.Component {
           recent_dividend_rate={this.state.recent_dividend_rate}
           current_yield={this.state.current_yield}
           dividend_change_1_year={this.state.dividend_change_1_year}
-          dividend_change_3_year={this.props.dividend_change_3_year}
-          dividend_change_5_year={this.props.dividend_change_5_year}
-          dividend_change_10_year={this.props.dividend_change_10_year}
+          dividend_change_3_year={this.state.dividend_change_3_year}
+          dividend_change_5_year={this.state.dividend_change_5_year}
+          dividend_change_10_year={this.state.dividend_change_10_year}
         />
 
         <h3>The dividend yield change over time...</h3>
