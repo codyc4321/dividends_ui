@@ -20,6 +20,7 @@ const AllDividends = props => {
 
   return (
     <div>
+    <h3>The dividends for the last 3 years:</h3>
       <table>
         <thead>
           <tr>

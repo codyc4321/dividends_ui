@@ -73,9 +73,8 @@ class App extends React.Component {
           dividend_change_3_year={this.state.dividend_change_3_year}
           dividend_change_5_year={this.state.dividend_change_5_year}
           dividend_change_10_year={this.state.dividend_change_10_year}
+          all_dividends={this.state.all_dividends}
         />
-
-        <h3>The dividends for the last 3 years:</h3>
         <br/>
         <AllDividends all_dividends={this.state.all_dividends} />
       </div>
