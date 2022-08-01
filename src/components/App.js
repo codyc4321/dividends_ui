@@ -10,9 +10,9 @@ import axios from 'axios';
 class App extends React.Component {
 
   state = {
-    current_price: null,
-    recent_dividend_rate: null,
-    current_yield: null,
+    current_price: '',
+    recent_dividend_rate: '',
+    current_yield: '',
     dividend_change_1_year: '',
     dividend_change_3_year: '',
     dividend_change_5_year: '',
