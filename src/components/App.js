@@ -35,7 +35,7 @@ class App extends React.Component {
     });
 
 
-    const base_url = 'http:///localhost:8000';
+    const base_url = 'http:///67.205.161.47:8000';
     const price_url = base_url + '/dividends/current_price/' + term
     const recent_rate_url = base_url + '/dividends/recent_dividend_rate/' + term
     const yield_url = base_url + '/dividends/current_yield/' + term
