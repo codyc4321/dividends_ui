@@ -75,28 +75,6 @@ class App extends React.Component {
           dividend_change_10_year={this.state.dividend_change_10_year}
         />
 
-        <h3>The dividend yield change over time...</h3>
-        <table>
-          <tbody>
-            <tr>
-              <td>1 year</td>
-              <td>{this.state.dividend_change_1_year}%</td>
-            </tr>
-            <tr>
-              <td>3 year</td>
-              <td>{this.state.dividend_change_3_year}%</td>
-            </tr>
-            <tr>
-              <td>5 year</td>
-              <td>{this.state.dividend_change_5_year}%</td>
-            </tr>
-            <tr>
-              <td>10 year</td>
-              <td>{this.state.dividend_change_10_year}%</td>
-            </tr>
-          </tbody>
-        </table>
-
         <h3>The dividends for the last 3 years:</h3>
         <br/>
         <DividendResults all_dividends={this.state.all_dividends} />

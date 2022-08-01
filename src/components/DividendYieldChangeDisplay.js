@@ -14,7 +14,7 @@ class DividendYieldChangeDisplay extends React.Component {
   render() {
     return (
       <div>
-        <h3>The dividend yield change over time...DividendYieldChangeDisplay</h3>
+        <h3>The dividend yield change over time:</h3>
         <table>
           <tbody>
             <tr>

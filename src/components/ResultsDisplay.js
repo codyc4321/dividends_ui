@@ -14,6 +14,7 @@ class ResultsDisplay extends React.Component {
           recent_dividend_rate={this.props.recent_dividend_rate}
           current_yield={this.props.current_yield}
         />
+        <br/>
         <DividendYieldChangeDisplay
           dividend_change_1_year={this.props.dividend_change_1_year}
           dividend_change_3_year={this.props.dividend_change_3_year}

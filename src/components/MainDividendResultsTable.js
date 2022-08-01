@@ -6,7 +6,6 @@ class MainDividendResultsTable extends React.Component {
   render() {
     return(
       <div>
-        <h2>inside MainDividendResultsTable</h2>
         <table>
           <tbody>
             <tr>
