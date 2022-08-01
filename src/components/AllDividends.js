@@ -3,7 +3,7 @@ import React from 'react';
 import './DividendResults.css';
 
 
-const DividendResults = props => {
+const AllDividends = props => {
   //
   // const dividends = props.all_dividends.map((dividends_object) => {
   //   return <h4 key={dividends_object.date}>{dividends_object.date} --- {dividends_object.amount}</h4>
@@ -37,4 +37,4 @@ const DividendResults = props => {
 };
 
 
-export default DividendResults;
+export default AllDividends;

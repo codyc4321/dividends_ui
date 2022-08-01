@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SearchBar from './SearchBar';
-import DividendResults from './DividendResults';
+import AllDividends from './AllDividends';
 import DividendResultsDisplay from './DividendResultsDisplay';
 
 import axios from 'axios';
@@ -77,7 +77,7 @@ class App extends React.Component {
 
         <h3>The dividends for the last 3 years:</h3>
         <br/>
-        <DividendResults all_dividends={this.state.all_dividends} />
+        <AllDividends all_dividends={this.state.all_dividends} />
       </div>
     )
   }

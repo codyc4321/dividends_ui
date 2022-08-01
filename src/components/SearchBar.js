@@ -4,14 +4,8 @@ import React from 'react';
 class SearchBar extends React.Component {
   state = {term: 'psec'}
 
-  // onFormSubmit(event) {
-  //   event.preventDefault();
-  //   console.log(this.state.term);
-  // }
-
   onFormSubmit = (event) => {
     event.preventDefault();
-    // console.log(this.state.term);
     this.props.onSubmit(this.state.term)
   }
 
@@ -24,7 +18,10 @@ class SearchBar extends React.Component {
             <input
              type="text"
              value={this.state.term}
-             onChange={(e) => this.setState({term: e.target.value})} />
+             onChange={(e) => this.setState({term: e.target.value})}
+             ref={ref => ref && ref.focus()}
+             onfocus={(e)=>e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
+             />
           </div>
         </form>
       </div>
