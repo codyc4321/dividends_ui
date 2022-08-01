@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class MainDividendResultsTable extends React.Component {
+class MainDividendResultsDisplay extends React.Component {
 
   render() {
     return(
@@ -29,4 +29,4 @@ class MainDividendResultsTable extends React.Component {
   }
 };
 
-export default MainDividendResultsTable;
+export default MainDividendResultsDisplay;
