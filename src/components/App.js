@@ -21,6 +21,20 @@ class App extends React.Component {
   }
 
   onSearchSubmit = async (term) => {
+
+    // clear old data
+    this.setState({
+      current_price: '',
+      recent_dividend_rate: '',
+      current_yield: '',
+      dividend_change_1_year: '',
+      dividend_change_3_year: '',
+      dividend_change_5_year: '',
+      dividend_change_10_year: '',
+      all_dividends: [],
+    });
+
+    
     const base_url = 'http:///localhost:8000';
 
     const price_url = base_url + '/dividends/current_price/' + term
