@@ -23,10 +23,6 @@ class App extends React.Component {
   onSearchSubmit = async (term) => {
     const base_url = 'http:///localhost:8000';
 
-    // const price_url = base_url + '/dividends/current_price/' + term
-    // const price_response = await axios.get(price_url, {});
-    // this.setState({current_price: price_response.data['current_price']});
-
     const price_url = base_url + '/dividends/current_price/' + term
     axios.get(price_url, {})
       .then(response => {
@@ -35,10 +31,6 @@ class App extends React.Component {
       .catch(err => {
         console.log(err);
       })
-
-    // const recent_rate_url = base_url + '/dividends/recent_dividend_rate/' + term
-    // const recent_rate_response = await axios.get(recent_rate_url, {});
-    // this.setState({recent_dividend_rate: recent_rate_response.data['year_dividend_rate']});
 
     const recent_rate_url = base_url + '/dividends/recent_dividend_rate/' + term
     axios.get(recent_rate_url, {})
@@ -50,8 +42,16 @@ class App extends React.Component {
       })
 
     const yield_url = base_url + '/dividends/current_yield/' + term
-    const yield_response = await axios.get(yield_url, {});
-    this.setState({current_yield: yield_response.data['current_yield']});
+    // const yield_response = await axios.get(yield_url, {});
+    // this.setState({current_yield: yield_response.data['current_yield']});
+
+    axios.get(yield_url, {})
+      .then(response => {
+        this.setState({current_yield: response.data['current_yield']});
+      })
+      .catch(err => {
+        console.log(err);
+      })
 
     // http://localhost:8000/dividends/dividend_yield_change/psec/10
     const one_year_change_url = base_url + '/dividends/dividend_yield_change/' + term + '/1';
