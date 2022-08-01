@@ -1,8 +1,8 @@
 import React from 'react';
 
 import SearchBar from './SearchBar';
-import AllDividends from './AllDividends';
-import DividendResultsDisplay from './DividendResultsDisplay';
+import AllDividends from './dividend_results_display/AllDividends';
+import DividendResultsDisplay from './dividend_results_display/DividendResultsDisplay';
 
 import axios from 'axios';
 

@@ -2,9 +2,6 @@ import React from 'react';
 
 
 class DividendYieldChangeDisplay extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   componentDidMount() {
     console.log("componentDidMount in dividend yield display");
