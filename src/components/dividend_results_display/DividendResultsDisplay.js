@@ -2,6 +2,7 @@ import React from 'react';
 
 import MainDividendResultsDisplay from './MainDividendResultsDisplay';
 import DividendYieldChangeDisplay from './DividendYieldChangeDisplay';
+import AllDividendsDisplay from './AllDividendsDisplay';
 
 
 class DividendResultsDisplay extends React.Component {
@@ -21,6 +22,8 @@ class DividendResultsDisplay extends React.Component {
           dividend_change_5_year={this.props.dividend_change_5_year}
           dividend_change_10_year={this.props.dividend_change_10_year}
         />
+        <br/>
+        <AllDividendsDisplay all_dividends={this.props.all_dividends} />
       </div>
     )
   }

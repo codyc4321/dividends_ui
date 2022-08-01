@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SearchBar from './SearchBar';
-import AllDividends from './dividend_results_display/AllDividends';
+import AllDividendsDisplay from './dividend_results_display/AllDividendsDisplay';
 import DividendResultsDisplay from './dividend_results_display/DividendResultsDisplay';
 
 import axios from 'axios';
@@ -34,7 +34,7 @@ class App extends React.Component {
       all_dividends: [],
     });
 
-    
+
     const base_url = 'http:///localhost:8000';
 
     const price_url = base_url + '/dividends/current_price/' + term
@@ -64,43 +64,19 @@ class App extends React.Component {
         console.log(err);
       })
 
-    // http://localhost:8000/dividends/dividend_yield_change/psec/10
-    const one_year_change_url = base_url + '/dividends/dividend_yield_change/' + term + '/1';
-    axios.get(one_year_change_url, {})
-      .then(response => {
-        this.setState({dividend_change_1_year: response.data['change']});
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    const YEARS = [1, 3, 5, 10];
 
-    const three_year_change_url = base_url + '/dividends/dividend_yield_change/' + term + '/3';
-    axios.get(three_year_change_url, {})
-      .then(response => {
-        this.setState({dividend_change_3_year: response.data['change']});
-      })
-      .catch(err => {
-        console.log(err);
-      })
-
-
-    const five_year_change_url = base_url + '/dividends/dividend_yield_change/' + term + '/5';
-    axios.get(five_year_change_url, {})
-      .then(response => {
-        this.setState({dividend_change_5_year: response.data['change']});
-      })
-      .catch(err => {
-        console.log(err);
-      })
-
-    const ten_year_change_url = base_url + '/dividends/dividend_yield_change/' + term + '/10';
-    axios.get(five_year_change_url, {})
-      .then(response => {
-        this.setState({dividend_change_10_year: response.data['change']});
-      })
-      .catch(err => {
-        console.log(err);
-      })
+    YEARS.map(year => {
+      const URL = base_url + '/dividends/dividend_yield_change/' + term + '/' + year.toString();
+      const OBJECT_KEY = 'dividend_change_' + year.toString() + '_year';
+      axios.get(URL, {})
+        .then(response => {
+          this.setState({[OBJECT_KEY]: response.data['change']});
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
 
     const all_dividends_url = base_url + '/dividends/all_dividends/' + term + '/3';
     axios.get(all_dividends_url, {})
@@ -109,10 +85,7 @@ class App extends React.Component {
       })
       .catch(err => {
         console.log(err);
-      })
-
-    // const response_all_dividends = await axios.get(all_dividends_url, {});
-    // this.setState({all_dividends: response_all_dividends.data.reverse()});
+      });
   }
 
   render() {
@@ -129,8 +102,6 @@ class App extends React.Component {
           dividend_change_10_year={this.state.dividend_change_10_year}
           all_dividends={this.state.all_dividends}
         />
-        <br/>
-        <AllDividends all_dividends={this.state.all_dividends} />
       </div>
     )
   }
