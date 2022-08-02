@@ -7,8 +7,27 @@ class SearchBar extends React.Component {
     debouncedTerm: 'psec'
   }
 
-  componentDidUpdate() {
-    
+  componentDidUpdate(previousProps, previousState) {
+    // this.props.onSubmit(this.state.term);
+    console.log("new state:");
+    console.log(this.state);
+    console.log("previous state:");
+    console.log(previousState);
+
+    console.log("props:");
+    console.log(this.props);
+    console.log("previous props");
+    console.log(previousProps);
+
+    // this.props.onSubmit(this.state.term);
+
+    // const timerId = setTimeout(() => {
+    //   this.setState({debouncedTerm: thi})
+    // })
+
+    if (this.state.debouncedTerm !== previousState.debouncedTerm) {
+      this.props.onSubmit(this.state.term);
+    }
   }
 
   onFormSubmit = (event) => {

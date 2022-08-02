@@ -23,16 +23,16 @@ class App extends React.Component {
   onSearchSubmit = async (term) => {
 
     // clear old data
-    this.setState({
-      current_price: '',
-      recent_dividend_rate: '',
-      current_yield: '',
-      dividend_change_1_year: '',
-      dividend_change_3_year: '',
-      dividend_change_5_year: '',
-      dividend_change_10_year: '',
-      all_dividends: [],
-    });
+    // this.setState({
+    //   current_price: '',
+    //   recent_dividend_rate: '',
+    //   current_yield: '',
+    //   dividend_change_1_year: '',
+    //   dividend_change_3_year: '',
+    //   dividend_change_5_year: '',
+    //   dividend_change_10_year: '',
+    //   all_dividends: [],
+    // });
 
     // const host = '67.205.161.47';
     const host = 'localhost';

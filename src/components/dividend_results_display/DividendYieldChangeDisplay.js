@@ -3,10 +3,10 @@ import React from 'react';
 
 class DividendYieldChangeDisplay extends React.Component {
 
-  componentDidMount() {
-    console.log("componentDidMount in dividend yield display");
-    console.log(this.props)
-  }
+  // componentDidMount() {
+  //   console.log("componentDidMount in dividend yield display");
+  //   console.log(this.props)
+  // }
 
   render() {
     return (
