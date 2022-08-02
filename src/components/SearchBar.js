@@ -4,7 +4,8 @@ import React from 'react';
 class SearchBar extends React.Component {
   state = {
     term: 'psec',
-    debouncedTerm: 'psec'
+    debouncedTerm: 'psec',
+    debounceTimerId: 0
   }
 
   componentDidUpdate(previousProps, previousState) {
@@ -21,13 +22,19 @@ class SearchBar extends React.Component {
 
     // this.props.onSubmit(this.state.term);
 
-    // const timerId = setTimeout(() => {
-    //   this.setState({debouncedTerm: thi})
-    // })
+    const timerId = setTimeout(() => {
+      this.setState({debouncedTerm: this.state.term})
+    }, 2500);
+
+    this.setState({debounceTimerId: timerId})
 
     if (this.state.debouncedTerm !== previousState.debouncedTerm) {
       this.props.onSubmit(this.state.term);
     }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.state.timerId);
   }
 
   onFormSubmit = (event) => {
