@@ -23,6 +23,10 @@ const SearchBar = ({onSubmit}) => {
 
   }, [term]);
 
+  useEffect(() => {
+    onSubmit(term);
+  }, [debouncedTerm]);
+
   return (
     <div className="ui segment">
       <form onSubmit={onFormSubmit} className="ui form">
@@ -31,7 +35,11 @@ const SearchBar = ({onSubmit}) => {
           <input
            type="text"
            value={term}
-           onChange={(e) => setTerm(e.target.value)}
+           onChange={(e) => {
+             console.log("debounced term: ", debouncedTerm);
+             setTerm(e.target.value)
+            }
+           }
            ref={ref => ref && ref.focus()}
            onfocus={(e)=>e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
            />
