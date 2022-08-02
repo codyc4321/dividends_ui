@@ -2,11 +2,14 @@ import React, {useState} from 'react';
 
 
 const SearchBar = ({onSubmit}) => {
-  const [term, setTerm] = useState('psec');
+  const defaultStock = 'psec';
+
+  const [term, setTerm] = useState(defaultStock);
+  const [debouncedTerm, setDebouncedTerm] = useState(defaultStock)
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    onSubmit(term);
+    // onSubmit(term);
   }
 
   return (
