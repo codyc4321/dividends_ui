@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 const SearchBar = ({onSubmit}) => {
@@ -11,6 +11,17 @@ const SearchBar = ({onSubmit}) => {
     event.preventDefault();
     // onSubmit(term);
   }
+
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedTerm(term);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+
+  }, [term]);
 
   return (
     <div className="ui segment">
