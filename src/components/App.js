@@ -34,8 +34,10 @@ class App extends React.Component {
       all_dividends: [],
     });
 
-
-    const base_url = 'http:///67.205.161.47:8000';
+    // const host = '67.205.161.47';
+    const host = 'localhost';
+    const base_url = 'http://' + host + ':8000'
+    console.log(base_url)
     const price_url = base_url + '/dividends/current_price/' + term
     const recent_rate_url = base_url + '/dividends/recent_dividend_rate/' + term
     const yield_url = base_url + '/dividends/current_yield/' + term
