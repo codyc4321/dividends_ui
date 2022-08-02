@@ -2,7 +2,14 @@ import React from 'react';
 
 
 class SearchBar extends React.Component {
-  state = {term: 'psec'}
+  state = {
+    term: 'psec',
+    debouncedTerm: 'psec'
+  }
+
+  componentDidUpdate() {
+    
+  }
 
   onFormSubmit = (event) => {
     event.preventDefault();
