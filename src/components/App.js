@@ -69,7 +69,6 @@ class App extends React.Component {
     console.log(this.state.current_price)
     return (
       <div className="ui container" style={{marginTop: '10px'}}>
-        <h1>To help on this open source project email Cody at cchilder@mail.usf.edu</h1>
         <SearchBar runSearch={this.runStockInfoSearch} />
         <DividendResultsDisplay
           current_price={this.state.current_price}
