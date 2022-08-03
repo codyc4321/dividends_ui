@@ -12,14 +12,16 @@ class App extends React.Component {
   state = {
     loading: false,
 
-    current_price: '',
-    recent_dividend_rate: '',
-    current_yield: '',
-    dividend_change_1_year: '',
-    dividend_change_3_year: '',
-    dividend_change_5_year: '',
-    dividend_change_10_year: '',
-    all_dividends: [],
+    dividends_data: {
+      current_price: '',
+      recent_dividend_rate: '',
+      current_yield: '',
+      dividend_change_1_year: '',
+      dividend_change_3_year: '',
+      dividend_change_5_year: '',
+      dividend_change_10_year: '',
+      all_dividends: [],
+    }
   }
 
   runStockInfoSearch = async (term) => {
@@ -37,7 +39,6 @@ class App extends React.Component {
       all_dividends: [],
     });
 
-    // const host = '67.205.161.47';
     const HOST = 'localhost';
     const base_url = 'http://' + HOST + ':8000'
     const dividends_api_url = base_url + '/dividends/' + term
@@ -53,7 +54,28 @@ class App extends React.Component {
           'recent_dividend_rate'
         ]
         RESPONSE_KEYS.map((key) => {
-          this.setState({[key]: response.data[key]})
+          // The old way I did it that worked, but created a messy state with 7 attributes
+          // this.setState({dividends_data[key]: response.data[key]});
+
+          // First attempt based on SO answer
+          // this.setState(previousState => {
+          //   let data = Object.assign({}, previousState.data);
+          //   console.log("data: ", data)
+          //   data[key] = response.data[key]
+          //   return {data}
+          // });
+
+          this.setState(prevState => ({
+            data: {
+              ...prevState.data,
+              [key]: response.data[key],
+            }
+          }));
+
+          // Another attempt from the answer below the accepted answer
+          // const {data} = this.state;
+          // data[key] = response.data[key];
+          // this.setState({data});
         })
 
         this.setState({all_dividends: response.data['all_dividends'].reverse()})
@@ -90,14 +112,7 @@ class App extends React.Component {
         <div className="ui container" style={{marginTop: '10px'}}>
           <SearchBar runSearch={this.runStockInfoSearch} />
           <DividendResultsDisplay
-            current_price={this.state.current_price}
-            recent_dividend_rate={this.state.recent_dividend_rate}
-            current_yield={this.state.current_yield}
-            dividend_change_1_year={this.state.dividend_change_1_year}
-            dividend_change_3_year={this.state.dividend_change_3_year}
-            dividend_change_5_year={this.state.dividend_change_5_year}
-            dividend_change_10_year={this.state.dividend_change_10_year}
-            all_dividends={this.state.all_dividends}
+            data={this.state.dividends_data}
           />
         </div>
       )
