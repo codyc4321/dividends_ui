@@ -2,20 +2,19 @@ import React, {useState, useEffect} from 'react';
 
 
 const SearchBar = ({onSubmit}) => {
-  const defaultStock = 'psec';
+  const defaultStock = 'wba';
 
   const [term, setTerm] = useState(defaultStock);
   const [debouncedTerm, setDebouncedTerm] = useState(defaultStock)
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    // onSubmit(term);
   }
 
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedTerm(term);
-    }, 2000);
+    }, 800);
 
     return () => {
       clearTimeout(timerId);
@@ -35,11 +34,7 @@ const SearchBar = ({onSubmit}) => {
           <input
            type="text"
            value={term}
-           onChange={(e) => {
-             console.log("debounced term: ", debouncedTerm);
-             setTerm(e.target.value)
-            }
-           }
+           onChange={(e) => setTerm(e.target.value)}
            ref={ref => ref && ref.focus()}
            onfocus={(e)=>e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
            />
