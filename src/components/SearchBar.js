@@ -2,31 +2,29 @@ import React from 'react';
 
 
 class SearchBar extends React.Component {
+
+  debounceTimerId = undefined;
+
   state = {
     term: 'psec',
     debouncedTerm: 'psec',
-    debounceTimerId: 0
+  }
+
+  clearDebounceTimer() {
+    if (this.debounceTimerId) new Promise(function(resolve, reject) {
+      clearTimeout(this.debounceTimerId);
+      this.debounceTimerId = undefined;
+    });
   }
 
   componentDidUpdate(previousProps, previousState) {
-    // this.props.onSubmit(this.state.term);
-    console.log("new state:");
-    console.log(this.state);
-    console.log("previous state:");
-    console.log(previousState);
+    if (this.state.term !== previousState.term) {
+      this.clearDebounceTimer();
 
-    console.log("props:");
-    console.log(this.props);
-    console.log("previous props");
-    console.log(previousProps);
-
-    // this.props.onSubmit(this.state.term);
-
-    const timerId = setTimeout(() => {
-      this.setState({debouncedTerm: this.state.term})
-    }, 2500);
-
-    this.setState({debounceTimerId: timerId})
+      this.debounceTimerId = setTimeout(() => {
+        this.setState({debouncedTerm: this.state.term})
+      }, 1200)
+    }
 
     if (this.state.debouncedTerm !== previousState.debouncedTerm) {
       this.props.onSubmit(this.state.term);
