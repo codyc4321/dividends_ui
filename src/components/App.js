@@ -67,7 +67,15 @@ class App extends React.Component {
     axios.get(dividends_api_url, {})
       .then(response => {
         console.log(response)
-        this.setState({current_price: response.data['current_price']});
+        this.setState({
+          current_price: response.data['current_price'],
+
+        });
+        const YEARS_CHANGE = [1, 3, 5, 10];
+        YEARS_CHANGE.map((year) => {
+          const key = 'dividend_change_' + year.toString() + '_year';
+          this.setState({[key]: response.data[key]})
+        })
       })
       .catch(err => {
         console.log(err);
