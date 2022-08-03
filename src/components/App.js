@@ -10,6 +10,8 @@ import axios from 'axios';
 class App extends React.Component {
 
   state = {
+    loading: false,
+
     current_price: '',
     recent_dividend_rate: '',
     current_yield: '',
@@ -20,11 +22,11 @@ class App extends React.Component {
     all_dividends: [],
   }
 
-  // onSearchSubmit = async (term) => {
   runStockInfoSearch = async (term) => {
-
     // clear old data
     this.setState({
+      loading: true,
+
       current_price: '',
       recent_dividend_rate: '',
       current_yield: '',
@@ -43,6 +45,8 @@ class App extends React.Component {
     axios.get(dividends_api_url, {})
       .then(response => {
 
+        console.log(response.data)
+
         const RESPONSE_KEYS = [
           'current_price',
           'current_yield',
@@ -59,6 +63,8 @@ class App extends React.Component {
           const key = 'dividend_change_' + year.toString() + '_year';
           this.setState({[key]: response.data[key]})
         });
+
+        this.setState({loading: false})
       })
       .catch(err => {
         console.log(err);
@@ -66,24 +72,34 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.current_price)
-    return (
-      <div className="ui container" style={{marginTop: '10px'}}>
-        <SearchBar runSearch={this.runStockInfoSearch} />
-        <DividendResultsDisplay
-          current_price={this.state.current_price}
-          recent_dividend_rate={this.state.recent_dividend_rate}
-          current_yield={this.state.current_yield}
-          dividend_change_1_year={this.state.dividend_change_1_year}
-          dividend_change_3_year={this.state.dividend_change_3_year}
-          dividend_change_5_year={this.state.dividend_change_5_year}
-          dividend_change_10_year={this.state.dividend_change_10_year}
-          all_dividends={this.state.all_dividends}
-        />
-      </div>
-    )
+
+    if (this.state.loading === true) {
+      return (
+        <div className="ui container" style={{marginTop: '10px'}}>
+          <SearchBar runSearch={this.runStockInfoSearch} />
+          Loading...
+        </div>
+      )
+    } else {
+      return (
+        <div className="ui container" style={{marginTop: '10px'}}>
+          <SearchBar runSearch={this.runStockInfoSearch} />
+          <DividendResultsDisplay
+            current_price={this.state.current_price}
+            recent_dividend_rate={this.state.recent_dividend_rate}
+            current_yield={this.state.current_yield}
+            dividend_change_1_year={this.state.dividend_change_1_year}
+            dividend_change_3_year={this.state.dividend_change_3_year}
+            dividend_change_5_year={this.state.dividend_change_5_year}
+            dividend_change_10_year={this.state.dividend_change_10_year}
+            all_dividends={this.state.all_dividends}
+          />
+        </div>
+      )
+    }
   }
 }
+
 
 
 export default App;
