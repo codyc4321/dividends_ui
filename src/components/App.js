@@ -42,12 +42,15 @@ class App extends React.Component {
 
     axios.get(dividends_api_url, {})
       .then(response => {
-        console.log(response)
-        this.setState({
-          current_price: response.data['current_price'],
-          current_yield: response.data['current_yield'],
-          recent_dividend_rate: response.data['recent_dividend_rate'],
-        });
+
+        const RESPONSE_KEYS = [
+          'current_price',
+          'current_yield',
+          'recent_dividend_rate'
+        ]
+        RESPONSE_KEYS.map((key) => {
+          this.setState({[key]: response.data[key]})
+        })
 
         this.setState({all_dividends: response.data['all_dividends'].reverse()})
 
