@@ -77,11 +77,16 @@ class App extends React.Component {
       return (
         <div className="ui container" style={{marginTop: '10px'}}>
           <SearchBar runSearch={this.runStockInfoSearch} />
-          Loading...
+          <div class="ui segment">
+            <div class="ui active dimmer">
+              <div class="ui text loader">Loading</div>
+            </div>
+          </div>
         </div>
       )
     } else {
       return (
+
         <div className="ui container" style={{marginTop: '10px'}}>
           <SearchBar runSearch={this.runStockInfoSearch} />
           <DividendResultsDisplay
