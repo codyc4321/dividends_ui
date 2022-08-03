@@ -20,7 +20,8 @@ class App extends React.Component {
     all_dividends: [],
   }
 
-  onSearchSubmit = async (term) => {
+  // onSearchSubmit = async (term) => {
+  runStockInfoSearch = async (term) => {
 
     // clear old data
     this.setState({
@@ -65,7 +66,7 @@ class App extends React.Component {
     console.log(this.state.current_price)
     return (
       <div className="ui container" style={{marginTop: '10px'}}>
-        <SearchBar onSubmit={this.onSearchSubmit} />
+        <SearchBar runSearch={this.runStockInfoSearch} />
         <DividendResultsDisplay
           current_price={this.state.current_price}
           recent_dividend_rate={this.state.recent_dividend_rate}

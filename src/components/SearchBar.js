@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 
-const SearchBar = ({onSubmit}) => {
+const SearchBar = ({runSearch}) => {
   const defaultStock = 'wba';
 
   const [term, setTerm] = useState(defaultStock);
@@ -23,7 +23,7 @@ const SearchBar = ({onSubmit}) => {
   }, [term]);
 
   useEffect(() => {
-    onSubmit(term);
+    runSearch(term);
   }, [debouncedTerm]);
 
   return (
