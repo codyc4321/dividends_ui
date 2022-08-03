@@ -38,83 +38,27 @@ class App extends React.Component {
     const HOST = 'localhost';
     const base_url = 'http://' + HOST + ':8000'
     const dividends_api_url = base_url + '/dividends/' + term
-    console.log(dividends_api_url)
-
-
-    // const price_url = base_url + '/dividends/current_price/' + term
-    // const recent_rate_url = base_url + '/dividends/recent_dividend_rate/' + term
-    // const yield_url = base_url + '/dividends/current_yield/' + term
-
-    // const REQUEST_MAPPER = [
-    //   {
-    //     url: price_url,
-    //     state_key: 'current_price',
-    //     response_key: 'current_price'
-    //   },
-    //   {
-    //     url: recent_rate_url,
-    //     state_key: 'recent_dividend_rate',
-    //     response_key: 'year_dividend_rate'
-    //   },
-    //   {
-    //     url: yield_url,
-    //     state_key: 'current_yield',
-    //     response_key: 'current_yield'
-    //   },
-    //
-    // ];
 
     axios.get(dividends_api_url, {})
       .then(response => {
         console.log(response)
         this.setState({
           current_price: response.data['current_price'],
-
+          current_yield: response.data['current_yield'],
+          recent_dividend_rate: response.data['recent_dividend_rate'],
         });
+
+        this.setState({all_dividends: response.data['all_dividends'].reverse()})
+
         const YEARS_CHANGE = [1, 3, 5, 10];
         YEARS_CHANGE.map((year) => {
           const key = 'dividend_change_' + year.toString() + '_year';
           this.setState({[key]: response.data[key]})
-        })
+        });
       })
       .catch(err => {
         console.log(err);
       })
-
-    // REQUEST_MAPPER.map(request_data => {
-    //   axios.get(request_data.url, {})
-    //     .then(response => {
-    //       this.setState({[request_data.state_key]: response.data[request_data.response_key]});
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     })
-    // });
-
-
-    // const YEARS = [1, 3, 5, 10];
-    //
-    // YEARS.map(year => {
-    //   const URL = base_url + '/dividends/dividend_yield_change/' + term + '/' + year.toString();
-    //   const OBJECT_KEY = 'dividend_change_' + year.toString() + '_year';
-    //   axios.get(URL, {})
-    //     .then(response => {
-    //       this.setState({[OBJECT_KEY]: response.data['change']});
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     });
-    // });
-
-
-    // const all_dividends_url = base_url + '/dividends/all_dividends/' + term + '/3';
-    // axios.get(all_dividends_url, {})
-    //   .then(response => {
-    //     this.setState({all_dividends: response.data.reverse()});
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
   }
 
   render() {
