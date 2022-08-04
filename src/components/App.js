@@ -49,7 +49,7 @@ class App extends React.Component {
       all_dividends: [],
     });
 
-    const HOST = 'localhost';
+    const HOST = process.env.REACT_APP_HOSTNAME
     const base_url = 'http://' + HOST + ':8000'
     const dividends_api_url = base_url + '/dividends/' + term
 
