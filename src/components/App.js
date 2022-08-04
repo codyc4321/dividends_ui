@@ -77,9 +77,9 @@ class App extends React.Component {
       return (
         <div className="ui container" style={{marginTop: '10px'}}>
           <SearchBar runSearch={this.runStockInfoSearch} />
-          <div class="ui segment">
-            <div class="ui active dimmer">
-              <div class="ui text loader">Loading</div>
+          <div className="ui segment">
+            <div className="ui active dimmer">
+              <div className="ui text loader">Loading</div>
             </div>
           </div>
         </div>
