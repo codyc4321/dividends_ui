@@ -7,23 +7,23 @@ import AllDividendsDisplay from './AllDividendsDisplay';
 
 const DividendResultsDisplay = (props) => {
   console.log("DividendResultsDisplay")
-  console.log(props.recent_dividend_rate)
+  console.log(props)
   return (
     <div>
       <MainDividendResultsDisplay
-        current_price={props.current_price}
-        recent_dividend_rate={props.recent_dividend_rate}
-        current_yield={props.current_yield}
+        current_price={props.data.current_price}
+        recent_dividend_rate={props.data.recent_dividend_rate}
+        current_yield={props.data.current_yield}
       />
       <br/>
       <DividendYieldChangeDisplay
-        dividend_change_1_year={props.dividend_change_1_year}
-        dividend_change_3_year={props.dividend_change_3_year}
-        dividend_change_5_year={props.dividend_change_5_year}
-        dividend_change_10_year={props.dividend_change_10_year}
+        dividend_change_1_year={props.data.dividend_change_1_year}
+        dividend_change_3_year={props.data.dividend_change_3_year}
+        dividend_change_5_year={props.data.dividend_change_5_year}
+        dividend_change_10_year={props.data.dividend_change_10_year}
       />
       <br/>
-      <AllDividendsDisplay all_dividends={props.all_dividends} />
+      <AllDividendsDisplay all_dividends={props.data.all_dividends} />
     </div>
   )
 };
