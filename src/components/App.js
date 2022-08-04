@@ -27,6 +27,12 @@ class App extends React.Component {
     }
   }
 
+  updateStateData = (key, value) => {
+    const data = this.state.dividends_data;
+    data[key] = value;
+    this.setState({data});
+  }
+
   runStockInfoSearch = async (term) => {
     console.log("running search")
     // clear old data
@@ -77,9 +83,10 @@ class App extends React.Component {
           // }));
 
           // Another attempt from the answer below the accepted answer
-          const data = this.state.dividends_data;
-          data[key] = response.data[key];
-          this.setState({data});
+          this.updateStateData(key, response.data[key]);
+          // const data = this.state.dividends_data;
+          // data[key] = response.data[key];
+          // this.setState({data});
         })
 
         const data = this.state.dividends_data;
