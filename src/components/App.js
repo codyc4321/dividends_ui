@@ -54,9 +54,8 @@ class App extends React.Component {
     const dividends_api_url = base_url + '/dividends/' + term
 
     axios.get(dividends_api_url, {})
-      .then(response => {
 
-        console.log(response.data)
+      .then(response => {
 
         const RESPONSE_KEYS = [
           'current_price',
@@ -65,11 +64,9 @@ class App extends React.Component {
         ]
         RESPONSE_KEYS.map((key) => {
           this.updateStateData(key, response.data[key]);
-        })
-
+        });
 
         this.updateStateData('all_dividends', response.data['all_dividends'].reverse());
-
 
         const YEARS_CHANGE = [1, 3, 5, 10];
         YEARS_CHANGE.map((year) => {
