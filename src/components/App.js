@@ -9,35 +9,39 @@ import axios from 'axios';
 
 class App extends React.Component {
 
-  state = {
-    loading: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
 
-    dividends_data: {
-      current_price: '',
-      recent_dividend_rate: '',
-      current_yield: '',
-      dividend_change_1_year: '',
-      dividend_change_3_year: '',
-      dividend_change_5_year: '',
-      dividend_change_10_year: '',
-      all_dividends: [],
+      dividends_data: {
+        current_price: '',
+        recent_dividend_rate: '',
+        current_yield: '',
+        dividend_change_1_year: '',
+        dividend_change_3_year: '',
+        dividend_change_5_year: '',
+        dividend_change_10_year: '',
+        all_dividends: [],
+      }
     }
   }
 
   runStockInfoSearch = async (term) => {
+    console.log("running search")
     // clear old data
-    this.setState({
-      loading: true,
-
-      current_price: '',
-      recent_dividend_rate: '',
-      current_yield: '',
-      dividend_change_1_year: '',
-      dividend_change_3_year: '',
-      dividend_change_5_year: '',
-      dividend_change_10_year: '',
-      all_dividends: [],
-    });
+    // this.setState({
+    //   loading: true,
+    //
+    //   current_price: '',
+    //   recent_dividend_rate: '',
+    //   current_yield: '',
+    //   dividend_change_1_year: '',
+    //   dividend_change_3_year: '',
+    //   dividend_change_5_year: '',
+    //   dividend_change_10_year: '',
+    //   all_dividends: [],
+    // });
 
     const HOST = 'localhost';
     const base_url = 'http://' + HOST + ':8000'
@@ -65,25 +69,32 @@ class App extends React.Component {
           //   return {data}
           // });
 
-          this.setState(prevState => ({
-            data: {
-              ...prevState.data,
-              [key]: response.data[key],
-            }
-          }));
+          // this.setState(prevState => ({
+          //   data: {
+          //     ...prevState.data,
+          //     [key]: response.data[key],
+          //   }
+          // }));
 
           // Another attempt from the answer below the accepted answer
-          // const {data} = this.state;
-          // data[key] = response.data[key];
-          // this.setState({data});
+          const data = this.state.dividends_data;
+          data[key] = response.data[key];
+          this.setState({data});
         })
 
-        this.setState({all_dividends: response.data['all_dividends'].reverse()})
+        const data = this.state.dividends_data;
+        data.all_dividends = response.data['all_dividends'].reverse();
+        this.setState({data});
+
 
         const YEARS_CHANGE = [1, 3, 5, 10];
         YEARS_CHANGE.map((year) => {
           const key = 'dividend_change_' + year.toString() + '_year';
-          this.setState({[key]: response.data[key]})
+          const data = this.state.dividends_data;
+          data[key] = response.data[key];
+          this.setState({data});
+
+          // this.setState({[key]: response.data[key]})
         });
 
         this.setState({loading: false})
