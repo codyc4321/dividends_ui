@@ -50,10 +50,12 @@ class App extends React.Component {
     });
 
     const HOST = process.env.REACT_APP_HOSTNAME
-    const base_url = process.env.REACT_APP_PROTOCOL + '://' + HOST + ':8000'
+    const PROTOCOL = process.env.REACT_APP_PROTOCOL
+    const PORT = process.env.REACT_APP_PORT
+    const base_url = PROTOCOL + '://' + HOST + ':' + PORT
     const dividends_api_url = base_url + '/dividends/' + term
 
-    console.log("hitting url to search- ", dividends_api_url)
+    console.log("hitting url to search- ", dividends_api_url)8000
 
     axios.get(dividends_api_url, {})
 
