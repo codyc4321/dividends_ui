@@ -6,8 +6,11 @@ import AllDividendsDisplay from './AllDividendsDisplay';
 
 
 const DividendResultsDisplay = (props) => {
+  console.log(props.data)
   return (
     <div>
+      <h3>{props.data.name}</h3>
+      <p>{props.data.description}</p>
       <MainDividendResultsDisplay
         current_price={props.data.current_price}
         recent_dividend_rate={props.data.recent_dividend_rate}

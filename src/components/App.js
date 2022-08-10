@@ -23,6 +23,8 @@ class App extends React.Component {
         dividend_change_5_year: '',
         dividend_change_10_year: '',
         all_dividends: [],
+        name: '',
+        description: '',
       }
     }
   }
@@ -77,6 +79,9 @@ class App extends React.Component {
           const key = 'dividend_change_' + year.toString() + '_year';
           this.updateStateData(key, response.data[key]);
         });
+
+        this.updateStateData('name', response.data['longName'])
+        this.updateStateData('description', response.data['longBusinessSummary'])
 
         this.setState({loading: false})
       })
