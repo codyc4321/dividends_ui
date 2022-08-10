@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import MainDividendResultsDisplay from './MainDividendResultsDisplay';
 import DividendYieldChangeDisplay from './DividendYieldChangeDisplay';
@@ -6,11 +6,33 @@ import AllDividendsDisplay from './AllDividendsDisplay';
 
 
 const DividendResultsDisplay = (props) => {
-  console.log(props.data)
+
+  const [descriptionVisible, setDescriptionVisible] = useState(false);
+
+  const toggleDescription = (event) => {
+    event.preventDefault()
+    setDescriptionVisible(!descriptionVisible);
+    // alert(descriptionVisible);
+  }
+
+  const renderDescription = () => {
+    if (descriptionVisible) {
+      return (
+        <p onClick={toggleDescription}>{props.data.description}</p>
+      )
+    } else {
+      return (
+        <a onClick={toggleDescription}>Description</a>
+      )
+    }
+  }
+
+  // console.log(props.data)
   return (
     <div>
       <h3>{props.data.name}</h3>
-      <p>{props.data.description}</p>
+      {renderDescription()}
+      <br/>
       <MainDividendResultsDisplay
         current_price={props.data.current_price}
         recent_dividend_rate={props.data.recent_dividend_rate}
