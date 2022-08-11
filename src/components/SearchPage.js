@@ -18,6 +18,7 @@ const SearchPage = () => {
   const [term, setTerm] = useState(DEFAULT_STOCK);
   const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [dividendsData, setDividendsData] = useState(
     {
       current_price: '',
@@ -52,10 +53,39 @@ const SearchPage = () => {
 
   const runSearch = () => {
     console.log("running search: ", term);
+    setErrorMessage('');
+    const data = {
+          current_price: '',
+          recent_dividend_rate: '',
+          current_yield: '',
+          dividend_change_1_year: '',
+          dividend_change_3_year: '',
+          dividend_change_5_year: '',
+          dividend_change_10_year: '',
+          all_dividends: [],
+          name: '',
+          description: '',
+    }
+
+    if (term) {
+      setLoading(true);
+      const dividends_api_url = BASE_URL + '/dividends/' + term
+
+      axios.get(dividends_api_url, {})
+        .then(response => {
+
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error.message);
+          setLoading(false);
+          setErrorMessage(error.message);
+        })
+    }
   }
 
   const renderMainContent = () => {
-    if (!term) {
+    if (!debouncedTerm) {
       return (
         <div className="ui active">
           <div className="ui text">Search for info about a stock</div>
@@ -66,6 +96,13 @@ const SearchPage = () => {
       return (
         <div className="ui active dimmer">
           <div className="ui text loader">Loading</div>
+        </div>
+      )
+    }
+    if (errorMessage) {
+      return (
+        <div className="ui active">
+          <div className="ui text">{errorMessage}</div>
         </div>
       )
     } else {
