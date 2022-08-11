@@ -71,7 +71,6 @@ class App extends React.Component {
       this.setState({no_search_term: false})
 
       const dividends_api_url = BASE_URL + '/dividends/' + term
-
       console.log("hitting url to search- ", dividends_api_url)
 
       axios.get(dividends_api_url, {})
