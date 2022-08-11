@@ -107,20 +107,37 @@ class App extends React.Component {
     }
   }
 
-  render() {
-
+  renderMainContent() {
     if (this.state.no_search_term === true) {
+      return (
+        <div className="ui active">
+          <div className="ui text">Search for info about a stock</div>
+        </div>
+      )
+    }
+    if (this.state.loading === true) {
+      return (
+        <div className="ui active dimmer">
+          <div className="ui text loader">Loading</div>
+        </div>
+      )
+    } else {
+      return (
+        <DividendResultsDisplay data={this.state.dividends_data}/>
+      )
+    }
+  }
+
+  render() {
       return (
         <div className="ui container" style={{marginTop: '10px'}}>
           <SearchBar runSearch={this.runStockInfoSearch} />
           <div className="ui segment">
-            <div className="ui active">
-              <div className="ui text">Search for info about a stock</div>
-            </div>
+            {this.renderMainContent()}
           </div>
         </div>
       )
-    }
+
 
     if (this.state.loading === true) {
       return (
@@ -135,7 +152,6 @@ class App extends React.Component {
       )
     } else {
       return (
-
         <div className="ui container" style={{marginTop: '10px'}}>
           <SearchBar runSearch={this.runStockInfoSearch} />
           <DividendResultsDisplay
