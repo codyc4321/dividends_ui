@@ -4,7 +4,7 @@ import React from 'react';
 const DividendYieldChangeDisplay = (props) => {
   return (
     <div>
-      <h3>The dividend yield change over time:</h3>
+      <h3>The dividend yield change per year:</h3>
       <table>
         <tbody>
           <tr>

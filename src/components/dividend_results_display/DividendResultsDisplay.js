@@ -10,24 +10,22 @@ const DividendResultsDisplay = (props) => {
   const [descriptionVisible, setDescriptionVisible] = useState(false);
 
   const toggleDescription = (event) => {
-    event.preventDefault()
+    // event.preventDefault()
     setDescriptionVisible(!descriptionVisible);
-    // alert(descriptionVisible);
   }
 
   const renderDescription = () => {
     if (descriptionVisible) {
       return (
-        <p onClick={toggleDescription}>{props.data.summary}</p>
+        <p style={{cursor: 'pointer'}} onClick={toggleDescription}>{props.data.summary}</p>
       )
     } else {
       return (
-        <a onClick={toggleDescription}>Description</a>
+        <a style={{cursor: 'pointer'}} onClick={toggleDescription}>Description</a>
       )
     }
   }
 
-  // console.log(props.data)
   return (
     <div>
       <h3>{props.data.name}</h3>
