@@ -23,8 +23,13 @@ const SearchBar = ({runSearch}) => {
   }, [term]);
 
   useEffect(() => {
-    runSearch(term);
+    // if(term) {
+      runSearch(term);
+    // }
   }, [debouncedTerm]);
+
+  console.log("the term is currently: ", term)
+  console.log("the debounced term is currently: ", debouncedTerm)
 
   return (
     <div className="ui segment">

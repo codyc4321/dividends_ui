@@ -13,6 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       loading: false,
+      no_search_term: true,
 
       dividends_data: {
         current_price: '',
@@ -41,12 +42,8 @@ class App extends React.Component {
     });
   }
 
-  runStockInfoSearch = async (term) => {
-    console.log("running search")
-    // clear old data
+  clearData = () => {
     this.setState({
-      loading: true,
-
       current_price: '',
       recent_dividend_rate: '',
       current_yield: '',
@@ -56,6 +53,20 @@ class App extends React.Component {
       dividend_change_10_year: '',
       all_dividends: [],
     });
+  }
+
+  runStockInfoSearch = async (term) => {
+    console.log("running search")
+
+    // clear old data
+    this.clearData();
+
+    if (term) {
+      this.setState({loading: true})
+      this.setState({no_search_term: false})
+    } else {
+      this.setState({no_search_term: true})
+    }
 
     const HOST = process.env.REACT_APP_HOSTNAME
     const PROTOCOL = process.env.REACT_APP_PROTOCOL
@@ -100,6 +111,19 @@ class App extends React.Component {
   }
 
   render() {
+
+    if (this.state.no_search_term === true) {
+      return (
+        <div className="ui container" style={{marginTop: '10px'}}>
+          <SearchBar runSearch={this.runStockInfoSearch} />
+          <div className="ui segment">
+            <div className="ui active">
+              <div className="ui text">Search for info about a stock</div>
+            </div>
+          </div>
+        </div>
+      )
+    }
 
     if (this.state.loading === true) {
       return (
