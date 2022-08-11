@@ -97,10 +97,6 @@ class App extends React.Component {
 
           this.addResponseKeys(['name', 'summary', 'sector'], response);
 
-          // this.updateStateData('name', response.data['name']);
-          // this.updateStateData('summary', response.data['summary']);
-          // this.updateStateData('sector', response.data['sector']);
-
           this.setState({loading: false})
         })
         .catch(err => {
