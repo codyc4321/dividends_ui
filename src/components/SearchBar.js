@@ -1,28 +1,28 @@
 import React, {useState, useEffect} from 'react';
 
 
-const SearchBar = ({runSearch}) => {
-  const defaultStock = 'wba';
-
-  const [term, setTerm] = useState(defaultStock);
-  const [debouncedTerm, setDebouncedTerm] = useState(defaultStock)
-
+const SearchBar = ({onTermUpdate, term}) => {
+  // const defaultStock = 'wba';
+  //
+  // const [term, setTerm] = useState(defaultStock);
+  // const [debouncedTerm, setDebouncedTerm] = useState(defaultStock)
+  //
   const onFormSubmit = (event) => {
     event.preventDefault();
   }
-
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      setDebouncedTerm(term);
-    }, 800);
-
-    return () => {
-      clearTimeout(timerId);
-    };
-
-  }, [term]);
-
-  useEffect(() => {runSearch(term)}, [debouncedTerm]);
+  //
+  // useEffect(() => {
+  //   const timerId = setTimeout(() => {
+  //     setDebouncedTerm(term);
+  //   }, 800);
+  //
+  //   return () => {
+  //     clearTimeout(timerId);
+  //   };
+  //
+  // }, [term]);
+  //
+  // useEffect(() => {runSearch(term)}, [debouncedTerm]);
 
 
   return (
@@ -33,7 +33,7 @@ const SearchBar = ({runSearch}) => {
           <input
            type="text"
            value={term}
-           onChange={(e) => setTerm(e.target.value)}
+           onChange={(e) => onTermUpdate(e.target.value)}
            />
         </div>
       </form>
