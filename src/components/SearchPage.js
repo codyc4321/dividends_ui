@@ -1,18 +1,19 @@
 
 import React, {useState, useEffect} from 'react';
+import { connect } from 'react-redux';
+
+import axios from 'axios';
 
 import SearchBar from './SearchBar';
 import AllDividendsDisplay from './dividend_results_display/AllDividendsDisplay';
 import DividendResultsDisplay from './dividend_results_display/DividendResultsDisplay';
-
-import axios from 'axios';
 
 const HOST = process.env.REACT_APP_HOSTNAME
 const PROTOCOL = process.env.REACT_APP_PROTOCOL
 const PORT = process.env.REACT_APP_PORT
 const BASE_URL = PROTOCOL + '://' + HOST + ':' + PORT
 
-const SearchPage = () => {
+const SearchPage = ({userId}) => {
 
   const DEFAULT_STOCK = 'ibm';
   const [term, setTerm] = useState(DEFAULT_STOCK);
@@ -94,7 +95,7 @@ const SearchPage = () => {
     if (loading === true) {
       return (
         <div className="ui active dimmer">
-          <div className="ui text loader">Loading</div>
+          <div className="ui big text loader">Loading</div>
         </div>
       )
     }
@@ -124,6 +125,8 @@ const SearchPage = () => {
     })
   }
 
+  console.log("user id in search page: ", userId)
+
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
       <SearchBar term={term} onTermUpdate={onTermUpdate} />
@@ -138,4 +141,12 @@ const SearchPage = () => {
 }
 
 
-export default SearchPage;
+const mapStateToProps = state => {
+  return { userId: state.userId };
+};
+
+export default connect(
+  mapStateToProps
+)(SearchPage);
+
+// export default SearchPage;
