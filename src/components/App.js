@@ -80,8 +80,9 @@ class App extends React.Component {
           this.updateStateData(key, response.data[key]);
         });
 
-        this.updateStateData('name', response.data['longName'])
-        this.updateStateData('description', response.data['longBusinessSummary'])
+        this.updateStateData('name', response.data['name']);
+        this.updateStateData('summary', response.data['summary']);
+        this.updateStateData('sector', response.data['sector']);
 
         this.setState({loading: false})
       })

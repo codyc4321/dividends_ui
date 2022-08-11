@@ -18,7 +18,7 @@ const DividendResultsDisplay = (props) => {
   const renderDescription = () => {
     if (descriptionVisible) {
       return (
-        <p onClick={toggleDescription}>{props.data.description}</p>
+        <p onClick={toggleDescription}>{props.data.summary}</p>
       )
     } else {
       return (
@@ -31,6 +31,7 @@ const DividendResultsDisplay = (props) => {
   return (
     <div>
       <h3>{props.data.name}</h3>
+      <h4>{props.data.sector}</h4>
       {renderDescription()}
       <br/>
       <MainDividendResultsDisplay
