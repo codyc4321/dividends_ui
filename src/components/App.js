@@ -64,50 +64,50 @@ class App extends React.Component {
     if (term) {
       this.setState({loading: true})
       this.setState({no_search_term: false})
+
+      const HOST = process.env.REACT_APP_HOSTNAME
+      const PROTOCOL = process.env.REACT_APP_PROTOCOL
+      const PORT = process.env.REACT_APP_PORT
+      const base_url = PROTOCOL + '://' + HOST + ':' + PORT
+      const dividends_api_url = base_url + '/dividends/' + term
+
+      console.log("hitting url to search- ", dividends_api_url)
+
+      axios.get(dividends_api_url, {})
+
+        .then(response => {
+
+          const RESPONSE_KEYS = [
+            'current_price',
+            'current_yield',
+            'recent_dividend_rate'
+          ]
+          RESPONSE_KEYS.map((key) => {
+            this.updateStateData(key, response.data[key]);
+          });
+
+          this.updateStateData('all_dividends', response.data['all_dividends'].reverse());
+
+          const YEARS_CHANGE = [1, 3, 5, 10];
+          YEARS_CHANGE.map((year) => {
+            const key = 'dividend_change_' + year.toString() + '_year';
+            this.updateStateData(key, response.data[key]);
+          });
+
+          this.addResponseKeys(['name', 'summary', 'sector'], response);
+
+          // this.updateStateData('name', response.data['name']);
+          // this.updateStateData('summary', response.data['summary']);
+          // this.updateStateData('sector', response.data['sector']);
+
+          this.setState({loading: false})
+        })
+        .catch(err => {
+          console.log(err);
+        })
     } else {
       this.setState({no_search_term: true})
     }
-
-    const HOST = process.env.REACT_APP_HOSTNAME
-    const PROTOCOL = process.env.REACT_APP_PROTOCOL
-    const PORT = process.env.REACT_APP_PORT
-    const base_url = PROTOCOL + '://' + HOST + ':' + PORT
-    const dividends_api_url = base_url + '/dividends/' + term
-
-    console.log("hitting url to search- ", dividends_api_url)
-
-    axios.get(dividends_api_url, {})
-
-      .then(response => {
-
-        const RESPONSE_KEYS = [
-          'current_price',
-          'current_yield',
-          'recent_dividend_rate'
-        ]
-        RESPONSE_KEYS.map((key) => {
-          this.updateStateData(key, response.data[key]);
-        });
-
-        this.updateStateData('all_dividends', response.data['all_dividends'].reverse());
-
-        const YEARS_CHANGE = [1, 3, 5, 10];
-        YEARS_CHANGE.map((year) => {
-          const key = 'dividend_change_' + year.toString() + '_year';
-          this.updateStateData(key, response.data[key]);
-        });
-
-        this.addResponseKeys(['name', 'summary', 'sector'], response);
-
-        // this.updateStateData('name', response.data['name']);
-        // this.updateStateData('summary', response.data['summary']);
-        // this.updateStateData('sector', response.data['sector']);
-
-        this.setState({loading: false})
-      })
-      .catch(err => {
-        console.log(err);
-      })
   }
 
   render() {
