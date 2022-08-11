@@ -142,7 +142,7 @@ const SearchPage = ({userId}) => {
 
 
 const mapStateToProps = state => {
-  return { userId: state.userId };
+  return { userId: state.auth.userId };
 };
 
 export default connect(
