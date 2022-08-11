@@ -58,6 +58,10 @@ const SearchPage = () => {
 
     if (term) {
       setLoading(true);
+
+      if (!recentSearches.includes(term)) {
+        setRecentSearches([...recentSearches, term])
+      }
       const dividends_api_url = BASE_URL + '/dividends/' + term
 
       axios.get(dividends_api_url, {})
