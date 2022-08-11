@@ -46,8 +46,10 @@ class SearchPage extends React.Component {
 
   addSearchTerm = (term) => {
     const data = this.state.recent_searches;
-    data.push(term)
-    this.setState({data});
+    if (!data.includes(term)) {
+      data.push(term)
+      this.setState({data});
+    }
   }
 
   addResponseKeys = (keys, response) => {
