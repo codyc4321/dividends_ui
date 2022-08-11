@@ -34,8 +34,6 @@ const SearchBar = ({runSearch}) => {
            type="text"
            value={term}
            onChange={(e) => setTerm(e.target.value)}
-           ref={ref => ref && ref.focus()}
-           onFocus={(e)=>e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
            />
         </div>
       </form>

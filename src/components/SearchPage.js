@@ -21,7 +21,7 @@ class SearchPage extends React.Component {
       loading: false,
       no_search_term: true,
 
-      recent_searches: ['wba', 'hd', 'alty'],
+      recent_searches: ['wba'],
 
       dividends_data: {
         current_price: '',
