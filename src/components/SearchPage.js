@@ -18,17 +18,68 @@ const SearchPage = () => {
   const [term, setTerm] = useState(DEFAULT_STOCK);
   const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
   const [loading, setLoading] = useState(false);
+  const [dividendsData, setDividendsData] = useState(
+    {
+      current_price: '',
+      recent_dividend_rate: '',
+      current_yield: '',
+      dividend_change_1_year: '',
+      dividend_change_3_year: '',
+      dividend_change_5_year: '',
+      dividend_change_10_year: '',
+      all_dividends: [],
+      name: '',
+      description: '',
+    }
+  )
 
   const onTermUpdate = (term) => {
     setTerm(term)
   }
 
-  console.log(term);
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedTerm(term);
+    }, 1500);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+
+  }, [term]);
+
+  useEffect(() => {runSearch()}, [debouncedTerm]);
+
+  const runSearch = () => {
+    console.log("running search: ", term);
+  }
+
+  const renderMainContent = () => {
+    if (!term) {
+      return (
+        <div className="ui active">
+          <div className="ui text">Search for info about a stock</div>
+        </div>
+      )
+    }
+    if (loading === true) {
+      return (
+        <div className="ui active dimmer">
+          <div className="ui text loader">Loading</div>
+        </div>
+      )
+    } else {
+      return (
+        <DividendResultsDisplay data={dividendsData}/>
+      )
+    }
+  }
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
       <SearchBar term={term} onTermUpdate={onTermUpdate} />
       <div className="ui segment">
+        {renderMainContent()}
       </div>
     </div>
   )
