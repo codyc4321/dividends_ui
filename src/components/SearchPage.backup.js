@@ -89,6 +89,7 @@ class SearchPage extends React.Component {
       axios.get(dividends_api_url, {})
 
         .then(response => {
+          console.log(response)
 
           const RESPONSE_KEYS = [
             'current_price',
