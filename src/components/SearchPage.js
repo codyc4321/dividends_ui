@@ -73,8 +73,19 @@ const SearchPage = () => {
 
       axios.get(dividends_api_url, {})
         .then(response => {
-
           setLoading(false);
+
+          const RESPONSE_KEYS = [
+            'current_price',
+            'current_yield',
+            'recent_dividend_rate'
+          ]
+          RESPONSE_KEYS.map((key) => {
+            // this.updateStateData(key, response.data[key]);
+            data[key] = response.data[key]
+          });
+          setDividendsData(data);
+
         })
         .catch((error) => {
           console.log(error.message);
