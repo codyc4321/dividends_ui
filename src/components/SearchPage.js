@@ -53,6 +53,13 @@ const SearchPage = ({userId}) => {
 
   useEffect(() => {runSearch()}, [debouncedTerm]);
 
+  useEffect(() => {
+    console.log("user id changed")
+    if (userId) {
+      // call backend with userId
+    }
+  }, [userId])
+
   const runSearch = () => {
     console.log("running search: ", term);
     setErrorMessage('');
