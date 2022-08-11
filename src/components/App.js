@@ -35,6 +35,12 @@ class App extends React.Component {
     this.setState({data});
   }
 
+  addResponseKeys = (keys, response) => {
+    keys.map((key) => {
+      this.updateStateData(key, response.data[key]);
+    });
+  }
+
   runStockInfoSearch = async (term) => {
     console.log("running search")
     // clear old data
@@ -80,9 +86,11 @@ class App extends React.Component {
           this.updateStateData(key, response.data[key]);
         });
 
-        this.updateStateData('name', response.data['name']);
-        this.updateStateData('summary', response.data['summary']);
-        this.updateStateData('sector', response.data['sector']);
+        this.addResponseKeys(['name', 'summary', 'sector'], response);
+
+        // this.updateStateData('name', response.data['name']);
+        // this.updateStateData('summary', response.data['summary']);
+        // this.updateStateData('sector', response.data['sector']);
 
         this.setState({loading: false})
       })

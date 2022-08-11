@@ -33,7 +33,7 @@ const DividendResultsDisplay = (props) => {
       <h3>{props.data.name}</h3>
       <h4>{props.data.sector}</h4>
       {renderDescription()}
-      <br/>
+      <br/><br/>
       <MainDividendResultsDisplay
         current_price={props.data.current_price}
         recent_dividend_rate={props.data.recent_dividend_rate}
