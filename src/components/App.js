@@ -6,6 +6,11 @@ import DividendResultsDisplay from './dividend_results_display/DividendResultsDi
 
 import axios from 'axios';
 
+const HOST = process.env.REACT_APP_HOSTNAME
+const PROTOCOL = process.env.REACT_APP_PROTOCOL
+const PORT = process.env.REACT_APP_PORT
+const BASE_URL = PROTOCOL + '://' + HOST + ':' + PORT
+
 
 class App extends React.Component {
 
@@ -65,11 +70,7 @@ class App extends React.Component {
       this.setState({loading: true})
       this.setState({no_search_term: false})
 
-      const HOST = process.env.REACT_APP_HOSTNAME
-      const PROTOCOL = process.env.REACT_APP_PROTOCOL
-      const PORT = process.env.REACT_APP_PORT
-      const base_url = PROTOCOL + '://' + HOST + ':' + PORT
-      const dividends_api_url = base_url + '/dividends/' + term
+      const dividends_api_url = BASE_URL + '/dividends/' + term
 
       console.log("hitting url to search- ", dividends_api_url)
 
