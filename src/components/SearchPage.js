@@ -44,6 +44,12 @@ class SearchPage extends React.Component {
     this.setState({data});
   }
 
+  addSearchTerm = (term) => {
+    const data = this.state.recent_searches;
+    data.push(term)
+    this.setState({data});
+  }
+
   addResponseKeys = (keys, response) => {
     keys.map((key) => {
       this.updateStateData(key, response.data[key]);
@@ -72,6 +78,8 @@ class SearchPage extends React.Component {
     if (term) {
       this.setState({loading: true})
       this.setState({no_search_term: false})
+
+      this.addSearchTerm(term);
 
       const dividends_api_url = BASE_URL + '/dividends/' + term
       console.log("hitting url to search- ", dividends_api_url)
