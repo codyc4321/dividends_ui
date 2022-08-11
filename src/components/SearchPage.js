@@ -18,6 +18,7 @@ const SearchPage = () => {
   const [term, setTerm] = useState(DEFAULT_STOCK);
   const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
   const [loading, setLoading] = useState(false);
+  const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK]);
   const [errorMessage, setErrorMessage] = useState('');
   const [dividendsData, setDividendsData] = useState(
     {
@@ -54,7 +55,7 @@ const SearchPage = () => {
   const runSearch = () => {
     console.log("running search: ", term);
     setErrorMessage('');
-    
+
     if (term) {
       setLoading(true);
       const dividends_api_url = BASE_URL + '/dividends/' + term
@@ -71,6 +72,11 @@ const SearchPage = () => {
           setErrorMessage(error.message);
         })
     }
+  }
+
+  const recentSearchOnClick = (term) => {
+    setTerm(term);
+    setDebouncedTerm(term);
   }
 
   const renderMainContent = () => {
@@ -101,9 +107,23 @@ const SearchPage = () => {
     }
   }
 
+  const renderRecentSearches = () => {
+    return recentSearches.map((term) => {
+      return (
+        <button
+          onClick={() => recentSearchOnClick(term)}
+          style={{marginRight: '10px'}}
+          >
+            {term}
+        </button>
+      )
+    })
+  }
+
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
       <SearchBar term={term} onTermUpdate={onTermUpdate} />
+      {renderRecentSearches()}
       <div className="ui segment">
         {renderMainContent()}
       </div>
