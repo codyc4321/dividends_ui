@@ -21,6 +21,8 @@ class SearchPage extends React.Component {
       loading: false,
       no_search_term: true,
 
+      recent_searches: ['wba', 'hd', 'alty'],
+
       dividends_data: {
         current_price: '',
         recent_dividend_rate: '',
@@ -128,10 +130,19 @@ class SearchPage extends React.Component {
     }
   }
 
+  renderRecentSearches() {
+    return this.state.recent_searches.map((term) => {
+      return (
+        <button style={{marginRight: '10px'}}>{term}</button>
+      )
+    })
+  }
+
   render() {
       return (
         <div className="ui container" style={{marginTop: '10px'}}>
           <SearchBar runSearch={this.runStockInfoSearch} />
+          {this.renderRecentSearches()}
           <div className="ui segment">
             {this.renderMainContent()}
           </div>
