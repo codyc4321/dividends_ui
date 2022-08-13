@@ -75,13 +75,17 @@ const SearchPage = ({userId}) => {
   useEffect(() => {
     const user_profile_api_url = BASE_URL + '/users/' + userId
     const data = {searches: recentSearches}
+
     // axios.post(user_profile_api_url, {
     //   params: {
     //     searches: recentSearches
     //   }
     // })
-    axios.post(user_profile_api_url, data
-    })
+
+    // const response = await axios.post(user_profile_api_url, data);
+    // console.log(response)
+
+    axios.post(user_profile_api_url, data)
       .then(response => {
         console.log(response)
       })
