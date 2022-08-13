@@ -56,7 +56,19 @@ const SearchPage = ({userId}) => {
   useEffect(() => {
     console.log("user id changed")
     if (userId) {
-      // call backend with userId
+      const user_profile_api_url = BASE_URL + '/users/' + userId
+      axios.get(user_profile_api_url, {})
+        .then(response => {
+          const recent_searches_response = response.data.searches;
+          const new_recent_searches = [];
+          recent_searches_response.map(dict => {
+            new_recent_searches.push(dict.search_term)
+          })
+          setRecentSearches(new_recent_searches);
+        })
+        .catch((error) => {
+          console.log("error in getting user profile: ", error.message)
+        })
     }
   }, [userId])
 
@@ -132,7 +144,7 @@ const SearchPage = ({userId}) => {
     })
   }
 
-  console.log("user id in search page: ", userId)
+  console.log("searches", recentSearches)
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
