@@ -114,6 +114,11 @@ const SearchPage = ({userId}) => {
     setDebouncedTerm(term);
   }
 
+  const removeRecentSearchOnClick = (term) => {
+    const searchesWithoutThisOne = recentSearches.filter(search => search !== term)
+    setRecentSearches(searchesWithoutThisOne);
+  }
+
   const renderMainContent = () => {
     if (!debouncedTerm) {
       return (
@@ -142,6 +147,7 @@ const SearchPage = ({userId}) => {
     }
   }
 
+  // https://stackoverflow.com/questions/38619981/how-can-i-prevent-event-bubbling-in-nested-react-components-on-click
   const renderRecentSearches = () => {
     return recentSearches.map((term) => {
       return (
@@ -149,7 +155,7 @@ const SearchPage = ({userId}) => {
           onClick={() => recentSearchOnClick(term)}
           style={{marginRight: '10px'}}
           >
-            {term}
+            <div>{term} <div onClick={(event) => {event.stopPropagation(); removeRecentSearchOnClick(term)}}>X</div></div>
         </button>
       )
     })
