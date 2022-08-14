@@ -21,7 +21,7 @@ const DividendResultsDisplay = (props) => {
       )
     } else {
       return (
-        <a style={{cursor: 'pointer'}} onClick={toggleDescription}>Description</a>
+        <a style={{cursor: 'pointer'}} onClick={toggleDescription}>Description <div className="ui icon caret up"></div></a>
       )
     }
   }
