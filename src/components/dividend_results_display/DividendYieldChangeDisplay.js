@@ -5,7 +5,7 @@ const DividendYieldChangeDisplay = (props) => {
   return (
     <div>
       <h3>The dividend yield change per year:</h3>
-      <table>
+      <table className="ui celled table">
         <tbody>
           <tr>
             <td>1 year</td>

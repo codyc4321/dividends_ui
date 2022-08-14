@@ -4,7 +4,7 @@ import React from 'react';
 const MainDividendResultsDisplay = (props) => {
   return(
     <div>
-      <table>
+      <table className="ui celled table">
         <tbody>
           <tr>
             <td>Price</td>

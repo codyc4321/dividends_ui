@@ -10,7 +10,6 @@ const DividendResultsDisplay = (props) => {
   const [descriptionVisible, setDescriptionVisible] = useState(false);
 
   const toggleDescription = (event) => {
-    // event.preventDefault()
     setDescriptionVisible(!descriptionVisible);
   }
 

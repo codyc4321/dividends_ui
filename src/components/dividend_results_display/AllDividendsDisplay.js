@@ -21,7 +21,7 @@ const AllDividendsDisplay = (props) => {
   return (
     <div>
     <h3>The dividends for the last 3 years:</h3>
-      <table>
+      <table className="ui celled table">
         <thead>
           <tr>
             <th>Date</th>
