@@ -20,6 +20,8 @@ const SearchPage = ({userId}) => {
   const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
   const [loading, setLoading] = useState(false);
   const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK]);
+  const [dividendsYearsBack, setDividendsYearsBack] = useState('3');
+  const [debouncedDividendYearsBack, setDebouncedDividendYearsBack] = useState('3');
   const [errorMessage, setErrorMessage] = useState('');
   const [dividendsData, setDividendsData] = useState(
     {
@@ -40,6 +42,7 @@ const SearchPage = ({userId}) => {
     setTerm(term)
   }
 
+  // TODO: write a custom hook that debounces taking the term and the set debounced term callback
   useEffect(() => {
     const timerId = setTimeout(() => {
       setDebouncedTerm(term);
@@ -51,7 +54,25 @@ const SearchPage = ({userId}) => {
 
   }, [term]);
 
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedDividendYearsBack(dividendsYearsBack);
+    }, 1500);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+
+  }, [dividendsYearsBack]);
+
   useEffect(() => {runSearch()}, [debouncedTerm]);
+
+  useEffect(() => {
+    // alert(dividendsYearsBack)
+    if (dividendsYearsBack !== '') {
+      runSearch();
+    }
+  }, [debouncedDividendYearsBack])
 
   useEffect(() => {
     console.log("user id changed")
@@ -88,12 +109,22 @@ const SearchPage = ({userId}) => {
     setErrorMessage('');
 
     if (term) {
+
       setLoading(true);
 
+      // let dividends_api_url = ''
+      // if (!dividendsYearsBack) {
+      //   setDividendsYearsBack('3');
+      //   let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + '3';
+      // } else {
+      //   let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack
+      // }
+
+      let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack
+      
       if (!recentSearches.includes(term)) {
         setRecentSearches([...recentSearches, term])
       }
-      const dividends_api_url = BASE_URL + '/dividends/' + term
 
       axios.get(dividends_api_url, {})
         .then(response => {
@@ -119,6 +150,16 @@ const SearchPage = ({userId}) => {
     setRecentSearches(searchesWithoutThisOne);
   }
 
+  const dividendsYearsBackOnChange = (text) => {
+    setDividendsYearsBack(text);
+    // if (text) {
+    //   setDividendsYearsBack(text);
+    // } else {
+      // setDividendsYearsBack('3')
+    // }
+
+  }
+
   const renderMainContent = () => {
     if (!debouncedTerm) {
       return (
@@ -142,7 +183,10 @@ const SearchPage = ({userId}) => {
       )
     } else {
       return (
-        <DividendResultsDisplay data={dividendsData}/>
+        <DividendResultsDisplay
+          data={dividendsData}
+          dividends_years_back={dividendsYearsBack}
+          dividendsYearsBackOnChange={dividendsYearsBackOnChange}/>
       )
     }
   }

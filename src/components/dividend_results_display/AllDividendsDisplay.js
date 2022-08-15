@@ -20,7 +20,13 @@ const AllDividendsDisplay = (props) => {
 
   return (
     <div>
-    <h3>The dividends for the last 3 years:</h3>
+    <h3>The dividends for the last
+        <input
+          type="text"
+          style={{width: '70px'}}
+          value={props.dividends_years_back}
+          onChange={(e) => props.dividendsYearsBackOnChange(e.target.value)}
+          /> years:</h3>
       <table className="ui celled table">
         <thead>
           <tr>

@@ -44,7 +44,10 @@ const DividendResultsDisplay = (props) => {
         dividend_change_10_year={props.data.dividend_change_10_year}
       />
       <br/>
-      <AllDividendsDisplay all_dividends={props.data.all_dividends} />
+      <AllDividendsDisplay
+        all_dividends={props.data.all_dividends}
+        dividends_years_back={props.dividends_years_back}
+        dividendsYearsBackOnChange={props.dividendsYearsBackOnChange}/>
     </div>
   )
 };
