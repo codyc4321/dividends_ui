@@ -104,6 +104,26 @@ const SearchPage = ({userId}) => {
 
   }, [recentSearches])
 
+  const makeSearchApiRequest = () => {
+    let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack
+
+    if (!recentSearches.includes(term)) {
+      setRecentSearches([...recentSearches, term])
+    }
+
+    axios.get(dividends_api_url, {})
+      .then(response => {
+        // console.log(response)
+        setLoading(false);
+        setDividendsData(response.data);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setLoading(false);
+        setErrorMessage(error.message);
+      })
+  }
+
   const runSearch = () => {
     console.log("running search: ", term);
     setErrorMessage('');
@@ -112,31 +132,13 @@ const SearchPage = ({userId}) => {
 
       setLoading(true);
 
-      // let dividends_api_url = ''
-      // if (!dividendsYearsBack) {
-      //   setDividendsYearsBack('3');
-      //   let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + '3';
-      // } else {
-      //   let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack
-      // }
-
-      let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack
-      
-      if (!recentSearches.includes(term)) {
-        setRecentSearches([...recentSearches, term])
+      if (!dividendsYearsBack) {
+        setDividendsYearsBack('3', () => {
+          makeSearchApiRequest()
+        });
+      } else {
+        makeSearchApiRequest()
       }
-
-      axios.get(dividends_api_url, {})
-        .then(response => {
-          // console.log(response)
-          setLoading(false);
-          setDividendsData(response.data);
-        })
-        .catch((error) => {
-          console.log(error.message);
-          setLoading(false);
-          setErrorMessage(error.message);
-        })
     }
   }
 
