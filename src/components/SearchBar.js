@@ -2,28 +2,10 @@ import React, {useState, useEffect} from 'react';
 
 
 const SearchBar = ({onTermUpdate, term}) => {
-  // const defaultStock = 'wba';
-  //
-  // const [term, setTerm] = useState(defaultStock);
-  // const [debouncedTerm, setDebouncedTerm] = useState(defaultStock)
-  //
+
   const onFormSubmit = (event) => {
     event.preventDefault();
   }
-  //
-  // useEffect(() => {
-  //   const timerId = setTimeout(() => {
-  //     setDebouncedTerm(term);
-  //   }, 800);
-  //
-  //   return () => {
-  //     clearTimeout(timerId);
-  //   };
-  //
-  // }, [term]);
-  //
-  // useEffect(() => {runSearch(term)}, [debouncedTerm]);
-
 
   return (
     <div className="ui segment">
