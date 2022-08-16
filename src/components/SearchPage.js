@@ -104,9 +104,9 @@ const SearchPage = ({userId}) => {
     const request_data = {searches: recentSearches}
 
     axios.post(user_profile_api_url, request_data)
-      .then(response => {
-        console.log(response)
-      })
+      // .then(response => {
+      //   console.log(response)
+      // })
 
   }, [recentSearches])
 
