@@ -8,12 +8,14 @@ const SettingsView = ({data}) => {
 
   const checkboxes = data.map((checkbox_info) => {
       return (
+        <div key={checkbox_info.id}>
           <SettingsCheckbox
-            key={checkbox_info.id}
             id={checkbox_info.id}
             label={checkbox_info.label}
             toggler={checkbox_info.toggler}
             setter={checkbox_info.setter}/>
+          <br/>
+        </div>
       )
     });
 

@@ -41,6 +41,8 @@ const SearchPage = ({userId}) => {
   const [settingsViewVisible, setSettingsViewVisible] = useState(false);
 
   const [showMainInfo, setShowMainInfo] = useState(true);
+  const [showYieldChange, setShowYieldChange] = useState(true);
+  const [showAllDividends, setShowAllDividends] = useState(true);
 
   const onTermUpdate = (term) => {
     setTerm(term)
@@ -187,7 +189,9 @@ const SearchPage = ({userId}) => {
           data={dividendsData}
           dividends_years_back={dividendsYearsBack}
           dividendsYearsBackOnChange={dividendsYearsBackOnChange}
-          showMainInfo={showMainInfo}/>
+          showMainInfo={showMainInfo}
+          showYieldChange={showYieldChange}
+          showAllDividends={showAllDividends}/>
       )
     }
   }
@@ -237,11 +241,20 @@ const SearchPage = ({userId}) => {
       id: 'main_info',
       toggler: toggleDisplay,
       setter: setShowMainInfo
-    }
+    },
+    {
+      label: 'Yield change',
+      id: 'yield_change',
+      toggler: toggleDisplay,
+      setter: setShowYieldChange
+    },
+    {
+      label: 'Dividends list',
+      id: 'all_dividends',
+      toggler: toggleDisplay,
+      setter: setShowAllDividends
+    },
   ]
-
-  console.log("showMainInfo: ", showMainInfo)
-
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
@@ -255,8 +268,6 @@ const SearchPage = ({userId}) => {
       </div>
     </div>
   )
-
-
 }
 
 

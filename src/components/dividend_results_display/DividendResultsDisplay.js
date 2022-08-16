@@ -26,9 +26,7 @@ const DividendResultsDisplay = (props) => {
   }
 
   var mainInfo = null;
-  console.log("props.showMainInfo ", props.showMainInfo)
   if (props.showMainInfo) {
-    console.log("made it to if statement")
     var mainInfo = (
       <MainDividendResultsDisplay
         current_price={props.data.current_price}
@@ -37,7 +35,28 @@ const DividendResultsDisplay = (props) => {
       />
     )
   }
-  console.log(mainInfo)
+
+  var yieldChange = null;
+  if (props.showYieldChange) {
+    var yieldChange = (
+      <DividendYieldChangeDisplay
+        dividend_change_1_year={props.data.dividend_change_1_year}
+        dividend_change_3_year={props.data.dividend_change_3_year}
+        dividend_change_5_year={props.data.dividend_change_5_year}
+        dividend_change_10_year={props.data.dividend_change_10_year}
+      />
+    )
+  }
+
+  var allDividends = null;
+  if (props.showAllDividends) {
+    var allDividends = (
+      <AllDividendsDisplay
+        all_dividends={props.data.all_dividends}
+        dividends_years_back={props.dividends_years_back}
+        dividendsYearsBackOnChange={props.dividendsYearsBackOnChange}/>
+    )
+  }
 
   return (
     <div>
@@ -47,17 +66,9 @@ const DividendResultsDisplay = (props) => {
       <br/><br/>
       {mainInfo}
       <br/>
-      <DividendYieldChangeDisplay
-        dividend_change_1_year={props.data.dividend_change_1_year}
-        dividend_change_3_year={props.data.dividend_change_3_year}
-        dividend_change_5_year={props.data.dividend_change_5_year}
-        dividend_change_10_year={props.data.dividend_change_10_year}
-      />
+      {yieldChange}
       <br/>
-      <AllDividendsDisplay
-        all_dividends={props.data.all_dividends}
-        dividends_years_back={props.dividends_years_back}
-        dividendsYearsBackOnChange={props.dividendsYearsBackOnChange}/>
+      {allDividends}
     </div>
   )
 };
