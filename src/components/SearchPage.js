@@ -200,13 +200,19 @@ const SearchPage = ({userId}) => {
   const renderRecentSearches = () => {
     return recentSearches.map((term) => {
       return (
-        <button
-          key={term}
-          onClick={() => recentSearchOnClick(term)}
-          style={{marginRight: '10px'}}
-          >
-            <div>{term} <div onClick={(event) => {event.stopPropagation(); removeRecentSearchOnClick(term)}}>X</div></div>
-        </button>
+        <div key={term}>
+          <button
+            onClick={() => recentSearchOnClick(term)}
+            style={{marginRight: '10px'}}
+            >
+              <div>{term} </div>
+          </button>
+          <button
+            onClick={(event) => {event.stopPropagation(); removeRecentSearchOnClick(term)}}>
+              X
+          </button>
+          <br/><br/>
+        </div>
       )
     })
   }
@@ -225,13 +231,7 @@ const SearchPage = ({userId}) => {
     setSettingsViewVisible(!settingsViewVisible);
   }
 
-  // const toggleMainInfo = (e) => {
-  //   // setShowMainInfo(!showMainInfo);
-  //   setShowMainInfo(e.target.checked)
-  // }
-
   const toggleDisplay = (e, setter) => {
-    // setShowMainInfo(!showMainInfo);
     setter(e.target.checked)
   }
 
@@ -261,7 +261,7 @@ const SearchPage = ({userId}) => {
       <SearchBar term={term} onTermUpdate={onTermUpdate} />
       {renderRecentSearches()}
       <br/><br/>
-      <button onClick={toggleSettingsView}>Settings</button>
+      <button onClick={toggleSettingsView}>Display settings</button>
       {renderSettingsView(SETTINGS_DATA)}
       <div className="ui segment">
         {renderMainContent()}
