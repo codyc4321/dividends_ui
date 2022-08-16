@@ -25,17 +25,27 @@ const DividendResultsDisplay = (props) => {
     }
   }
 
+  var mainInfo = null;
+  console.log("props.showMainInfo ", props.showMainInfo)
+  if (props.showMainInfo) {
+    console.log("made it to if statement")
+    var mainInfo = (
+      <MainDividendResultsDisplay
+        current_price={props.data.current_price}
+        recent_dividend_rate={props.data.recent_dividend_rate}
+        current_yield={props.data.current_yield}
+      />
+    )
+  }
+  console.log(mainInfo)
+
   return (
     <div>
       <h3>{props.data.name}</h3>
       <h4>{props.data.sector}</h4>
       {renderDescription()}
       <br/><br/>
-      <MainDividendResultsDisplay
-        current_price={props.data.current_price}
-        recent_dividend_rate={props.data.recent_dividend_rate}
-        current_yield={props.data.current_yield}
-      />
+      {mainInfo}
       <br/>
       <DividendYieldChangeDisplay
         dividend_change_1_year={props.data.dividend_change_1_year}

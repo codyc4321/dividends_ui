@@ -7,6 +7,7 @@ import axios from 'axios';
 import SearchBar from './SearchBar';
 import AllDividendsDisplay from './dividend_results_display/AllDividendsDisplay';
 import DividendResultsDisplay from './dividend_results_display/DividendResultsDisplay';
+import SettingsView from './settings/SettingsView';
 
 const HOST = process.env.REACT_APP_HOSTNAME
 const PROTOCOL = process.env.REACT_APP_PROTOCOL
@@ -37,6 +38,9 @@ const SearchPage = ({userId}) => {
       description: '',
     }
   )
+  const [settingsViewVisible, setSettingsViewVisible] = useState(false);
+
+  const [showMainInfo, setShowMainInfo] = useState(true);
 
   const onTermUpdate = (term) => {
     setTerm(term)
@@ -154,12 +158,6 @@ const SearchPage = ({userId}) => {
 
   const dividendsYearsBackOnChange = (text) => {
     setDividendsYearsBack(text);
-    // if (text) {
-    //   setDividendsYearsBack(text);
-    // } else {
-      // setDividendsYearsBack('3')
-    // }
-
   }
 
   const renderMainContent = () => {
@@ -188,7 +186,8 @@ const SearchPage = ({userId}) => {
         <DividendResultsDisplay
           data={dividendsData}
           dividends_years_back={dividendsYearsBack}
-          dividendsYearsBackOnChange={dividendsYearsBackOnChange}/>
+          dividendsYearsBackOnChange={dividendsYearsBackOnChange}
+          showMainInfo={showMainInfo}/>
       )
     }
   }
@@ -198,6 +197,7 @@ const SearchPage = ({userId}) => {
     return recentSearches.map((term) => {
       return (
         <button
+          key={term}
           onClick={() => recentSearchOnClick(term)}
           style={{marginRight: '10px'}}
           >
@@ -207,12 +207,43 @@ const SearchPage = ({userId}) => {
     })
   }
 
-  console.log("searches", recentSearches)
+  const renderSettingsView = (data) => {
+    if (settingsViewVisible) {
+      return (
+        <SettingsView data={data} />
+      )
+    } else {
+      return null;
+    }
+  }
+
+  const toggleSettingsView = () => {
+    setSettingsViewVisible(!settingsViewVisible);
+  }
+
+  const toggleMainInfo = (e) => {
+    // setShowMainInfo(!showMainInfo);
+    setShowMainInfo(e.target.checked)
+  }
+
+  const SETTINGS_DATA = [
+    {
+      label: 'Main info',
+      id: 'main_info',
+      callback: toggleMainInfo
+    }
+  ]
+
+  console.log("showMainInfo: ", showMainInfo)
+
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
       <SearchBar term={term} onTermUpdate={onTermUpdate} />
       {renderRecentSearches()}
+      <br/><br/>
+      <button onClick={toggleSettingsView}>Settings</button>
+      {renderSettingsView(SETTINGS_DATA)}
       <div className="ui segment">
         {renderMainContent()}
       </div>
