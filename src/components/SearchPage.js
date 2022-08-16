@@ -256,6 +256,10 @@ const SearchPage = ({userId}) => {
     },
   ]
 
+  console.log("showMainInfo: ", showMainInfo);
+  console.log("showYieldChange: ", showYieldChange);
+  console.log("showAllDividends: ", showAllDividends);
+
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
       <SearchBar term={term} onTermUpdate={onTermUpdate} />
