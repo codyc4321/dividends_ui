@@ -221,16 +221,22 @@ const SearchPage = ({userId}) => {
     setSettingsViewVisible(!settingsViewVisible);
   }
 
-  const toggleMainInfo = (e) => {
+  // const toggleMainInfo = (e) => {
+  //   // setShowMainInfo(!showMainInfo);
+  //   setShowMainInfo(e.target.checked)
+  // }
+
+  const toggleDisplay = (e, setter) => {
     // setShowMainInfo(!showMainInfo);
-    setShowMainInfo(e.target.checked)
+    setter(e.target.checked)
   }
 
   const SETTINGS_DATA = [
     {
       label: 'Main info',
       id: 'main_info',
-      callback: toggleMainInfo
+      toggler: toggleDisplay,
+      setter: setShowMainInfo
     }
   ]
 
