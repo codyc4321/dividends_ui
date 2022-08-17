@@ -8,6 +8,8 @@ import SearchBar from './SearchBar';
 import AllDividendsDisplay from './dividend_results_display/AllDividendsDisplay';
 import DividendResultsDisplay from './dividend_results_display/DividendResultsDisplay';
 import SettingsView from './settings/SettingsView';
+import debounceTerm from '../hooks';
+
 
 const HOST = process.env.REACT_APP_HOSTNAME
 const PROTOCOL = process.env.REACT_APP_PROTOCOL
@@ -50,27 +52,30 @@ const SearchPage = ({userId}) => {
   }
 
   // TODO: write a custom hook that debounces taking the term and the set debounced term callback
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      setDebouncedTerm(term);
-    }, 1500);
+  // useEffect(() => {
+  //   const timerId = setTimeout(() => {
+  //     setDebouncedTerm(term);
+  //   }, 1500);
+  //
+  //   return () => {
+  //     clearTimeout(timerId);
+  //   };
+  //
+  // }, [term]);
+  debounceTerm(setDebouncedTerm, term, 1500);
 
-    return () => {
-      clearTimeout(timerId);
-    };
+  // useEffect(() => {
+  //   const timerId = setTimeout(() => {
+  //     setDebouncedDividendYearsBack(dividendsYearsBack);
+  //   }, 1500);
+  //
+  //   return () => {
+  //     clearTimeout(timerId);
+  //   };
+  // 
+  // }, [dividendsYearsBack]);
 
-  }, [term]);
-
-  useEffect(() => {
-    const timerId = setTimeout(() => {
-      setDebouncedDividendYearsBack(dividendsYearsBack);
-    }, 1500);
-
-    return () => {
-      clearTimeout(timerId);
-    };
-
-  }, [dividendsYearsBack]);
+  debounceTerm(setDebouncedDividendYearsBack, dividendsYearsBack, 1500);
 
   useEffect(() => {runSearch()}, [debouncedTerm]);
 
