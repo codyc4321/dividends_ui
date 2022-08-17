@@ -45,7 +45,8 @@ const SearchPage = ({userId}) => {
   const [showAllDividends, setShowAllDividends] = useState(true);
 
   const onTermUpdate = (term) => {
-    setTerm(term)
+    const trimmed = term.trim()
+    setTerm(trimmed);
   }
 
   // TODO: write a custom hook that debounces taking the term and the set debounced term callback
@@ -159,7 +160,8 @@ const SearchPage = ({userId}) => {
   }
 
   const dividendsYearsBackOnChange = (text) => {
-    setDividendsYearsBack(text);
+    const trimmed = text.trim()
+    setDividendsYearsBack(trimmed);
   }
 
   const renderMainContent = () => {
