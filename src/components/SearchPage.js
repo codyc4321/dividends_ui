@@ -175,7 +175,8 @@ const SearchPage = ({userId}) => {
           dividendsYearsBackOnChange={dividendsYearsBackOnChange}
           showMainInfo={showMainInfo}
           showYieldChange={showYieldChange}
-          showAllDividends={showAllDividends}/>
+          showAllDividends={showAllDividends}
+          toggleDividendYields={toggleDividendYields}/>
       )
     }
   }
@@ -217,6 +218,10 @@ const SearchPage = ({userId}) => {
 
   const toggleDisplay = (e, setter) => {
     setter(e.target.checked)
+  }
+
+  const toggleDividendYields = () => {
+    setShowYieldChange(!showYieldChange);
   }
 
   const SETTINGS_DATA = [

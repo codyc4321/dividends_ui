@@ -2,9 +2,9 @@ import React from 'react';
 
 
 const DividendYieldChangeDisplay = (props) => {
-  return (
-    <div>
-      <h3>The dividend yield change per year:</h3>
+  let mainDisplay = null;
+  if (props.showYieldChange) {
+    mainDisplay = (
       <table className="ui celled table">
         <tbody>
           <tr>
@@ -25,6 +25,13 @@ const DividendYieldChangeDisplay = (props) => {
           </tr>
         </tbody>
       </table>
+    )
+  }
+
+  return (
+    <div>
+      <h3>Yield change per year <div style={{cursor: 'pointer'}} onClick={props.toggleDividendYields}>&nbsp;&nbsp;{props.showYieldChange ? '-' : '+'}&nbsp;&nbsp;</div></h3>
+      {mainDisplay}
     </div>
   );
 };
