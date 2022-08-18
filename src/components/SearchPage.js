@@ -51,30 +51,7 @@ const SearchPage = ({userId}) => {
     setTerm(trimmed);
   }
 
-  // TODO: write a custom hook that debounces taking the term and the set debounced term callback
-  // useEffect(() => {
-  //   const timerId = setTimeout(() => {
-  //     setDebouncedTerm(term);
-  //   }, 1500);
-  //
-  //   return () => {
-  //     clearTimeout(timerId);
-  //   };
-  //
-  // }, [term]);
   debounceTerm(setDebouncedTerm, term, 1500);
-
-  // useEffect(() => {
-  //   const timerId = setTimeout(() => {
-  //     setDebouncedDividendYearsBack(dividendsYearsBack);
-  //   }, 1500);
-  //
-  //   return () => {
-  //     clearTimeout(timerId);
-  //   };
-  // 
-  // }, [dividendsYearsBack]);
-
   debounceTerm(setDebouncedDividendYearsBack, dividendsYearsBack, 1500);
 
   useEffect(() => {runSearch()}, [debouncedTerm]);

@@ -14,5 +14,4 @@ const useDebounceTerm = (setter, searchTerm, stallTime) => {
 }
 
 
-
 export default useDebounceTerm;
