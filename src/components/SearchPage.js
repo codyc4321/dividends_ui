@@ -155,6 +155,16 @@ const SearchPage = ({userId}) => {
     }
   }
 
+  const generateToggleDisplaySetting = (setting_name) => {
+    return function() {
+      const otherSettings = displaySettings.filter((dict) => dict.setting_name !== setting_name);
+      const specifiedSetting = displaySettings.find((dict) => dict.setting_name == setting_name);
+      specifiedSetting.visible = !specifiedSetting.visible
+      const newDisplaySettings = [...otherSettings, specifiedSetting]
+      setDisplaySettings(newDisplaySettings)
+    }
+  }
+
   const renderMainContent = () => {
     if (!debouncedTerm) {
       return (
@@ -183,7 +193,8 @@ const SearchPage = ({userId}) => {
           dividends_years_back={dividendsYearsBack}
           dividendsYearsBackOnChange={dividendsYearsBackOnChange}
           displaySettings={displaySettings}
-          setDisplaySettings={setDisplaySettings}/>
+          toggleYieldChange={generateToggleDisplaySetting('showYieldChange')}
+          toggleAllDividends={generateToggleDisplaySetting('showAllDividends')}/>
       )
     }
   }

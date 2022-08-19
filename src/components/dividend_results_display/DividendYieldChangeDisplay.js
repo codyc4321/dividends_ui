@@ -31,7 +31,7 @@ const DividendYieldChangeDisplay = (props) => {
 
   return (
     <div>
-      <h3>Yield change per year <div style={{cursor: 'pointer'}} onClick={props.yieldChangeToggler}>&nbsp;&nbsp;{props.showYieldChange ? '-' : '+'}&nbsp;&nbsp;</div></h3>
+      <h3>Yield change per year <div style={{cursor: 'pointer'}} onClick={props.toggleYieldChange}>&nbsp;&nbsp;{yieldChangeDisplaySetting.visible ? '-' : '+'}&nbsp;&nbsp;</div></h3>
       {mainDisplay}
     </div>
   );

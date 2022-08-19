@@ -47,8 +47,8 @@ const AllDividendsDisplay = (props) => {
             /> years:
             <div
               style={{cursor: 'pointer'}}
-              onClick={props.allDividendsToggler}>
-                &nbsp;&nbsp;{props.showAllDividends ? '-' : '+'}&nbsp;&nbsp;
+              onClick={props.toggleAllDividends}>
+                &nbsp;&nbsp;{allDividendsDisplaySetting.visible ? '-' : '+'}&nbsp;&nbsp;
             </div>
       </h3>
       {mainDisplay}

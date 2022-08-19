@@ -36,7 +36,7 @@ const DividendResultsDisplay = (props) => {
   const yieldChange = (
     <DividendYieldChangeDisplay
       displaySettings={props.displaySettings}
-      setDisplaySettings={props.setDisplaySettings}
+      toggleYieldChange={props.toggleYieldChange}
       dividend_change_1_year={props.data.dividend_change_1_year}
       dividend_change_3_year={props.data.dividend_change_3_year}
       dividend_change_5_year={props.data.dividend_change_5_year}
@@ -47,7 +47,7 @@ const DividendResultsDisplay = (props) => {
   const allDividends = (
     <AllDividendsDisplay
       displaySettings={props.displaySettings}
-      setDisplaySettings={props.setDisplaySettings}
+      toggleAllDividends={props.toggleAllDividends}
       all_dividends={props.data.all_dividends}
       dividends_years_back={props.dividends_years_back}
       dividendsYearsBackOnChange={props.dividendsYearsBackOnChange}/>
