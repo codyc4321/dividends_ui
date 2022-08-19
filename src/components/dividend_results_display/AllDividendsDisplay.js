@@ -18,8 +18,9 @@ const AllDividendsDisplay = (props) => {
     )
   });
 
+  const allDividendsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showAllDividends');
   let mainDisplay = null;
-  if (props.showAllDividends) {
+  if (allDividendsDisplaySetting.visible) {
     mainDisplay = (
       <table className="ui celled table">
         <thead>

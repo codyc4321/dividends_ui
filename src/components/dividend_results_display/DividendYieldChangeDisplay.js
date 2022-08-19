@@ -2,8 +2,9 @@ import React from 'react';
 
 
 const DividendYieldChangeDisplay = (props) => {
+  const yieldChangeDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showYieldChange');
   let mainDisplay = null;
-  if (props.showYieldChange) {
+  if (yieldChangeDisplaySetting.visible) {
     mainDisplay = (
       <table className="ui celled table">
         <tbody>

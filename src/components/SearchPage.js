@@ -42,8 +42,12 @@ const SearchPage = ({userId}) => {
   )
   const [settingsViewVisible, setSettingsViewVisible] = useState(false);
 
-  const [showYieldChange, setShowYieldChange] = useState(true);
-  const [showAllDividends, setShowAllDividends] = useState(true);
+  // const [showYieldChange, setShowYieldChange] = useState(true);
+  // const [showAllDividends, setShowAllDividends] = useState(true);
+  const [displaySettings, setDisplaySettings] = useState([
+      {setting_name: 'showYieldChange', visible: true},
+      {setting_name: 'showAllDividends', visible: true},
+  ])
 
   const onTermUpdate = (term) => {
     const trimmed = term.trim()
@@ -145,14 +149,6 @@ const SearchPage = ({userId}) => {
     setDividendsYearsBack(trimmed);
   }
 
-  const toggleSettingsView = () => {
-    setSettingsViewVisible(!settingsViewVisible);
-  }
-
-  const toggleDisplay = (e, setter) => {
-    setter(e.target.checked)
-  }
-
   const generateShowToggler = (setter, state) => {
     return function() {
       setter(!state);
@@ -186,10 +182,8 @@ const SearchPage = ({userId}) => {
           data={dividendsData}
           dividends_years_back={dividendsYearsBack}
           dividendsYearsBackOnChange={dividendsYearsBackOnChange}
-          showYieldChange={showYieldChange}
-          showAllDividends={showAllDividends}
-          yieldChangeToggler={generateShowToggler(setShowYieldChange, showYieldChange)}
-          allDividendsToggler={generateShowToggler(setShowAllDividends, showAllDividends)}/>
+          displaySettings={displaySettings}
+          setDisplaySettings={setDisplaySettings}/>
       )
     }
   }
@@ -215,14 +209,13 @@ const SearchPage = ({userId}) => {
     })
   }
 
-  console.log("showYieldChange: ", showYieldChange);
-  console.log("showAllDividends: ", showAllDividends);
+  console.log("displaySettings: ", displaySettings);
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
       <SearchBar term={term} onTermUpdate={onTermUpdate} />
       {renderRecentSearches()}
-      
+
       <div className="ui segment">
         {renderMainContent()}
       </div>
