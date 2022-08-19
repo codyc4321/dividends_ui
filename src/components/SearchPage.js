@@ -72,12 +72,16 @@ const SearchPage = ({userId}) => {
       const user_profile_api_url = BASE_URL + '/users/' + userId
       axios.get(user_profile_api_url, {})
         .then(response => {
+          console.log(response)
+
           const recent_searches_response = response.data.searches;
           const new_recent_searches = [];
           recent_searches_response.map(dict => {
             new_recent_searches.push(dict.search_term)
           })
           setRecentSearches(new_recent_searches);
+
+          setDisplaySettings(response.data.display_settings);
         })
         .catch((error) => {
           console.log("error in getting user profile: ", error.message)
@@ -87,17 +91,21 @@ const SearchPage = ({userId}) => {
 
   useEffect(() => {
     const user_profile_api_url = BASE_URL + '/users/' + userId
-    const request_data = {searches: recentSearches}
+    const request_data = {
+      searches: recentSearches,
+      display_settings: displaySettings
+    }
 
     axios.post(user_profile_api_url, request_data)
       // .then(response => {
       //   console.log(response)
       // })
 
-  }, [recentSearches])
+  }, [recentSearches, displaySettings])
 
   const makeSearchApiRequest = () => {
     let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack
+    console.log(dividends_api_url);
 
     if (!recentSearches.includes(term)) {
       setRecentSearches([...recentSearches, term])
@@ -220,7 +228,7 @@ const SearchPage = ({userId}) => {
     })
   }
 
-  console.log("displaySettings: ", displaySettings);
+  // console.log("displaySettings: ", displaySettings);
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
