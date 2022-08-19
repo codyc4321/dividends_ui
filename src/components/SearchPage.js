@@ -215,31 +215,6 @@ const SearchPage = ({userId}) => {
     })
   }
 
-  const renderSettingsView = (data) => {
-    if (settingsViewVisible) {
-      return (
-        <SettingsView data={data} />
-      )
-    } else {
-      return null;
-    }
-  }
-
-  const SETTINGS_DATA = [
-    {
-      label: 'Yield change',
-      id: 'yield_change',
-      toggler: toggleDisplay,
-      setter: setShowYieldChange
-    },
-    {
-      label: 'Dividends list',
-      id: 'all_dividends',
-      toggler: toggleDisplay,
-      setter: setShowAllDividends
-    },
-  ]
-
   console.log("showYieldChange: ", showYieldChange);
   console.log("showAllDividends: ", showAllDividends);
 
@@ -247,9 +222,7 @@ const SearchPage = ({userId}) => {
     <div className="ui container" style={{marginTop: '10px'}}>
       <SearchBar term={term} onTermUpdate={onTermUpdate} />
       {renderRecentSearches()}
-      <br/><br/>
-      <button onClick={toggleSettingsView}>Display settings</button>
-      {renderSettingsView(SETTINGS_DATA)}
+      
       <div className="ui segment">
         {renderMainContent()}
       </div>
