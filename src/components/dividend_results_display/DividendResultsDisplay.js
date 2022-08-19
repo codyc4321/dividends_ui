@@ -25,40 +25,33 @@ const DividendResultsDisplay = (props) => {
     }
   }
 
-  var mainInfo = null;
-  if (props.showMainInfo) {
-    var mainInfo = (
-      <MainDividendResultsDisplay
-        current_price={props.data.current_price}
-        recent_dividend_rate={props.data.recent_dividend_rate}
-        current_yield={props.data.current_yield}
-      />
-    )
-  }
+  const mainInfo = (
+    <MainDividendResultsDisplay
+      current_price={props.data.current_price}
+      recent_dividend_rate={props.data.recent_dividend_rate}
+      current_yield={props.data.current_yield}
+    />
+  )
 
-  // var yieldChange = null;
-  // if (props.showYieldChange) {
-    var yieldChange = (
-      <DividendYieldChangeDisplay
-        showYieldChange={props.showYieldChange}
-        toggleDividendYields={props.toggleDividendYields}
-        dividend_change_1_year={props.data.dividend_change_1_year}
-        dividend_change_3_year={props.data.dividend_change_3_year}
-        dividend_change_5_year={props.data.dividend_change_5_year}
-        dividend_change_10_year={props.data.dividend_change_10_year}
-      />
-    )
-  // }
+  const yieldChange = (
+    <DividendYieldChangeDisplay
+      showYieldChange={props.showYieldChange}
+      yieldChangeToggler={props.yieldChangeToggler}
+      dividend_change_1_year={props.data.dividend_change_1_year}
+      dividend_change_3_year={props.data.dividend_change_3_year}
+      dividend_change_5_year={props.data.dividend_change_5_year}
+      dividend_change_10_year={props.data.dividend_change_10_year}
+    />
+  )
 
-  var allDividends = null;
-  if (props.showAllDividends) {
-    var allDividends = (
-      <AllDividendsDisplay
-        all_dividends={props.data.all_dividends}
-        dividends_years_back={props.dividends_years_back}
-        dividendsYearsBackOnChange={props.dividendsYearsBackOnChange}/>
-    )
-  }
+  const allDividends = (
+    <AllDividendsDisplay
+      allDividendsToggler={props.allDividendsToggler}
+      showAllDividends={props.showAllDividends}
+      all_dividends={props.data.all_dividends}
+      dividends_years_back={props.dividends_years_back}
+      dividendsYearsBackOnChange={props.dividendsYearsBackOnChange}/>
+  )
 
   return (
     <div>

@@ -42,7 +42,6 @@ const SearchPage = ({userId}) => {
   )
   const [settingsViewVisible, setSettingsViewVisible] = useState(false);
 
-  const [showMainInfo, setShowMainInfo] = useState(true);
   const [showYieldChange, setShowYieldChange] = useState(true);
   const [showAllDividends, setShowAllDividends] = useState(true);
 
@@ -146,6 +145,20 @@ const SearchPage = ({userId}) => {
     setDividendsYearsBack(trimmed);
   }
 
+  const toggleSettingsView = () => {
+    setSettingsViewVisible(!settingsViewVisible);
+  }
+
+  const toggleDisplay = (e, setter) => {
+    setter(e.target.checked)
+  }
+
+  const generateShowToggler = (setter, state) => {
+    return function() {
+      setter(!state);
+    }
+  }
+
   const renderMainContent = () => {
     if (!debouncedTerm) {
       return (
@@ -173,10 +186,10 @@ const SearchPage = ({userId}) => {
           data={dividendsData}
           dividends_years_back={dividendsYearsBack}
           dividendsYearsBackOnChange={dividendsYearsBackOnChange}
-          showMainInfo={showMainInfo}
           showYieldChange={showYieldChange}
           showAllDividends={showAllDividends}
-          toggleDividendYields={toggleDividendYields}/>
+          yieldChangeToggler={generateShowToggler(setShowYieldChange, showYieldChange)}
+          allDividendsToggler={generateShowToggler(setShowAllDividends, showAllDividends)}/>
       )
     }
   }
@@ -212,25 +225,7 @@ const SearchPage = ({userId}) => {
     }
   }
 
-  const toggleSettingsView = () => {
-    setSettingsViewVisible(!settingsViewVisible);
-  }
-
-  const toggleDisplay = (e, setter) => {
-    setter(e.target.checked)
-  }
-
-  const toggleDividendYields = () => {
-    setShowYieldChange(!showYieldChange);
-  }
-
   const SETTINGS_DATA = [
-    {
-      label: 'Main info',
-      id: 'main_info',
-      toggler: toggleDisplay,
-      setter: setShowMainInfo
-    },
     {
       label: 'Yield change',
       id: 'yield_change',
@@ -245,7 +240,6 @@ const SearchPage = ({userId}) => {
     },
   ]
 
-  console.log("showMainInfo: ", showMainInfo);
   console.log("showYieldChange: ", showYieldChange);
   console.log("showAllDividends: ", showAllDividends);
 

@@ -18,25 +18,9 @@ const AllDividendsDisplay = (props) => {
     )
   });
 
-  // let settingsView = None;
-  // if (settingsViewVisible) {
-  //   let settingsView = (
-  //     <div className="ui segment">
-  //       <input type="checkbox" id="main_info" name="main_info" value="main_info">
-  //       <label for="main_info"> I have a bike</label><br>
-  //     </div>
-  //   )
-  // }
-
-  return (
-    <div>
-    <h3>The dividends for the last &nbsp;
-        <input
-          type="text"
-          style={{width: '48px'}}
-          value={props.dividends_years_back}
-          onChange={(e) => props.dividendsYearsBackOnChange(e.target.value)}
-          /> years:</h3>
+  let mainDisplay = null;
+  if (props.showAllDividends) {
+    mainDisplay = (
       <table className="ui celled table">
         <thead>
           <tr>
@@ -48,6 +32,25 @@ const AllDividendsDisplay = (props) => {
           {dividends_rows}
         </tbody>
       </table>
+    )
+  }
+
+  return (
+    <div>
+      <h3>The dividends for the last &nbsp;
+          <input
+            type="text"
+            style={{width: '48px'}}
+            value={props.dividends_years_back}
+            onChange={(e) => props.dividendsYearsBackOnChange(e.target.value)}
+            /> years:
+            <div
+              style={{cursor: 'pointer'}}
+              onClick={props.allDividendsToggler}>
+                &nbsp;&nbsp;{props.showAllDividends ? '-' : '+'}&nbsp;&nbsp;
+            </div>
+      </h3>
+      {mainDisplay}
     </div>
   );
 
