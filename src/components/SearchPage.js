@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import SearchBar from './SearchBar';
-import AllDividendsDisplay from './dividend_results_display/AllDividendsDisplay';
+// import AllDividendsDisplay from './dividend_results_display/AllDividendsDisplay';
 import DividendResultsDisplay from './dividend_results_display/DividendResultsDisplay';
+import AllEarningsDisplay from './earnings_results_display/AllEarningsDisplay';
 import SettingsView from './settings/SettingsView';
 import debounceTerm from '../hooks';
 
@@ -113,7 +114,7 @@ const SearchPage = ({userId}) => {
 
     axios.get(dividends_api_url, {})
       .then(response => {
-        // console.log(response)
+        console.log(response.data)
         setLoading(false);
         setDividendsData(response.data);
       })
@@ -196,13 +197,17 @@ const SearchPage = ({userId}) => {
       )
     } else {
       return (
-        <DividendResultsDisplay
-          data={dividendsData}
-          dividends_years_back={dividendsYearsBack}
-          dividendsYearsBackOnChange={dividendsYearsBackOnChange}
-          displaySettings={displaySettings}
-          toggleYieldChange={generateToggleDisplaySetting('showYieldChange')}
-          toggleAllDividends={generateToggleDisplaySetting('showAllDividends')}/>
+        <div>
+          <DividendResultsDisplay
+            data={dividendsData}
+            dividends_years_back={dividendsYearsBack}
+            dividendsYearsBackOnChange={dividendsYearsBackOnChange}
+            displaySettings={displaySettings}
+            toggleYieldChange={generateToggleDisplaySetting('showYieldChange')}
+            toggleAllDividends={generateToggleDisplaySetting('showAllDividends')}/>
+          <br/>
+          <AllEarningsDisplay earnings={dividendsData.earnings} />
+        </div>
       )
     }
   }

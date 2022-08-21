@@ -25,6 +25,9 @@ const DividendResultsDisplay = (props) => {
     }
   }
 
+  console.log("all dividends in results display")
+  console.log(props.data.all_dividends)
+
   const mainInfo = (
     <MainDividendResultsDisplay
       current_price={props.data.current_price}

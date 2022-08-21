@@ -9,6 +9,9 @@ const AllDividendsDisplay = (props) => {
   //   return <h4 key={dividends_object.date}>{dividends_object.date} --- {dividends_object.amount}</h4>
   // });
 
+  console.log("all dividends")
+  console.log(props)
+
   const dividends_rows = props.all_dividends.map((dividends_object) => {
     return (
       <tr key={dividends_object.date}>
