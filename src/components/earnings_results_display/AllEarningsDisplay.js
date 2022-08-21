@@ -27,10 +27,13 @@ const AllEarningsDisplay = (props) => {
       } else {
         surprise = surprise + '%'
       }
-      let color_style = {color: 'green'};
+      // let color_style = {color: 'green'};
+      let color_style = null;
       if (earnings_object.surprise[0] === '-') {
         color_style = {color: 'red'};
-      } else if (earnings_object.expected === earnings_object.actual){
+      } else if (earnings_object.surprise[0] === '+'){
+        color_style = {color: 'green'}
+      } else {
         color_style = {color: 'black'}
       }
       return (

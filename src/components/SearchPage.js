@@ -174,6 +174,9 @@ const SearchPage = ({userId}) => {
     }
   }
 
+  console.log("dividendsData in search page")
+  console.log(dividendsData)
+
   const renderMainContent = () => {
     if (!debouncedTerm) {
       return (
