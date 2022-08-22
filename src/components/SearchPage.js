@@ -114,7 +114,7 @@ const SearchPage = ({userId}) => {
 
     axios.get(dividends_api_url, {})
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         setLoading(false);
         setDividendsData(response.data);
       })
@@ -174,8 +174,8 @@ const SearchPage = ({userId}) => {
     }
   }
 
-  console.log("dividendsData in search page")
-  console.log(dividendsData)
+  // console.log("dividendsData in search page")
+  // console.log(dividendsData)
 
   const renderMainContent = () => {
     if (!debouncedTerm) {
@@ -237,7 +237,7 @@ const SearchPage = ({userId}) => {
   }
 
   // console.log("displaySettings: ", displaySettings);
-  console.log(dividendsData)
+  // console.log(dividendsData)
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
