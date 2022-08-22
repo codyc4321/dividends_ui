@@ -53,6 +53,13 @@ const DividendResultsDisplay = (props) => {
       dividendsYearsBackOnChange={props.dividendsYearsBackOnChange}/>
   )
 
+  console.log("data in DividendResultsDisplay")
+  console.log(props.data)
+
+  console.log("props.data.all_dividends in DividendResultsDisplay")
+  console.log(props.data.all_dividends)
+
+
   return (
     <div>
       <h3>{props.data.name}</h3>

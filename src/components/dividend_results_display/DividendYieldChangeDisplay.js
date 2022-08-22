@@ -2,6 +2,9 @@ import React from 'react';
 
 
 const DividendYieldChangeDisplay = (props) => {
+  console.log("DividendYieldChangeDisplay props");
+  console.log(props);
+  
   const yieldChangeDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showYieldChange');
   let mainDisplay = null;
   if (yieldChangeDisplaySetting.visible) {

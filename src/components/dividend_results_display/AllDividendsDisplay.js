@@ -8,15 +8,17 @@ const AllDividendsDisplay = (props) => {
   // const dividends = props.all_dividends.map((dividends_object) => {
   //   return <h4 key={dividends_object.date}>{dividends_object.date} --- {dividends_object.amount}</h4>
   // });
-
-  const dividends_rows = props.all_dividends.map((dividends_object) => {
-    return (
-      <tr key={dividends_object.date}>
-        <td>{dividends_object.date}</td>
-        <td>{dividends_object.amount}</td>
-      </tr>
-    )
-  });
+  let dividends_rows = null;
+  if (props.all_dividends) {
+    dividends_rows = props.all_dividends.map((dividends_object) => {
+      return (
+        <tr key={dividends_object.date}>
+          <td>{dividends_object.date}</td>
+          <td>{dividends_object.amount}</td>
+        </tr>
+      )
+    });
+  }
 
   const allDividendsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showAllDividends');
   let mainDisplay = null;

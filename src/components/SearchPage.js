@@ -229,6 +229,7 @@ const SearchPage = ({userId}) => {
   }
 
   // console.log("displaySettings: ", displaySettings);
+  console.log(dividendsData)
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
