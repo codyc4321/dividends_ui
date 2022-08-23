@@ -21,12 +21,12 @@ const AllEarningsDisplay = (props) => {
       if (expected === 'nan') {
         expected = 'no results'
       }
+
       let surprise = earnings_object.surprise;
-      if (surprise === 'nan') {
-        surprise = '0'
-      } else {
+      if (surprise !== 'no result') {
         surprise = surprise + '%'
       }
+
       // let color_style = {color: 'green'};
       let color_style = null;
       if (earnings_object.surprise[0] === '-') {
