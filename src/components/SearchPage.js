@@ -20,8 +20,8 @@ const BASE_URL = PROTOCOL + '://' + HOST + ':' + PORT
 const SearchPage = ({userId}) => {
 
   const DEFAULT_STOCK = 'ibm';
-  const [term, setTerm] = useState();
-  const [debouncedTerm, setDebouncedTerm] = useState();
+  const [term, setTerm] = useState(DEFAULT_STOCK);
+  const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
   const [loading, setLoading] = useState(false);
   const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK]);
   const [dividendsYearsBack, setDividendsYearsBack] = useState('3');
