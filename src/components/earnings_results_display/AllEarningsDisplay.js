@@ -19,21 +19,30 @@ const AllEarningsDisplay = (props) => {
         surprise = surprise + '%'
       }
 
-      // let color_style = {color: 'green'};
-      let color_style = null;
+      let actual_color_style = null;
+      let surprise_color_style = null;
+
       if (earnings_object.surprise[0] === '-') {
-        color_style = {color: 'red'};
+        actual_color_style = {color: 'red'};
+        surprise_color_style = {color: 'red'};
       } else if (earnings_object.surprise[0] === '+'){
-        color_style = {color: 'green'}
+        actual_color_style = {color: 'green'}
+        surprise_color_style = {color: 'green'}
       } else {
-        color_style = {color: 'black'}
+        actual_color_style = {color: 'black'}
+        surprise_color_style = {color: 'black'}
+      }
+
+      if (earnings_object.expected === 'no result') {
+        surprise = 'N/A';
+        surprise_color_style = {color: 'black'}
       }
       return (
         <tr key={earnings_object.date}>
           <td>{earnings_object.date}</td>
           <td>{earnings_object.expected}</td>
-          <td style={color_style}>{earnings_object.actual}</td>
-          <td style={color_style}>{surprise}</td>
+          <td style={actual_color_style}>{earnings_object.actual}</td>
+          <td style={surprise_color_style}>{surprise}</td>
         </tr>
       )
     });
