@@ -13,14 +13,6 @@ const AllEarningsDisplay = (props) => {
   let earnings_rows = null;
   if (props.earnings) {
     earnings_rows = props.earnings.map((earnings_object) => {
-      let actual = earnings_object.actual;
-      if (actual === 'nan') {
-        actual = 'no results'
-      }
-      let expected = earnings_object.expected;
-      if (expected === 'nan') {
-        expected = 'no results'
-      }
 
       let surprise = earnings_object.surprise;
       if (surprise !== 'no result') {
@@ -39,8 +31,8 @@ const AllEarningsDisplay = (props) => {
       return (
         <tr key={earnings_object.date}>
           <td>{earnings_object.date}</td>
-          <td>{expected}</td>
-          <td style={color_style}>{actual}</td>
+          <td>{earnings_object.expected}</td>
+          <td style={color_style}>{earnings_object.actual}</td>
           <td style={color_style}>{surprise}</td>
         </tr>
       )
