@@ -20,8 +20,8 @@ const BASE_URL = PROTOCOL + '://' + HOST + ':' + PORT
 const SearchPage = ({userId}) => {
 
   const DEFAULT_STOCK = 'ibm';
-  const [term, setTerm] = useState(DEFAULT_STOCK);
-  const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
+  const [term, setTerm] = useState();
+  const [debouncedTerm, setDebouncedTerm] = useState();
   const [loading, setLoading] = useState(false);
   const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK]);
   const [dividendsYearsBack, setDividendsYearsBack] = useState('3');
@@ -105,7 +105,10 @@ const SearchPage = ({userId}) => {
   }, [recentSearches, displaySettings])
 
   const makeSearchApiRequest = () => {
-    let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack
+    // console.log("Base url")
+    // console.log(BASE_URL)
+    let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack;
+    console.log("dividends_api_url being requested")
     console.log(dividends_api_url);
 
     if (!recentSearches.includes(term)) {
@@ -174,9 +177,6 @@ const SearchPage = ({userId}) => {
     }
   }
 
-  // console.log("dividendsData in search page")
-  // console.log(dividendsData)
-
   const renderMainContent = () => {
     if (!debouncedTerm) {
       return (
@@ -202,7 +202,9 @@ const SearchPage = ({userId}) => {
       return (
         <div>
           <DividendResultsDisplay
-            data={dividendsData}
+            fakeprop="fake prop"
+            currentPrice={dividendsData['current_price']}
+            dividendsData={dividendsData}
             dividends_years_back={dividendsYearsBack}
             dividendsYearsBackOnChange={dividendsYearsBackOnChange}
             displaySettings={displaySettings}
@@ -237,7 +239,12 @@ const SearchPage = ({userId}) => {
   }
 
   // console.log("displaySettings: ", displaySettings);
-  // console.log(dividendsData)
+
+  console.log("dividendsData")
+  console.log(dividendsData)
+
+  const data_type = typeof dividendsData;
+  console.log("type of dividendsData: ", data_type)
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>

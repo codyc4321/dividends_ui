@@ -5,9 +5,6 @@ import './DividendResults.css';
 
 const AllDividendsDisplay = (props) => {
 
-  console.log("props in AllDividendsDisplay")
-  console.log(props)
-  
   let dividends_rows = null;
   if (props.all_dividends) {
     dividends_rows = props.all_dividends.map((dividends_object) => {

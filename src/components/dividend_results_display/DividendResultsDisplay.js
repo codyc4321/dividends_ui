@@ -16,7 +16,7 @@ const DividendResultsDisplay = (props) => {
   const renderDescription = () => {
     if (descriptionVisible) {
       return (
-        <p style={{cursor: 'pointer'}} onClick={toggleDescription}>{props.data.summary}</p>
+        <p style={{cursor: 'pointer'}} onClick={toggleDescription}>{props.dividendsData.summary}</p>
       )
     } else {
       return (
@@ -25,17 +25,11 @@ const DividendResultsDisplay = (props) => {
     }
   }
 
-  console.log("data object in DividendResultsDisplay")
-  console.log(props.data)
-
-  console.log("current price DividendResultsDisplay")
-  console.log(props.data.current_price)
-
   const mainInfo = (
     <MainDividendResultsDisplay
-      current_price={props.data.current_price}
-      recent_dividend_rate={props.data.recent_dividend_rate}
-      current_yield={props.data.current_yield}
+      current_price={props.dividendsData.current_price}
+      recent_dividend_rate={props.dividendsData.recent_dividend_rate}
+      current_yield={props.dividendsData.current_yield}
     />
   )
 
@@ -43,10 +37,10 @@ const DividendResultsDisplay = (props) => {
     <DividendYieldChangeDisplay
       displaySettings={props.displaySettings}
       toggleYieldChange={props.toggleYieldChange}
-      dividend_change_1_year={props.data.dividend_change_1_year}
-      dividend_change_3_year={props.data.dividend_change_3_year}
-      dividend_change_5_year={props.data.dividend_change_5_year}
-      dividend_change_10_year={props.data.dividend_change_10_year}
+      dividend_change_1_year={props.dividendsData.dividend_change_1_year}
+      dividend_change_3_year={props.dividendsData.dividend_change_3_year}
+      dividend_change_5_year={props.dividendsData.dividend_change_5_year}
+      dividend_change_10_year={props.dividendsData.dividend_change_10_year}
     />
   )
 
@@ -54,22 +48,15 @@ const DividendResultsDisplay = (props) => {
     <AllDividendsDisplay
       displaySettings={props.displaySettings}
       toggleAllDividends={props.toggleAllDividends}
-      all_dividends={props.data.all_dividends}
+      all_dividends={props.dividendsData.all_dividends}
       dividends_years_back={props.dividends_years_back}
       dividendsYearsBackOnChange={props.dividendsYearsBackOnChange}/>
   )
 
-  console.log("data in DividendResultsDisplay")
-  console.log(props.data)
-
-  console.log("props.data.all_dividends in DividendResultsDisplay")
-  console.log(props.data.all_dividends)
-
-
   return (
     <div>
-      <h3>{props.data.name}</h3>
-      <h4>{props.data.sector}</h4>
+      <h3>{props.dividendsData.name}</h3>
+      <h4>{props.dividendsData.sector}</h4>
       {renderDescription()}
       <br/><br/>
       {mainInfo}
