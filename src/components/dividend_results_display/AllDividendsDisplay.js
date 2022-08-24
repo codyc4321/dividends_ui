@@ -44,11 +44,11 @@ const AllDividendsDisplay = (props) => {
             value={props.dividends_years_back}
             onChange={(e) => props.dividendsYearsBackOnChange(e.target.value)}
             /> years:
-            <div
-              style={{cursor: 'pointer'}}
+            <span
+              style={{cursor: 'pointer', fontSize: '24px'}}
               onClick={props.toggleAllDividends}>
                 &nbsp;&nbsp;{allDividendsDisplaySetting.visible ? '-' : '+'}&nbsp;&nbsp;
-            </div>
+            </span>
       </h3>
       {mainDisplay}
     </div>

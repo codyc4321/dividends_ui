@@ -71,7 +71,7 @@ const SearchPage = ({userId}) => {
       const user_profile_api_url = BASE_URL + '/users/' + userId
       axios.get(user_profile_api_url, {})
         .then(response => {
-          console.log(response)
+          // console.log(response)
 
           const recent_searches_response = response.data.searches;
           const new_recent_searches = [];
@@ -200,8 +200,6 @@ const SearchPage = ({userId}) => {
       return (
         <div>
           <DividendResultsDisplay
-            fakeprop="fake prop"
-            currentPrice={dividendsData['current_price']}
             dividendsData={dividendsData}
             dividends_years_back={dividendsYearsBack}
             dividendsYearsBackOnChange={dividendsYearsBackOnChange}
@@ -209,7 +207,10 @@ const SearchPage = ({userId}) => {
             toggleYieldChange={generateToggleDisplaySetting('showYieldChange')}
             toggleAllDividends={generateToggleDisplaySetting('showAllDividends')}/>
           <br/>
-          <AllEarningsDisplay earnings={dividendsData.earnings} />
+          <AllEarningsDisplay
+            earnings={dividendsData.earnings}
+            toggleAllEarnings={generateToggleDisplaySetting('showAllEarnings')}
+            displaySettings={displaySettings}/>
         </div>
       )
     }
@@ -237,12 +238,6 @@ const SearchPage = ({userId}) => {
   }
 
   // console.log("displaySettings: ", displaySettings);
-
-  console.log("dividendsData")
-  console.log(dividendsData)
-
-  const data_type = typeof dividendsData;
-  console.log("type of dividendsData: ", data_type)
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
