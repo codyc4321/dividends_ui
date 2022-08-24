@@ -42,10 +42,6 @@ const SearchPage = ({userId}) => {
       description: '',
     }
   )
-  const [settingsViewVisible, setSettingsViewVisible] = useState(false);
-
-  // const [showYieldChange, setShowYieldChange] = useState(true);
-  // const [showAllDividends, setShowAllDividends] = useState(true);
   const [displaySettings, setDisplaySettings] = useState([
       {setting_name: 'showYieldChange', visible: true},
       {setting_name: 'showAllDividends', visible: true},
