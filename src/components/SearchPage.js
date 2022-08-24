@@ -63,7 +63,7 @@ const SearchPage = ({userId}) => {
 
   useEffect(() => {
     // alert(dividendsYearsBack)
-    if (dividendsYearsBack !== '') {
+    if (dividendsYearsBack !== '' && earningsYearsBack !== '') {
       runSearch();
     }
   }, [debouncedDividendYearsBack, debouncedEarningsYearsBack])
