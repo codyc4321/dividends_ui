@@ -77,7 +77,13 @@ const AllEarningsDisplay = (props) => {
 
   return (
     <div>
-      <h3>Earnings History
+      <h3>Earnings History for the last &nbsp;
+      <input
+        type="text"
+        style={{width: '48px'}}
+        value={props.earningsYearsBack}
+        onChange={(e) => props.earningsYearsBackOnChange(e.target.value)}
+        /> years
         <span
           style={{cursor: 'pointer', fontSize: '24px'}}
           onClick={props.toggleAllEarnings}>&nbsp;&nbsp;{allEarningsDisplaySetting.visible ? '-' : '+'}&nbsp;&nbsp;</span>

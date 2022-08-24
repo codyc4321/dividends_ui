@@ -26,6 +26,8 @@ const SearchPage = ({userId}) => {
   const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK]);
   const [dividendsYearsBack, setDividendsYearsBack] = useState('3');
   const [debouncedDividendYearsBack, setDebouncedDividendYearsBack] = useState('3');
+  const [earningsYearsBack, setEarningsYearsBack] = useState('5');
+  const [debouncedEarningsYearsBack, setDebouncedEarningsYearsBack] = useState('5');
   const [errorMessage, setErrorMessage] = useState('');
   const [dividendsData, setDividendsData] = useState(
     {
@@ -55,6 +57,7 @@ const SearchPage = ({userId}) => {
 
   debounceTerm(setDebouncedTerm, term, 1500);
   debounceTerm(setDebouncedDividendYearsBack, dividendsYearsBack, 1500);
+  debounceTerm(setDebouncedEarningsYearsBack, earningsYearsBack, 1500);
 
   useEffect(() => {runSearch()}, [debouncedTerm]);
 
@@ -63,7 +66,7 @@ const SearchPage = ({userId}) => {
     if (dividendsYearsBack !== '') {
       runSearch();
     }
-  }, [debouncedDividendYearsBack])
+  }, [debouncedDividendYearsBack, debouncedEarningsYearsBack])
 
   useEffect(() => {
     console.log("user id changed")
@@ -105,7 +108,7 @@ const SearchPage = ({userId}) => {
   const makeSearchApiRequest = () => {
     // console.log("Base url")
     // console.log(BASE_URL)
-    let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack + '/' + '5';
+    let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack + '/' + earningsYearsBack;
     console.log("dividends_api_url being requested")
     console.log(dividends_api_url);
 
@@ -154,9 +157,15 @@ const SearchPage = ({userId}) => {
     setRecentSearches(searchesWithoutThisOne);
   }
 
+  // TODO: write a function generator for these 2 funcs
   const dividendsYearsBackOnChange = (text) => {
     const trimmed = text.trim()
     setDividendsYearsBack(trimmed);
+  }
+
+  const earningsYearsBackOnChange = (text) => {
+    const trimmed = text.trim()
+    setEarningsYearsBack(trimmed);
   }
 
   const generateShowToggler = (setter, state) => {
@@ -209,8 +218,10 @@ const SearchPage = ({userId}) => {
           <br/>
           <AllEarningsDisplay
             earnings={dividendsData.earnings}
-            toggleAllEarnings={generateToggleDisplaySetting('showAllEarnings')}
-            displaySettings={displaySettings}/>
+            earningsYearsBack={earningsYearsBack}
+            earningsYearsBackOnChange={earningsYearsBackOnChange}
+            displaySettings={displaySettings}
+            toggleAllEarnings={generateToggleDisplaySetting('showAllEarnings')}/>
         </div>
       )
     }
