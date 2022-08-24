@@ -8,10 +8,17 @@ const AllEarningsDisplay = (props) => {
   // const dividends = props.all_dividends.map((dividends_object) => {
   //   return <h4 key={dividends_object.date}>{dividends_object.date} --- {dividends_object.amount}</h4>
   // });
-  console.log(props)
+  // console.log("AllEarningsDisplay")
+  // console.log(props)
+
+  const allEarningsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showAllEarnings');
+
 
   let earnings_rows = null;
-  if (props.earnings) {
+  let mainDisplay = null;
+
+  if (props.earnings.length > 0) {
+
     earnings_rows = props.earnings.map((earnings_object) => {
 
       let surprise = earnings_object.surprise;
@@ -46,13 +53,8 @@ const AllEarningsDisplay = (props) => {
         </tr>
       )
     });
-  }
 
-
-  // const allDividendsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showAllDividends');
-  // let mainDisplay = null;
-  // if (allDividendsDisplaySetting.visible) {
-    let mainDisplay = (
+    mainDisplay = (
       <table className="ui celled table">
         <thead>
           <tr>
@@ -67,6 +69,33 @@ const AllEarningsDisplay = (props) => {
         </tbody>
       </table>
     )
+
+  } else {
+    console.log("in the else loop no earnings")
+    mainDisplay = (
+      <h4>There are no earnings results for this stock/ETF</h4>
+    )
+  }
+
+
+  // const allDividendsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showAllDividends');
+  // let mainDisplay = null;
+  // if (allDividendsDisplaySetting.visible) {
+    // let mainDisplay = (
+    //   <table className="ui celled table">
+    //     <thead>
+    //       <tr>
+    //         <th>Date</th>
+    //         <th>Expected</th>
+    //         <th>Actual</th>
+    //         <th>Surprise (%)</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {earnings_rows}
+    //     </tbody>
+    //   </table>
+    // )
   // }
 
   return (
