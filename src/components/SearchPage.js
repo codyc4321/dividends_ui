@@ -106,8 +106,6 @@ const SearchPage = ({userId}) => {
   }, [recentSearches, displaySettings])
 
   const makeSearchApiRequest = () => {
-    // console.log("Base url")
-    // console.log(BASE_URL)
     let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack + '/' + earningsYearsBack;
     console.log("dividends_api_url being requested")
     console.log(dividends_api_url);
