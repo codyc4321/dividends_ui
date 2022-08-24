@@ -45,6 +45,7 @@ const SearchPage = ({userId}) => {
   const [displaySettings, setDisplaySettings] = useState([
       {setting_name: 'showYieldChange', visible: true},
       {setting_name: 'showAllDividends', visible: true},
+      {setting_name: 'showAllEarnings', visible: true},
   ])
 
   const onTermUpdate = (term) => {
