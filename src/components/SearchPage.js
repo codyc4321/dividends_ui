@@ -37,6 +37,7 @@ const SearchPage = ({userId}) => {
       dividend_change_5_year: '',
       dividend_change_10_year: '',
       all_dividends: [],
+      earnings: [],
       name: '',
       description: '',
     }
