@@ -37,7 +37,7 @@ const AllDividendsDisplay = (props) => {
 
   return (
     <div>
-      <h3>The dividends for the last &nbsp;
+      <h3>Dividends for the last &nbsp;
           <input
             type="text"
             style={{width: '48px'}}

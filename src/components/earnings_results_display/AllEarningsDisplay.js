@@ -77,7 +77,7 @@ const AllEarningsDisplay = (props) => {
 
   return (
     <div>
-      <h3>Earnings History for the last &nbsp;
+      <h3>Earnings history for the last &nbsp;
       <input
         type="text"
         style={{width: '48px'}}
