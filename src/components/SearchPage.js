@@ -157,15 +157,11 @@ const SearchPage = ({userId}) => {
     setRecentSearches(searchesWithoutThisOne);
   }
 
-  // TODO: write a function generator for these 2 funcs
-  const dividendsYearsBackOnChange = (text) => {
-    const trimmed = text.trim()
-    setDividendsYearsBack(trimmed);
-  }
-
-  const earningsYearsBackOnChange = (text) => {
-    const trimmed = text.trim()
-    setEarningsYearsBack(trimmed);
+  const generateYearsBackOnChange = (setter) => {
+    return function(text) {
+      const trimmed = text.trim();
+      setter(trimmed);
+    }
   }
 
   const generateShowToggler = (setter, state) => {
@@ -211,7 +207,7 @@ const SearchPage = ({userId}) => {
           <DividendResultsDisplay
             dividendsData={dividendsData}
             dividends_years_back={dividendsYearsBack}
-            dividendsYearsBackOnChange={dividendsYearsBackOnChange}
+            dividendsYearsBackOnChange={generateYearsBackOnChange(setDividendsYearsBack)}
             displaySettings={displaySettings}
             toggleYieldChange={generateToggleDisplaySetting('showYieldChange')}
             toggleAllDividends={generateToggleDisplaySetting('showAllDividends')}/>
@@ -219,7 +215,7 @@ const SearchPage = ({userId}) => {
           <AllEarningsDisplay
             earnings={dividendsData.earnings}
             earningsYearsBack={earningsYearsBack}
-            earningsYearsBackOnChange={earningsYearsBackOnChange}
+            earningsYearsBackOnChange={generateYearsBackOnChange(setEarningsYearsBack)}
             displaySettings={displaySettings}
             toggleAllEarnings={generateToggleDisplaySetting('showAllEarnings')}/>
         </div>
