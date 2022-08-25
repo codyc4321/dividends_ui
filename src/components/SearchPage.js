@@ -49,6 +49,10 @@ const SearchPage = ({userId}) => {
       {setting_name: 'showAllDividends', visible: true},
       {setting_name: 'showAllEarnings', visible: true},
   ])
+  const [yearsBackSettings, setYearsBackSettings] = useState([
+      {section: 'dividendsYearsBack', years_back: 3},
+      {section: 'earningsYearsBack', years_back: 17}
+  ])
 
   const onTermUpdate = (term) => {
     const trimmed = term.trim()
@@ -178,6 +182,16 @@ const SearchPage = ({userId}) => {
     }
   }
 
+  // const generateUpdateYearsBackSetting = (section) => {
+  //   return function(new_value) {
+  //     const otherSettings = yearsBackSettings.filter((dict) => dict.section !== section);
+  //     const specifiedSetting = yearsBackSettings.find((dict) => dict.section == section);
+  //     specifiedSetting.years_back = new_value
+  //     const newYearsBackSettings = [...otherSettings, specifiedSetting]
+  //     setYearsBackSettings(newYearsBackSettings)
+  //   }
+  // }
+
   const renderMainContent = () => {
     if (!debouncedTerm) {
       return (
@@ -243,6 +257,7 @@ const SearchPage = ({userId}) => {
   }
 
   // console.log("displaySettings: ", displaySettings);
+  console.log(yearsBackSettings);
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
