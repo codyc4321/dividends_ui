@@ -51,7 +51,7 @@ const SearchPage = ({userId}) => {
   ])
   const [yearsBackSettings, setYearsBackSettings] = useState([
       {section: 'dividendsYearsBack', years_back: 3},
-      {section: 'earningsYearsBack', years_back: 17}
+      {section: 'earningsYearsBack', years_back: 5}
   ])
 
   const onTermUpdate = (term) => {
@@ -73,6 +73,23 @@ const SearchPage = ({userId}) => {
   }, [debouncedDividendYearsBack, debouncedEarningsYearsBack])
 
   useEffect(() => {
+    const yearsSettingsCopy = Object.assign(yearsBackSettings);
+    const dividendsYearsBackSetting = yearsSettingsCopy.find((dict) => dict.section == 'dividendsYearsBack');
+    dividendsYearsBackSetting.years_back = dividendsYearsBack;
+    const earningsYearsBackSetting = yearsSettingsCopy.find((dict) => dict.section == 'earningsYearsBack');
+    earningsYearsBackSetting.years_back = earningsYearsBack;
+    setYearsBackSettings(yearsSettingsCopy);
+
+  }, [dividendsYearsBack, earningsYearsBack])
+
+  useEffect(() => {
+    const dividendsYearsBackSetting = yearsBackSettings.find((dict) => dict.section == 'dividendsYearsBack');
+    setDividendsYearsBack(dividendsYearsBackSetting.years_back);
+    const earningsYearsBackSetting = yearsBackSettings.find((dict) => dict.section == 'earningsYearsBack');
+    setEarningsYearsBack(earningsYearsBackSetting.years_back);
+  }, [yearsBackSettings])
+
+  useEffect(() => {
     console.log("user id changed")
     if (userId) {
       const user_profile_api_url = BASE_URL + '/users/' + userId
@@ -86,8 +103,9 @@ const SearchPage = ({userId}) => {
             new_recent_searches.push(dict.search_term)
           })
           setRecentSearches(new_recent_searches);
-
           setDisplaySettings(response.data.display_settings);
+          setYearsBackSettings(response.data.years_back_settings);
+
         })
         .catch((error) => {
           console.log("error in getting user profile: ", error.message)
@@ -257,6 +275,7 @@ const SearchPage = ({userId}) => {
   }
 
   // console.log("displaySettings: ", displaySettings);
+  console.log("yearsBackSettings")
   console.log(yearsBackSettings);
 
   return (
