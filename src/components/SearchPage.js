@@ -114,18 +114,28 @@ const SearchPage = ({userId}) => {
   }, [userId])
 
   useEffect(() => {
-    const user_profile_api_url = BASE_URL + '/users/' + userId
-    const request_data = {
-      searches: recentSearches,
-      display_settings: displaySettings
+    console.log("something changed")
+    console.log(yearsBackSettings)
+    if (userId) {
+      const user_profile_api_url = BASE_URL + '/users/' + userId
+      const request_data = {
+        searches: recentSearches,
+        display_settings: displaySettings,
+        years_back_settings: yearsBackSettings
+      }
+
+      console.log("running user POST")
+      console.log(request_data)
+
+      axios.post(user_profile_api_url, request_data)
+        .then(response => {
+          console.log("user POST response")
+          console.log(response)
+        })
     }
 
-    axios.post(user_profile_api_url, request_data)
-      // .then(response => {
-      //   console.log(response)
-      // })
 
-  }, [recentSearches, displaySettings])
+  }, [recentSearches, displaySettings, yearsBackSettings])
 
   const makeSearchApiRequest = () => {
     let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack + '/' + earningsYearsBack;
@@ -275,8 +285,8 @@ const SearchPage = ({userId}) => {
   }
 
   // console.log("displaySettings: ", displaySettings);
-  console.log("yearsBackSettings")
-  console.log(yearsBackSettings);
+  // console.log("yearsBackSettings")
+  // console.log(yearsBackSettings);
 
   return (
     <div className="ui container" style={{marginTop: '10px'}}>
