@@ -1,5 +1,6 @@
 import React from 'react';
 
+import DisplayToggler from '../shared/DisplayToggler';
 
 const DividendYieldChangeDisplay = (props) => {
 
@@ -32,7 +33,7 @@ const DividendYieldChangeDisplay = (props) => {
 
   return (
     <div>
-      <h3>Yield change per year <span style={{cursor: 'pointer', fontSize: '24px'}} onClick={props.toggleYieldChange}>&nbsp;&nbsp;{yieldChangeDisplaySetting.visible ? '-' : '+'}&nbsp;&nbsp;</span></h3>
+      <h3>Yield change per year <DisplayToggler toggleCallback={props.toggleYieldChange} displaySetting={yieldChangeDisplaySetting} /></h3>
       {mainDisplay}
     </div>
   );
