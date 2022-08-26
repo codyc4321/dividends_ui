@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import SearchPage from './SearchPage';
+import HomePage from './HomePage';
 import Header from './Header';
 
 
@@ -12,6 +13,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" exact element={<SearchPage/>} />
+            <Route path="/home" exact element={<HomePage/>} />
           </Routes>
         </div>
       </BrowserRouter>
