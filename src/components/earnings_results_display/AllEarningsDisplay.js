@@ -1,6 +1,7 @@
 import React from 'react';
 
 // import './DividendResults.css';
+import DisplayToggler from '../shared/DisplayToggler';
 
 
 const AllEarningsDisplay = (props) => {
@@ -84,9 +85,7 @@ const AllEarningsDisplay = (props) => {
         value={props.earningsYearsBack}
         onChange={(e) => props.earningsYearsBackOnChange(e.target.value)}
         /> years
-        <span
-          style={{cursor: 'pointer', fontSize: '24px'}}
-          onClick={props.toggleAllEarnings}>&nbsp;&nbsp;{allEarningsDisplaySetting.visible ? '-' : '+'}&nbsp;&nbsp;</span>
+        <DisplayToggler toggleCallback={props.toggleAllEarnings} displaySetting={allEarningsDisplaySetting} />
       </h3>
       {mainDisplay}
     </div>
