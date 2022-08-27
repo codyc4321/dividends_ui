@@ -204,7 +204,8 @@ const SearchPage = (props) => {
 
   const onTermUpdate = (term) => {
     const trimmed = term.trim()
-    setTerm(trimmed);
+    const upperCased = trimmed.toUpperCase();
+    setTerm(upperCased);
   }
 
   const renderMainContent = () => {
