@@ -48,7 +48,7 @@ const SearchPage = (props) => {
       {setting_name: 'showAllDividends', visible: true},
       {setting_name: 'showAllEarnings', visible: true},
   ])
-  const [urlPathSearchTerm, setUrlPathSearchTerm] = useState(window.location.pathname.replace("/search/", ""));
+  const [urlPathSearchTerm, setUrlPathSearchTerm] = useState(window.location.pathname.replace("/search", "").replace("/", ""));
 
   let DEFAULT_STOCK = urlPathSearchTerm;
   if (!DEFAULT_STOCK) {
@@ -56,10 +56,14 @@ const SearchPage = (props) => {
   }
   const [term, setTerm] = useState(DEFAULT_STOCK);
   const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
-  const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK.toUpperCase()]);
-  // const urlPath = window.location.pathname;
-  // const pathSearchTerm = urlPath.replace("/search/", "");
+  // const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK.toUpperCase()]);
+  const [recentSearches, setRecentSearches] = useState([]);
 
+  // useEffect(() => {
+  //   if (!recentSearches.includes(debounceTerm)) {
+  //     setRecentSearches([...recentSearches, debounceTerm])
+  //   }
+  // }, [debounceTerm])
 
   useEffect(() => {
     if (urlPathSearchTerm) {
