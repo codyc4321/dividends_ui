@@ -165,6 +165,7 @@ const SearchPage = (props) => {
   const recentSearchOnClick = (term) => {
     setTerm(term);
     setDebouncedTerm(term);
+    runSearch();
   }
 
   const removeRecentSearchOnClick = (term) => {
