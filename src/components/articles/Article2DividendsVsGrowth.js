@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
+
 
 const ArticleTwoDividendsVsGrowth = () => {
   return (
@@ -36,8 +38,8 @@ const ArticleTwoDividendsVsGrowth = () => {
       <h4>Tax implications</h4>
       <p>Ordinary dividends are taxed as regular income on your yearly tax return. Qualified dividends are taxed a capital gains, Because most dividends are taxed as regular income,
       investors with a high income and high tax brackets will pay more in taxes from ordinary dividends. However, qualified dividends that are treated like capital gains
-      are not taxed at all for investors who make less than $80,000 per year. Please see this &nbsp;
-      <a href="https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp" target="_blank">Investopedia</a> article for specifics on how dividends are taxed.</p>
+      are not taxed at all for investors who make less than $80,000 per year. Please see the &nbsp;
+      <Link to="/articles/taxes" className="item">Taxes for dividends and capital gains</Link> article for specifics on how dividends and gains are taxed.</p>
       <p></p>
       <p></p>
       <p></p>

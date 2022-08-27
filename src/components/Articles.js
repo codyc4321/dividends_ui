@@ -11,6 +11,10 @@ const Articles = () => {
       <Link to="/articles/dividends-vs-growth" className="item">
         Dividend stocks vs. growth stocks
       </Link>
+      <br/><br/>
+      <Link to="/articles/taxes" className="item">
+        Taxes for dividends and capital gains
+      </Link>
     </div>
   )
 }
