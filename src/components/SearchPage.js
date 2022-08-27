@@ -17,6 +17,7 @@ const PROTOCOL = process.env.REACT_APP_PROTOCOL
 const PORT = process.env.REACT_APP_PORT
 const BASE_URL = PROTOCOL + '://' + HOST + ':' + PORT
 
+
 const SearchPage = ({userId}) => {
 
   const DEFAULT_STOCK = 'ibm';
@@ -158,7 +159,9 @@ const SearchPage = ({userId}) => {
   const generateYearsBackOnChange = (setter) => {
     return function(text) {
       const trimmed = text.trim();
-      setter(trimmed);
+      const numberOnly = trimmed.match(/\d/g).join``
+      const first3 = numberOnly.substring(0, 3);
+      setter(first3);
     }
   }
 
