@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Citation from '../shared/Citation';
+
 
 const ArticleOneDividendKings = () => {
   return (
@@ -53,8 +55,12 @@ const ArticleOneDividendKings = () => {
       <p>SPYD and NOBL are two popular ETFs with high dividend yields that sample the dividend aristocrats.
       As of 2022 there is no ETF dedicated entirely to the dividend kings.</p>
       <h6>Sources</h6>
-      <p style={{fontSize: '10px'}}>Hayes, Adam. “Dividend Aristocrat.” Investopedia, Investopedia, 11 July 2022, <a href="https://www.investopedia.com/terms/d/dividend-aristocrat.asp" target="_blank">https://www.investopedia.com/terms/d/dividend-aristocrat.asp.</a> </p>
-      <p style={{fontSize: '10px'}}>“S&amp;P 500 Dividend Aristocrats.” Corporate Finance Institute, <a href="https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/sp-500-dividend-aristocrats/." target="_blank">https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/sp-500-dividend-aristocrats/.</a> </p>
+      <Citation
+        title="Hayes, Adam. “Dividend Aristocrat.” Investopedia, Investopedia, 11 July 2022"
+        url="https://www.investopedia.com/terms/d/dividend-aristocrat.asp" />
+      <Citation
+        title="S&amp;P 500 Dividend Aristocrats.” Corporate Finance Institute"
+        url="https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/sp-500-dividend-aristocrats/." />
     </div>
   )
 }

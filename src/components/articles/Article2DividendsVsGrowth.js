@@ -2,6 +2,8 @@ import React from 'react';
 
 import {Link} from 'react-router-dom';
 
+import Citation from '../shared/Citation';
+
 
 const ArticleTwoDividendsVsGrowth = () => {
   return (
@@ -44,11 +46,12 @@ const ArticleTwoDividendsVsGrowth = () => {
       <p></p>
       <p></p>
       <h6>Sources</h6>
-      <p style={{fontSize: '10px'}}>Blank, Mark. “Better Buy: Dividend Stocks or Growth Stocks?” The Motley Fool, The Motley Fool,
-      22 June 2022, <a href="https://www.fool.com/investing/2022/06/22/better-buy-dividend-stocks-or-growth-stocks/." target="_blank">
-      https://www.fool.com/investing/2022/06/22/better-buy-dividend-stocks-or-growth-stocks/.</a> </p>
-      <p style={{fontSize: '10px'}}>Maverick, J.B. “Is Dividend Income Taxable?” Investopedia, Investopedia, 13 July 2022,
-      <a href="https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp." target="_blank">https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp.</a></p>
+      <Citation
+        title="Blank, Mark. “Better Buy: Dividend Stocks or Growth Stocks?” The Motley Fool, The Motley Fool"
+        url="https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp." />
+      <Citation
+        title="Maverick, J.B. “Is Dividend Income Taxable?” Investopedia, Investopedia, 13 July 2022"
+        url="https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp." />
     </div>
   )
 }
