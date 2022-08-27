@@ -13,7 +13,7 @@ const ArticleOneDividendKings = () => {
       <ol>
         <li>Must be a member of the S&P 500</li>
         <li>Must maintain liquidity of a daily stock trade value of $5 million for at least 3 months before entering the list</li>
-        <li>Must maintain a total market cap of $3 billion (float-adjusted)</li>
+        <li>Must maintain a total market cap of $3 billion</li>
       </ol>
       <p>Some well-known dividend aristocrats are Aflac (AFL), IBM, Walgreens (WBA), Chlorox (CLX), McDonald's (MCD), Pepsi (PEP), and Walmart (WMT).</p>
       <p>Examples of well-known dividend kings include Coca-Cola (KO), Johnson & Johnson (JNJ),
