@@ -19,13 +19,14 @@ const HomePage = () => {
           <a href="mailto:cchilderswork@gmail.com">cchilderswork@gmail.com</a>.
           Bug fixes are prioritized first while excellent feature requests move to the top of the new feature list.</p>
 
-          <p>You can find ideas about stocks to research on this site at great websites such as &nbsp;
-          <a href="//www.suredividend.com" target="_blank">suredividend.com</a>&nbsp;
-           and <a href="//www.seekingalpha.com" target="_blank">seekingalpha.com</a>.</p>
+          <p>You can find ideas about stocks to research here at great websites such as &nbsp;
+          <a href="//www.suredividend.com" target="_blank">Sure Dividend</a>&nbsp;,&nbsp;
+          <a href="//www.seekingalpha.com" target="_blank">Seeking Alpha</a>, and &nbsp;
+          <a href="//www.fool.com" target="_blank">Motley Fool</a>.</p>
 
            <p>Sign up for their email list and look up the ticker symbols they provide you here.</p>
 
-           <p>Welcome to <a href="/search">www.stockhistoryscreener.com</a>, may you reach your financial dreams in due time!</p>
+           <p>Welcome to <a href="/search">stockhistoryscreener.com</a>, may you reach your financial dreams in due time!</p>
       	</body>
     </div>
   )

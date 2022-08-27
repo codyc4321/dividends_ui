@@ -31,7 +31,10 @@ const ArticleTwoDividendsVsGrowth = () => {
       they are either working less or not working. The high volatility in growth stocks is not ideal for them, they prefer stable companies that won't see large declines in
       stock value. Also, they rely on the dividends paid to live off of.</p>
       <h4>Tax implications</h4>
-      <p></p>
+      <p>Ordinary dividends are taxed as regular income on your yearly tax return. Qualified dividends are taxed a capital gains, Because most dividends are taxed as regular income,
+      investors with a high income and high tax brackets will pay more in taxes from ordinary dividends. However, qualified dividends that are treated like capital gains
+      are not taxed at all for investors who make less than $80,000 per year. Please see this &nbsp;
+      <a href="https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp" target="_blank">Investopedia</a> article for specifics on how dividends are taxed.<p>
       <p></p>
       <p></p>
       <p></p>
@@ -50,8 +53,11 @@ const ArticleTwoDividendsVsGrowth = () => {
       <p></p>
       <h6>Sources</h6>
       <p style={{fontSize: '10px'}}>Blank, Mark. “Better Buy: Dividend Stocks or Growth Stocks?” The Motley Fool, The Motley Fool,
-      22 June 2022, <a href="https://www.fool.com/investing/2022/06/22/better-buy-dividend-stocks-or-growth-stocks/.">
+      22 June 2022, <a href="https://www.fool.com/investing/2022/06/22/better-buy-dividend-stocks-or-growth-stocks/." target="_blank">
       https://www.fool.com/investing/2022/06/22/better-buy-dividend-stocks-or-growth-stocks/.</a> </p>
+      <p style={{fontSize: '10px'}}>Maverick, J.B. “Is Dividend Income Taxable?” Investopedia, Investopedia, 13 July 2022,
+      <a href="https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp." target="_blank">
+      https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp.</a></p>
     </div>
   )
 }
