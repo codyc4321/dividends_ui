@@ -20,7 +20,7 @@ const HomePage = () => {
 
            <p>Sign up for their email list and look up the ticker symbols they provide you here.</p>
 
-           <p>Welcome to <a href="/">www.stockhistoryscreener.com</a>, may you reach your financial dreams in due time!</p>
+           <p>Welcome to <a href="/search">www.stockhistoryscreener.com</a>, may you reach your financial dreams in due time!</p>
       	</body>
     </div>
   )
