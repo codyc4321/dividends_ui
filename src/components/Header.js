@@ -13,6 +13,9 @@ const Header = () => {
         <Link to="/search" className="item">
           Search
         </Link>
+        <Link to="/articles" className="item">
+          Articles
+        </Link>
         <GoogleAuth />
       </div>
     </div>
