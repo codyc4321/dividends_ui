@@ -7,9 +7,14 @@ const HomePage = () => {
       <body>
       		<p>Welcome to <a href="/search">stockhistoryscreener.com</a>, your one stop shop for the most thorough tabulation of historical financial data for the stock market.</p>
 
-          <p>Research the ticker symbols you care about and receive current information about price and dividend yield,
-          dividend yield change over time, a list of recent dividends searchable by year, earnings per share history,
-          and more, with new features being added weekly or monthly. </p>
+          <p>Research the ticker symbols you care about and receive current information about:
+          <ul>
+            <li>price and dividend yield</li>
+            <li>dividend yield change over time</li>
+            <li>all recent dividends going back roughly 25 years</li>
+            <li>earnings per share history going back roughly 25 years</li>
+          </ul>
+          New features being are added weekly or monthly. </p>
       		<p>This site is for your benefit, so please send feature requests, bugs, and comments to &nbsp;
           <a href="mailto:cchilderswork@gmail.com">cchilderswork@gmail.com</a>.
           Bug fixes are prioritized first while excellent feature requests move to the top of the new feature list.</p>
