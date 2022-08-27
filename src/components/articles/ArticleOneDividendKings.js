@@ -23,10 +23,11 @@ const ArticleOneDividendKings = () => {
       <p>Keep in mind, that a consistently raising dividend does not guarentee a high dividend yield.
       However, a stock with a raising dividend held longterm over 20-30 years may start out as a 2%
       dividend on the day you bought the stock, but decades later could become 10% or higher on your
-      initial investment. Consider a stock you buy today for $100, with a 2% dividend. If the yearly
+      initial investment.</p>
+      <p>Consider a stock you buy today for $100, with a 2% dividend. If the yearly
       dividend rate increases to $10 per year 20 years from now, you will be earning 10% on your initial investment, plus
       all the capital gains the stock experienced.  While a raising dividend doesn't guarentee capital gains, as
-      dividends rise, the stock price will oftentimes rise with it. As an example, use our search feature an type in 'HD'.
+      dividends rise, the stock price will oftentimes rise with it. As an example, use our search feature and type in 'HD'.
       Set the dividend search to 20 years, and see how much Home Depot's dividend and stock price has increased longterm.</p>
       <h4>Pros and Cons of buying aristocrats</h4>
       <p>Buying dividend aristocrats may not be an ideal strategy for every investor's goals. Some dividend aristocrats' total returns have recently underperformed the S&P 500.</p>
