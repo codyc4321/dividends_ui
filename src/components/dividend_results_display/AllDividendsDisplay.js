@@ -18,7 +18,7 @@ const AllDividendsDisplay = (props) => {
     });
   }
 
-  const allDividendsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showAllDividends');
+  const allDividendsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name === 'showAllDividends');
   let mainDisplay = null;
   if (allDividendsDisplaySetting.visible) {
     mainDisplay = (
