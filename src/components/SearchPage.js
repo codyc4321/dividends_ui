@@ -20,7 +20,7 @@ const BASE_URL = PROTOCOL + '://' + HOST + ':' + PORT
 
 const SearchPage = ({userId}) => {
 
-  const DEFAULT_STOCK = 'ibm';
+  const DEFAULT_STOCK = 'IBM';
   const [term, setTerm] = useState(DEFAULT_STOCK);
   const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
   const [loading, setLoading] = useState(false);
@@ -50,11 +50,6 @@ const SearchPage = ({userId}) => {
       {setting_name: 'showAllDividends', visible: true},
       {setting_name: 'showAllEarnings', visible: true},
   ])
-
-  const onTermUpdate = (term) => {
-    const trimmed = term.trim()
-    setTerm(trimmed);
-  }
 
   debounceTerm(setDebouncedTerm, term, 1500);
   debounceTerm(setDebouncedDividendYearsBack, dividendsYearsBack, 1500);
@@ -112,7 +107,7 @@ const SearchPage = ({userId}) => {
     console.log(dividends_api_url);
 
     if (!recentSearches.includes(term)) {
-      setRecentSearches([...recentSearches, term])
+      setRecentSearches([...recentSearches, term.toUpperCase()])
     }
 
     axios.get(dividends_api_url, {})
@@ -179,6 +174,11 @@ const SearchPage = ({userId}) => {
       const newDisplaySettings = [...otherSettings, specifiedSetting]
       setDisplaySettings(newDisplaySettings)
     }
+  }
+
+  const onTermUpdate = (term) => {
+    const trimmed = term.trim()
+    setTerm(trimmed);
   }
 
   const renderMainContent = () => {
