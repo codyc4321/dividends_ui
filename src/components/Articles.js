@@ -8,7 +8,7 @@ const Articles = () => {
         Dividend Kings and Aristocrats
       </Link>
       <br/><br/>
-      <Link to="/articles/dividends-vs-growtb" className="item">
+      <Link to="/articles/dividends-vs-growth" className="item">
         Dividend stocks vs. growth stocks
       </Link>
     </div>
