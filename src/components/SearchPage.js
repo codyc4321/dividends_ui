@@ -18,13 +18,11 @@ const PORT = process.env.REACT_APP_PORT
 const BASE_URL = PROTOCOL + '://' + HOST + ':' + PORT
 
 
-const SearchPage = ({userId}) => {
+const SearchPage = (props) => {
 
-  const DEFAULT_STOCK = 'IBM';
-  const [term, setTerm] = useState(DEFAULT_STOCK);
-  const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
+  const userId = props.userId;
+
   const [loading, setLoading] = useState(false);
-  const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK]);
   const [dividendsYearsBack, setDividendsYearsBack] = useState('3');
   const [debouncedDividendYearsBack, setDebouncedDividendYearsBack] = useState('3');
   const [earningsYearsBack, setEarningsYearsBack] = useState('5');
@@ -50,6 +48,29 @@ const SearchPage = ({userId}) => {
       {setting_name: 'showAllDividends', visible: true},
       {setting_name: 'showAllEarnings', visible: true},
   ])
+  const [urlPathSearchTerm, setUrlPathSearchTerm] = useState(window.location.pathname.replace("/search/", ""));
+
+  let DEFAULT_STOCK = urlPathSearchTerm;
+  if (!DEFAULT_STOCK) {
+    DEFAULT_STOCK = 'IBM';
+  }
+  const [term, setTerm] = useState(DEFAULT_STOCK);
+  const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
+  const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK.toUpperCase()]);
+  // const urlPath = window.location.pathname;
+  // const pathSearchTerm = urlPath.replace("/search/", "");
+
+
+  useEffect(() => {
+    if (urlPathSearchTerm) {
+      setTerm(urlPathSearchTerm);
+      setDebouncedTerm(urlPathSearchTerm);
+      runSearch();
+    }
+  }, [urlPathSearchTerm])
+  // console.log(props)
+  // const searchTermInUrlPath = props.match.params.searchTerm;
+  // console.log(searchTermInUrlPath);
 
   debounceTerm(setDebouncedTerm, term, 1500);
   debounceTerm(setDebouncedDividendYearsBack, dividendsYearsBack, 1500);
