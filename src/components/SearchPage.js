@@ -98,11 +98,15 @@ const SearchPage = (props) => {
           // console.log(response)
 
           const recent_searches_response = response.data.searches;
-          const new_recent_searches = [];
+          const saved_recent_searches = [];
           recent_searches_response.map(dict => {
-            new_recent_searches.push(dict.search_term)
+            saved_recent_searches.push(dict.search_term)
           })
-          setRecentSearches(new_recent_searches);
+          console.log("recent searches: ", recentSearches)
+          console.log("saved searches: ", saved_recent_searches)
+          const full_searches = [...recentSearches, ...saved_recent_searches];
+          console.log("full searches: ", full_searches)
+          // setRecentSearches(full_searches);
 
           setDisplaySettings(response.data.display_settings);
         })
@@ -113,16 +117,19 @@ const SearchPage = (props) => {
   }, [userId])
 
   useEffect(() => {
-    const user_profile_api_url = BASE_URL + '/users/' + userId
-    const request_data = {
-      searches: recentSearches,
-      display_settings: displaySettings
-    }
+    if (userId) {
+      const user_profile_api_url = BASE_URL + '/users/' + userId
+      const request_data = {
+        searches: recentSearches,
+        display_settings: displaySettings
+      }
 
-    axios.post(user_profile_api_url, request_data)
-      // .then(response => {
-      //   console.log(response)
-      // })
+      console.log("request data in post to user profile:", request_data)
+      axios.post(user_profile_api_url, request_data)
+        // .then(response => {
+        //   console.log(response)
+        // })
+    }
 
   }, [recentSearches, displaySettings])
 
@@ -132,7 +139,11 @@ const SearchPage = (props) => {
     console.log(dividends_api_url);
 
     if (!recentSearches.includes(term)) {
-      setRecentSearches([...recentSearches, term.toUpperCase()])
+      console.log("recent searches in makeSearchApiRequest: ", recentSearches)
+      console.log("term in makeSearchApiRequest: ", term)
+      const  newSearches = [...recentSearches, term.toUpperCase()];
+      console.log("newSearches in makeSearchApiRequest: ", newSearches)
+      setRecentSearches(newSearches)
     }
 
     axios.get(dividends_api_url, {})
@@ -174,6 +185,7 @@ const SearchPage = (props) => {
 
   const removeRecentSearchOnClick = (term) => {
     const searchesWithoutThisOne = recentSearches.filter(search => search !== term)
+    console.log("searchesWithoutThisOne in removeRecentSearchOnClick: ", searchesWithoutThisOne);
     setRecentSearches(searchesWithoutThisOne);
   }
 
