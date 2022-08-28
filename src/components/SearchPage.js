@@ -112,8 +112,10 @@ const SearchPage = (props) => {
           });
           // console.log("unique searches: ", uniqueSearches)
           setRecentSearches(uniqueSearches);
-
           setDisplaySettings(response.data.display_settings);
+          if (uniqueSearches !== saved_recent_searches) {
+            makeUserprofilePostRequest(uniqueSearches);
+          }
         })
         .catch((error) => {
           console.log("error in getting user profile: ", error.message)
@@ -122,10 +124,14 @@ const SearchPage = (props) => {
   }, [userId])
 
   useEffect(() => {
+    makeUserprofilePostRequest(recentSearches);
+  }, [recentSearches, displaySettings])
+
+  const makeUserprofilePostRequest = (searches) => {
     if (userId) {
       const user_profile_api_url = BASE_URL + '/users/' + userId
       const request_data = {
-        searches: recentSearches,
+        searches: searches,
         display_settings: displaySettings
       }
 
@@ -135,9 +141,7 @@ const SearchPage = (props) => {
         //   console.log(response)
         // })
     }
-
-  }, [recentSearches, displaySettings])
-
+  }
   const makeSearchApiRequest = () => {
     let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack + '/' + earningsYearsBack;
     console.log("dividends_api_url being requested")
