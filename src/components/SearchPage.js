@@ -102,15 +102,15 @@ const SearchPage = (props) => {
           recent_searches_response.map(dict => {
             saved_recent_searches.push(dict.search_term)
           })
-          console.log("recent searches: ", recentSearches)
-          console.log("saved searches: ", saved_recent_searches)
+          // console.log("recent searches: ", recentSearches)
+          // console.log("saved searches: ", saved_recent_searches)
           const full_searches = [...recentSearches, ...saved_recent_searches];
-          console.log("full searches: ", full_searches)
+          // console.log("full searches: ", full_searches)
           // https://www.javascripttutorial.net/array/javascript-remove-duplicates-from-array/
           let uniqueSearches = full_searches.filter((item, index) => {
             return full_searches.indexOf(item) === index;
           });
-          console.log("unique searches: ", uniqueSearches)
+          // console.log("unique searches: ", uniqueSearches)
           setRecentSearches(uniqueSearches);
 
           setDisplaySettings(response.data.display_settings);
@@ -144,10 +144,10 @@ const SearchPage = (props) => {
     console.log(dividends_api_url);
 
     if (!recentSearches.includes(term)) {
-      console.log("recent searches in makeSearchApiRequest: ", recentSearches)
-      console.log("term in makeSearchApiRequest: ", term)
+      // console.log("recent searches in makeSearchApiRequest: ", recentSearches)
+      // console.log("term in makeSearchApiRequest: ", term)
       const  newSearches = [...recentSearches, term.toUpperCase()];
-      console.log("newSearches in makeSearchApiRequest: ", newSearches)
+      // console.log("newSearches in makeSearchApiRequest: ", newSearches)
       setRecentSearches(newSearches)
     }
 
