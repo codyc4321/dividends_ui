@@ -106,7 +106,12 @@ const SearchPage = (props) => {
           console.log("saved searches: ", saved_recent_searches)
           const full_searches = [...recentSearches, ...saved_recent_searches];
           console.log("full searches: ", full_searches)
-          // setRecentSearches(full_searches);
+          // https://www.javascripttutorial.net/array/javascript-remove-duplicates-from-array/
+          let uniqueSearches = full_searches.filter((item, index) => {
+            return full_searches.indexOf(item) === index;
+          });
+          console.log("unique searches: ", uniqueSearches)
+          setRecentSearches(uniqueSearches);
 
           setDisplaySettings(response.data.display_settings);
         })
