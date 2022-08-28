@@ -7,6 +7,7 @@ const ArticleThreeTaxes = () => {
 
   return (
     <div className="ui segment">
+      <h3>Ordinary Dividends</h3>
       <h4>Tax on Ordinary Dividends - Single</h4>
       <table>
         <tr>
@@ -71,6 +72,7 @@ const ArticleThreeTaxes = () => {
         </tr>
       </table>
 
+      <h3>Qualified Dividends and Capital Gains</h3>
       <h4>Tax on Qualified Dividends/Capital Gains - Single</h4>
       <table>
         <tr>
