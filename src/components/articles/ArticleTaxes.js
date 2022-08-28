@@ -8,7 +8,7 @@ const ArticleThreeTaxes = () => {
   return (
     <div className="ui segment">
       <h3>Ordinary Dividends</h3>
-      <h4>Tax on Ordinary Dividends - Single</h4>
+      <h4>Single</h4>
       <table>
         <tr>
           <th>Tax Bracket</th>
@@ -40,7 +40,7 @@ const ArticleThreeTaxes = () => {
         </tr>
       </table>
 
-      <h4>Tax on Ordinary Dividends - Married (Filing Jointly)</h4>
+      <h4>Married (Filing Jointly)</h4>
       <table>
         <tr>
           <th>Tax Bracket</th>
@@ -73,7 +73,7 @@ const ArticleThreeTaxes = () => {
       </table>
 
       <h3>Qualified Dividends and Capital Gains</h3>
-      <h4>Tax on Qualified Dividends/Capital Gains - Single</h4>
+      <h4>Single</h4>
       <table>
         <tr>
           <th>Tax Bracket</th>
@@ -94,7 +94,7 @@ const ArticleThreeTaxes = () => {
         </tr>
       </table>
 
-      <h4>Tax on Qualified Dividends/Capital Gains - Head of Household</h4>
+      <h4>Head of Household</h4>
       <table>
         <tr>
           <th>Tax Bracket</th>
@@ -115,7 +115,7 @@ const ArticleThreeTaxes = () => {
         </tr>
       </table>
 
-      <h4>Tax on Qualified Dividends/Capital Gains - Married (Filing Jointly)</h4>
+      <h4>Married (Filing Jointly)</h4>
       <table>
         <tr>
           <th>Tax Bracket</th>
@@ -136,7 +136,7 @@ const ArticleThreeTaxes = () => {
         </tr>
       </table>
 
-      <h4>Tax on Qualified Dividends/Capital Gains - Married (Filing Seperately)</h4>
+      <h4>Married (Filing Seperately)</h4>
       <table>
         <tr>
           <th>Tax Bracket</th>

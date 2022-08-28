@@ -48,7 +48,7 @@ const SearchPage = (props) => {
       {setting_name: 'showAllDividends', visible: true},
       {setting_name: 'showAllEarnings', visible: true},
   ])
-  const [urlPathSearchTerm, setUrlPathSearchTerm] = useState(window.location.pathname.replace("/search", "").replace("/", ""));
+  const [urlPathSearchTerm, setUrlPathSearchTerm] = useState(window.location.pathname.replace("/search", "").replace("/", "").toUpperCase());
 
   let DEFAULT_STOCK = urlPathSearchTerm;
   if (!DEFAULT_STOCK) {

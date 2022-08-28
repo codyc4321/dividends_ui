@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
+
 import Citation from '../shared/Citation';
 
 
@@ -29,8 +31,8 @@ const ArticleOneDividendKings = () => {
       <p>Consider a stock you buy today for $100, with a 2% dividend. If the yearly
       dividend rate increases to $10 per year 20 years from now, you will be earning 10% on your initial investment, plus
       all the capital gains the stock experienced.  While a raising dividend doesn't guarentee capital gains, as
-      dividends rise, the stock price will oftentimes rise with it. As an example, use our search feature and type in 'HD'.
-      Set the dividend search to 20 years, and see how much Home Depot's dividend and stock price has increased longterm.</p>
+      dividends rise, the stock price will oftentimes rise with it. As an example, check out <Link to="/search/hd" className="item">Home Depot</Link>.
+      Set the dividend history to 20 years, and see how much Home Depot's dividend and stock price has increased longterm.</p>
       <h4>Pros and Cons of buying aristocrats</h4>
       <p>Buying dividend aristocrats may not be an ideal strategy for every investor's goals. Some dividend aristocrats' total returns have recently underperformed the S&P 500.</p>
       <h5>Pros:</h5>
@@ -52,7 +54,7 @@ const ArticleOneDividendKings = () => {
       <p>While this answer depends on timing, as of 2021 and over the last decade, the aristocrats as a whole have
       returned 14.3% compared to 14.2% for the entire S&P 500. Adjusted for risk, however, the lower volatility of the aristocrats is an advantage.</p>
       <h4>What's the best way to invest in dividend aristocrats?</h4>
-      <p>SPYD and NOBL are two popular ETFs with high dividend yields that sample the dividend aristocrats.
+      <p><Link to="/search/spyd" className="item">SPYD</Link> and <Link to="/search/nobl" className="item">NOBL</Link> are two popular ETFs with high dividend yields that sample the dividend aristocrats.
       As of 2022 there is no ETF dedicated entirely to the dividend kings.</p>
       <h6>Sources</h6>
       <Citation
