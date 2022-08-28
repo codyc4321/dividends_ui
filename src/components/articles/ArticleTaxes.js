@@ -94,6 +94,27 @@ const ArticleThreeTaxes = () => {
         </tr>
       </table>
 
+      <h4>Tax on Qualified Dividends/Capital Gains - Head of Household</h4>
+      <table>
+        <tr>
+          <th>Tax Bracket</th>
+          <th>Tax Rate on <br/>
+              Qualified Dividends/Capital Gains</th>
+        </tr>
+        <tr>
+          <td>&#60; $54,100</td>
+          <td>0%</td>
+        </tr>
+        <tr>
+          <td>$54,101 - $473,750</td>
+          <td>15%</td>
+        </tr>
+        <tr>
+          <td>$473,751+</td>
+          <td>20%</td>
+        </tr>
+      </table>
+
       <h4>Tax on Qualified Dividends/Capital Gains - Married (Filing Jointly)</h4>
       <table>
         <tr>
@@ -132,27 +153,6 @@ const ArticleThreeTaxes = () => {
         </tr>
         <tr>
           <td>$250,801+</td>
-          <td>20%</td>
-        </tr>
-      </table>
-
-      <h4>Tax on Qualified Dividends/Capital Gains - Head of Household</h4>
-      <table>
-        <tr>
-          <th>Tax Bracket</th>
-          <th>Tax Rate on <br/>
-              Qualified Dividends/Capital Gains</th>
-        </tr>
-        <tr>
-          <td>&#60; $54,100</td>
-          <td>0%</td>
-        </tr>
-        <tr>
-          <td>$54,101 - $473,750</td>
-          <td>15%</td>
-        </tr>
-        <tr>
-          <td>$473,751+</td>
           <td>20%</td>
         </tr>
       </table>
