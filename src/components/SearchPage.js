@@ -179,10 +179,14 @@ const SearchPage = (props) => {
 
   const generateYearsBackOnChange = (setter) => {
     return function(text) {
-      const trimmed = text.trim();
-      const numberOnly = trimmed.match(/\d/g).join``
-      const first3 = numberOnly.substring(0, 3);
-      setter(first3);
+      if (!text) {
+        setter('');
+      } else {
+        const trimmed = text.trim();
+        const numberOnly = trimmed.match(/\d/g).join``
+        const first3 = numberOnly.substring(0, 3);
+        setter(first3);
+      }
     }
   }
 
