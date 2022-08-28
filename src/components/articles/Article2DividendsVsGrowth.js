@@ -23,16 +23,16 @@ const ArticleTwoDividendsVsGrowth = () => {
       and at this point its best growth opportunities are mergers and acquisitions, spinning off child companies in different industries, going for a full vertical integration
       of its own supply chain, or developing an international presence if it didn't have one.</p>
       <p>Because mature companies are finding it difficult to keep growing, and they should do something with their profits, many decide to pay dividends to reward
-      investors for their support and to make the company's stock more valuable. These large, mature, and profitible companies that pay dividends are the least risky
+      investors for their support and to make the company's stock more valuable. These large, mature, and profitable companies that pay dividends are the least risky
       stocks to invest in. The total returns you will earn may be lower than with growth stocks, but if safety is your main goal, mature companies may be for you.
-      Remember, with less risk, there is usually less potential for large gains,</p>
+      Remember, with less risk, there is usually less potential for large gains.</p>
       <h4>Which type of stock is best for me?</h4>
       <p>If you are decades away from being able to retire, growth stocks are your best bet, They offer much higher total return potential than the safer dividend companies.
       While you can also invest in some dividend stocks to balance your portfolio, choosing mostly growth stocks will net you the highest total return and the most comfortable
       retirement.</p>
       <p>Investing in growth stocks requires good discipline and emotional control. Take Tesla, which has increased in value 1500% since 2016. This year, it is down a&nbsp;
       whopping 45%. Investors will still be seeing a profit, but the large downswings of newer companies and growth stocks can cause some investors to panic sell. &nbsp;
-      As is usually the case, taking a longterm approach with growth stocks is best,</p>
+      As is usually the case, taking a longterm approach with growth stocks is best.</p>
       <p>For investors nearing retirement or in retirement, preserving their net worth is more important than quickly growing it. Losing a large portion of their
       portfolio's value would be catastrophic as they do not have the income from work to replace it. Also, they may need to sell stocks to pay bills since
       they are either working less or not working. The high volatility in growth stocks is not ideal for them, they prefer stable companies that won't see large declines in

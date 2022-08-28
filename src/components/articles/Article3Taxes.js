@@ -7,7 +7,48 @@ const ArticleThreeTaxes = () => {
 
   return (
     <div className="ui segment">
-
+      <table>
+        <tr>
+          <th>Tax Bracket</th>
+          <th>Tax Rate on Regular Income (Ordinary Dividends)</th>
+        </tr>
+        <tr>
+          <td>> $10,275</td>
+          <td>10
+          %</td>
+        </tr>
+        <tr>
+          <td>$10,276 - $41,775</td>
+          <td>Tobias</td>
+        </tr><tr>
+          <td>Emil</td>
+          <td>Tobias</td>
+        </tr><tr>
+          <td>Emil</td>
+          <td>Tobias</td>
+        </tr><tr>
+          <td>Emil</td>
+          <td>Tobias</td>
+        </tr><tr>
+          <td>Emil</td>
+          <td>Tobias</td>
+        </tr><tr>
+          <td>Emil</td>
+          <td>Tobias</td>
+        </tr><tr>
+          <td>Emil</td>
+          <td>Tobias</td>
+        </tr><tr>
+          <td>Emil</td>
+          <td>Tobias</td>
+        </tr><tr>
+          <td>Emil</td>
+          <td>Tobias</td>
+        </tr><tr>
+          <td>Emil</td>
+          <td>Tobias</td>
+        </tr>
+      </table>
 
 
       <Citation
