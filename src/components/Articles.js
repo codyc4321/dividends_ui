@@ -30,9 +30,10 @@ const Articles = () => {
       <br/>
 
       <h4>Bonds</h4>
-      <Link to="/articles/fake" className="item">
+      <Link to="/articles/types-of-bonds" className="item">
         Types of Bonds
       </Link>
+      {/*
       <br/><br/>
       <Link to="/articles/fake" className="item">
         blah
@@ -41,8 +42,9 @@ const Articles = () => {
       <Link to="/articles/fake" className="item">
         blah
       </Link>
-      <br/>
+      <br/> */}
 
+      {/*
       <h3>Alternative Investments</h3>
 
       <h4>Real Estate</h4>
@@ -62,7 +64,7 @@ const Articles = () => {
       <h4>Commodities</h4>
       <Link to="/articles/commodities-basics" className="item">
         How do I Invest in Commodities (What are Commodities)?
-      </Link>
+      </Link> */}
     </div>
   )
 }

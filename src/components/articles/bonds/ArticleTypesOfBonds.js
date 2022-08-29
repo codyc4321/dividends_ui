@@ -37,7 +37,7 @@ const body = (
   </div>
 )
 
-const ArticleWhyInvest = {
+const ArticleTypesOfBonds = {
   body: body,
   sources: [
     {
@@ -52,4 +52,4 @@ const ArticleWhyInvest = {
 }
 
 
-export default ArticleWhyInvest;
+export default ArticleTypesOfBonds;
