@@ -16,7 +16,7 @@ const Article = (props) => {
   return (
     <div className="ui segment">
       {props.data.body}
-      <br/><br/>
+      <br/>
       <h6>Sources</h6>
       {sources}
     </div>
