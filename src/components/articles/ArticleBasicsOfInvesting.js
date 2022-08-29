@@ -3,7 +3,7 @@ import React from 'react';
 import Citation from '../shared/Citation';
 
 
-const ArticleTaxes = () => {
+const ArticleThreeTaxes = () => {
 
   return (
     <div className="ui segment">
@@ -170,4 +170,4 @@ const ArticleTaxes = () => {
 }
 
 
-export default ArticleTaxes;
+export default ArticleThreeTaxes;

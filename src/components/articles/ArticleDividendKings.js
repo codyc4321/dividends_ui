@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import Citation from '../shared/Citation';
 
 
-const ArticleOneDividendKings = () => {
+const ArticleDividendKings = () => {
   return (
     <div className="ui segment">
       <h3>Dividend Kings and Aristocrats</h3>
@@ -67,4 +67,4 @@ const ArticleOneDividendKings = () => {
   )
 }
 
-export default ArticleOneDividendKings;
+export default ArticleDividendKings;

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import Citation from '../shared/Citation';
 
 
-const ArticleTwoDividendsVsGrowth = () => {
+const ArticleDividendsVsGrowth = () => {
   return (
     <div className="ui segment">
       <h3>Dividend vs. Growth stocks</h3>
@@ -56,4 +56,4 @@ const ArticleTwoDividendsVsGrowth = () => {
   )
 }
 
-export default ArticleTwoDividendsVsGrowth;
+export default ArticleDividendsVsGrowth;
