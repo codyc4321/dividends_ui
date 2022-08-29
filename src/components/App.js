@@ -5,6 +5,7 @@ import HomePage from './HomePage';
 import Header from './Header';
 import Article from './articles/Article';
 import Articles from './Articles';
+import ArticleWhyInvest from './articles/basics/ArticleWhyInvest';
 import ArticleBasicsOfInvesting from './articles/basics/ArticleBasicsOfInvesting';
 import ArticleDividendKings from './articles/stocks/ArticleDividendKings';
 import ArticleDividendsVsGrowth from './articles/stocks/ArticleDividendsVsGrowth';
@@ -24,7 +25,8 @@ const App = () => {
             <Route path="/search/" element={<SearchPage/>} />
             <Route path="/search/:searchTerm" element={<SearchPage/>} />
             <Route path="/articles" exact element={<Articles/>} />
-            <Route path="/articles/basics" exact element={<Article data={ArticleBasicsOfInvesting} />} />
+            <Route path="/articles/why-invest" exact element={<Article data={ArticleWhyInvest} />} />
+            <Route path="/articles/investing-basics" exact element={<Article data={ArticleBasicsOfInvesting} />} />
             <Route path="/articles/dividend-aristocrats" exact element={<Article data={ArticleDividendKings} />} />
             <Route path="/articles/dividends-vs-growth" exact element={<Article data={ArticleDividendsVsGrowth} />} />
             <Route path="/articles/taxes" exact element={<Article data={ArticleTaxes} />} />
