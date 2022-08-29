@@ -43,9 +43,9 @@ const ArticleThreeTaxes = () => {
           </table>
         </div>
 
-        <div style={{float: 'left'}}>
+        <div style={{float: 'left', width: '35%'}}>
           <h4>Married (Filing Jointly)</h4>
-          <table style={{width: '35%'}}>
+          <table>
             <tr>
               <th>Tax Bracket</th>
               <th>Tax Rate on Regular Income <br/>(Ordinary Dividends)</th>
