@@ -165,6 +165,10 @@ const ArticleTaxes = {
     {
       title: '"Topic No. 409 Capital Gains and Losses." Internal Revenue Service',
       url: "https://www.irs.gov/taxtopics/tc409."
+    },
+    {
+      title: "Maverick, J.B. “Is Dividend Income Taxable?” Investopedia, Investopedia, 13 July 2022",
+      url: "https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp."
     }
   ]
 }

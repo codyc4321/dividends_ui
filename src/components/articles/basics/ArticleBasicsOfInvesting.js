@@ -26,8 +26,8 @@ const body = (
     While bonds and preferred stocks can appreciate in value (cash depreciates) common stock has unlimited upside and can allow massive returns
     as small companies can grow very large. One of the most popular stock funds, VTI, has returned 10% on average over the last 30 years.
     In fact, according to <a href="https://www.nerdwallet.com/article/investing/average-stock-market-return" target="_blank">Nerd Wallet</a>, the
-    average return of the stock market over the last 50 years is 10%. However, the S&P 500 has returned a &nbsp;
-    <a href="https://www.businessinsider.com/personal-finance/average-stock-market-return." target="_blank">massive 14.7%</a> over the last 10 years.</p>
+    average return of the stock market is 10%. However, the S&P 500 has returned a &nbsp;
+    <a href="https://www.businessinsider.com/personal-finance/average-stock-market-return" target="_blank">massive 14.7%</a> over the last 10 years.</p>
     <p></p>
     <p></p>
     <p></p>
