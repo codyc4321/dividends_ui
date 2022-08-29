@@ -5,10 +5,10 @@ import HomePage from './HomePage';
 import Header from './Header';
 import Article from './articles/Article';
 import Articles from './Articles';
-import ArticleBasicsOfInvesting from './articles/ArticleBasicsOfInvesting';
-import ArticleDividendKings from './articles/ArticleDividendKings';
-import ArticleDividendsVsGrowth from './articles/ArticleDividendsVsGrowth';
-import ArticleTaxes from './articles/ArticleTaxes';
+import ArticleBasicsOfInvesting from './articles/basics/ArticleBasicsOfInvesting';
+import ArticleDividendKings from './articles/stocks/ArticleDividendKings';
+import ArticleDividendsVsGrowth from './articles/stocks/ArticleDividendsVsGrowth';
+import ArticleTaxes from './articles/stocks/ArticleTaxes';
 
 // https://stackoverflow.com/questions/47228311/how-to-match-arbitrary-text-after-a-route-with-react-router
 

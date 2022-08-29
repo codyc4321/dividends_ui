@@ -1,6 +1,7 @@
 
 const body = (
   <div>
+    <h2>Taxes on Stocks</h2>
     <h3>Ordinary Dividends</h3>
     <h4>Single</h4>
     <table>

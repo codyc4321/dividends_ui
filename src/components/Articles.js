@@ -8,7 +8,7 @@ const Articles = () => {
       <Link to="/articles/basics" className="item">
         Basics of Investing
       </Link>
-      <br/><br/>
+      <br/>
       <h3>Stocks</h3>
       <Link to="/articles/dividend-aristocrats" className="item">
         Dividend Kings and Aristocrats
@@ -21,6 +21,7 @@ const Articles = () => {
       <Link to="/articles/taxes" className="item">
         Taxes for dividends and capital gains
       </Link>
+      <br/>
       <h3>Alternative Investments</h3>
       <h4>Real Estate</h4>
       <Link to="/articles/reit-basics" className="item">
@@ -32,9 +33,9 @@ const Articles = () => {
       </Link>
       <br/><br/>
       <Link to="/articles/reit-analyze" className="item">
-        How do analyze different REITs
+        How to analyze different REITs
       </Link>
-      <br/><br/>
+      <br/>
       <h4>Commodities</h4>
       <Link to="/articles/commodities-basics" className="item">
         How do I Invest in Commodities (What are Commodities)?

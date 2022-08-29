@@ -1,8 +1,4 @@
-import React from 'react';
-
 import {Link} from 'react-router-dom';
-
-import Citation from '../shared/Citation';
 
 
 const body = (
