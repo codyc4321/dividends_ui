@@ -58,10 +58,10 @@ const ArticleOneDividendKings = () => {
       As of 2022 there is no ETF dedicated entirely to the dividend kings.</p>
       <h6>Sources</h6>
       <Citation
-        title="Hayes, Adam. “Dividend Aristocrat.” Investopedia, Investopedia, 11 July 2022"
+        title='Hayes, Adam. "Dividend Aristocrat." Investopedia, Investopedia, 11 July 2022'
         url="https://www.investopedia.com/terms/d/dividend-aristocrat.asp" />
       <Citation
-        title="S&amp;P 500 Dividend Aristocrats.” Corporate Finance Institute"
+        title='"S&amp;P 500 Dividend Aristocrats." Corporate Finance Institute'
         url="https://corporatefinanceinstitute.com/resources/knowledge/trading-investing/sp-500-dividend-aristocrats/." />
     </div>
   )
