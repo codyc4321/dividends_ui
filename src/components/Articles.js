@@ -21,11 +21,11 @@ const Articles = () => {
       </Link>
       <br/><br/>
       <Link to="/articles/dividends-vs-growth" className="item">
-        Dividend stocks vs. growth stocks
+        Dividend Stocks vs. Growth Stocks
       </Link>
       <br/><br/>
       <Link to="/articles/taxes" className="item">
-        Taxes for dividends and capital gains
+        Taxes for Dividends and Capital Gains
       </Link>
       <br/>
 
@@ -55,7 +55,7 @@ const Articles = () => {
       </Link>
       <br/><br/>
       <Link to="/articles/reit-analyze" className="item">
-        How to analyze different REITs
+        How to Analyze Different REITs
       </Link>
       <br/>
 
