@@ -3,7 +3,9 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import SearchPage from './SearchPage';
 import HomePage from './HomePage';
 import Header from './Header';
+import Article from './articles/Article';
 import Articles from './Articles';
+import ArticleBasicsOfInvesting from './articles/ArticleBasicsOfInvesting';
 import ArticleDividendKings from './articles/ArticleDividendKings';
 import ArticleDividendsVsGrowth from './articles/ArticleDividendsVsGrowth';
 import ArticleTaxes from './articles/ArticleTaxes';
@@ -22,9 +24,10 @@ const App = () => {
             <Route path="/search/" element={<SearchPage/>} />
             <Route path="/search/:searchTerm" element={<SearchPage/>} />
             <Route path="/articles" exact element={<Articles/>} />
+            <Route path="/articles/basics" exact element={<ArticleBasicsOfInvesting/>} />
             <Route path="/articles/dividend-aristocrats" exact element={<ArticleDividendKings/>} />
             <Route path="/articles/dividends-vs-growth" exact element={<ArticleDividendsVsGrowth/>} />
-            <Route path="/articles/taxes" exact element={<ArticleTaxes/>} />
+            <Route path="/articles/taxes" exact element={<Article data={ArticleTaxes} />} />
           </Routes>
         </div>
       </BrowserRouter>
