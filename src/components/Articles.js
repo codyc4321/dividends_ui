@@ -23,6 +23,22 @@ const Articles = () => {
       </Link>
       <h3>Alternative Investments</h3>
       <h4>Real Estate</h4>
+      <Link to="/articles/reit-basics" className="item">
+        How do I Invest in Real Estate (What are REITs)?
+      </Link>
+      <br/><br/>
+      <Link to="/articles/reit-taxes" className="item">
+        What are the Tax Implications of REITs
+      </Link>
+      <br/><br/>
+      <Link to="/articles/reit-analyze" className="item">
+        How do analyze different REITs
+      </Link>
+      <br/><br/>
+      <h4>Commodities</h4>
+      <Link to="/articles/commodities-basics" className="item">
+        How do I Invest in Commodities (What are Commodities)?
+      </Link>
     </div>
   )
 }

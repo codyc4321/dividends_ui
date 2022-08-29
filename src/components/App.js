@@ -24,8 +24,8 @@ const App = () => {
             <Route path="/search/" element={<SearchPage/>} />
             <Route path="/search/:searchTerm" element={<SearchPage/>} />
             <Route path="/articles" exact element={<Articles/>} />
-            <Route path="/articles/basics" exact element={<ArticleBasicsOfInvesting/>} />
-            <Route path="/articles/dividend-aristocrats" exact element={<ArticleDividendKings/>} />
+            <Route path="/articles/basics" exact element={<Article data={ArticleBasicsOfInvesting} />} />
+            <Route path="/articles/dividend-aristocrats" exact element={<Article data={ArticleDividendKings} />} />
             <Route path="/articles/dividends-vs-growth" exact element={<Article data={ArticleDividendsVsGrowth} />} />
             <Route path="/articles/taxes" exact element={<Article data={ArticleTaxes} />} />
           </Routes>
