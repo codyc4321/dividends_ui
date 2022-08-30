@@ -33,10 +33,10 @@ const body = (
     they are either working less or not working. The high volatility in growth stocks is not ideal for them, they prefer stable companies that won't see large declines in
     stock value. Also, they rely on the dividends paid to live off of.</p>
     <h4>Tax implications</h4>
-    <p>Ordinary dividends are taxed as regular income on your yearly tax return. Qualified dividends are taxed a capital gains, Because most dividends are taxed as regular income,
-    investors with a high income and high tax brackets will pay more in taxes from ordinary dividends. However, qualified dividends that are treated like capital gains
-    are not taxed at all for investors who make less than $80,000 per year. Please see the &nbsp;
-    <Link to="/articles/taxes" className="item">Taxes for dividends and capital gains</Link> article for specifics on how dividends and gains are taxed.</p>
+    <p>Ordinary dividends are taxed as regular income on your yearly tax return. Qualified dividends are taxed as capital gains. Because most dividends are taxed as
+    regular income, investors with a high income and high tax brackets will pay more in taxes from ordinary dividends. However, qualified dividends that are
+    treated like capital gains are not taxed at all for single investors who make less than $40,400 per year (or $80,800 for married investors). Please see &nbsp;
+    <Link to="/articles/taxes" className="item">Taxes for dividends and capital gains</Link> for specifics on how dividends and gains are taxed.</p>
   </div>
 )
 

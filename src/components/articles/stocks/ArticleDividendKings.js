@@ -47,7 +47,8 @@ const body = (
       <li>Due to above, high dividend paying stocks usually produce less capital gains than growth stocks</li>
       <li>Dividends are taxable as income, and can cause hardship to your yearly tax bill</li>
     </ul>
-    <p>For retirees especially, the lower volatility and safe income of these stocks can be a large advantage in their portfolio.
+    <p>Mature, profitable companies like the dividend kings and aristocrats have less swings in stock price due their stability and consistent quarterly earnings.
+    For retirees especially, the lower volatility and safe income of these stocks can be a large advantage in their portfolio.
     When you no longer work for income, large swings in your portfolio value can cause losses if you need to sell stocks to raise cash in the short term.</p>
     <h4>Dividend aristocrats vs. the market?</h4>
     <p>While this answer depends on timing, as of 2021 and over the last decade, the aristocrats as a whole have
