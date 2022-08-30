@@ -27,7 +27,7 @@ const body = (
     retirement.</p>
     <p>Investing in growth stocks requires good discipline and emotional control. Take Tesla, which has increased in value 1500% since 2016. This year, it is down a&nbsp;
     whopping 45%. Investors will still be seeing a profit, but the large downswings of newer companies and growth stocks can cause some investors to panic sell. &nbsp;
-    As is usually the case, taking a longterm approach with growth stocks is best.</p>
+    As is usually the case, taking a long-term approach with growth stocks is best.</p>
     <p>For investors nearing retirement or in retirement, preserving their net worth is more important than quickly growing it. Losing a large portion of their
     portfolio's value would be catastrophic as they do not have the income from work to replace it. Also, they may need to sell stocks to pay bills since
     they are either working less or not working. The high volatility in growth stocks is not ideal for them, they prefer stable companies that won't see large declines in

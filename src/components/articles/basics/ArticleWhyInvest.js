@@ -20,7 +20,7 @@ const body = (
       <li>to make use of for future benefits or advantages</li>
     </ol>
     <p>Definition 2 is actually very relevant to this discussion because when we invest money we are giving up short term gratification (spending it) for&nbsp;
-    the longterm advantages of growing it into more money. But while growing our money into more money may be our goal, investing has unique risks that saving doesn't have.</p>
+    the long-term advantages of growing it into more money. But while growing our money into more money may be our goal, investing has unique risks that saving doesn't have.</p>
     <p>Although investing carries the risk of losing money, many financial advisors consider <i>not</i> investing much more risky than investing for your chances at retirement.</p>
     Some of the risks of not investing include:
     <ol>
