@@ -103,7 +103,7 @@ const body = (
     While we discuess ETFs holding dozens of different stocks, index funds are a type of ETF that sample a specific sector of the economy, such as
     an insurance company index fund, S&P 500 index fund, or oil index fund. Index funds are passively managed and have lower fees than actively managed funds.
     The leader in ETFs and index funds is <a href="https://investor.vanguard.com/investment-products/list/etfs" target="_blank">Vanguard</a>,
-    and their ETF fees are usually the lowest in the entire industry. Compare Vanguard's 0.2% to 0.04% fees to most ETF's 1% fees and the savings you
+    and their ETF fees are usually the lowest in the entire industry. Compare Vanguard's 0.2% to 0.04% fees to most ETFs' 1% fees and the savings you
     get by investing in Vanguard can add up to tens of thousands of dollars over 30 years.</p>
     <p></p>
     <p></p>

@@ -30,22 +30,30 @@ const body = (
     Large funds that need safe investments, such as most insurance companies, carry a lot of treasury bonds. The minimum value of a treasury bond is $100.</p>
 
     <h5>Savings Bonds</h5>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <p>Savings bonds are also issued and guarenteed by the U.S. Federal government. They can be bought directly from the U.S. Treasury, or from banks and credit unions.
+    Unlike treasuries savings bonds cannot be resold, they must be held by their original owner. Savings bonds usually come in either series EE or series I forms.</p>
+    <p>EE bonds return a fixed rate over their lfietime, compounded every 6 months.</p>
+    <p>I bonds (I for inflation) pay a fixed rate determined at purchase, plus an inflation rate calculated once per year, compounded every 6 months.
+    In June 2022, the fixed rate was 0% but the inflation rate was 10%.</p>
+    <p>The minimum purchase for a savings bond is anything over $25.</p>
 
     <h5>Agency Bonds</h5>
-    <p></p>
-    <p></p>
-    <p></p>
+    <p>Agency bonds are issued by Federal agencies besides the Treasury, or by government sponsored enterprises like the Federal National Mortgage Association.</p>
+    <p>Agency bonds typical pay interest every 6 months, and Federal government agency bonds are safer than bonds from goverment sponsored companies.</p>
+    <p>The minimum purchase for most agency bonds is $10,000.</p>
     <p></p>
 
     <h5>Municipal Bonds</h5>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <p>Municipal bonds are issued by states, counties, cities, or local nonprofits, to raise money for public projects such as building parks, schools, or roads. </p>
+    <p>Muncipal bonds are usually income tax-free, although they pay lower rates than corporate bonds. They are also usually state tax-free if the purchaser lives
+    in the bond issuer's state. As they have tax advantages, they are popular with investors in a high tax bracket.</p>
+    <p>Munis come in 2 main issues, &nbsp;
+    <a href="https://www.schwab.com/learn/story/understanding-general-obligation-municipal-bonds" target="_blank">general obligation bonds</a>, &nbsp;
+    which are paid from the general revunue of the municipality, such as property tax,
+    and <a href="https://www.schwab.com/learn/story/understanding-municipal-revenue-bonds" target="_blank">revenue bonds</a>,
+    which are paid for by a specific revenue source of the project, like a toll road or hospital revenue.</p>
+    <p>Before Detroit went bankrupt, general obligation bonds were considered safer and payed a lower coupon rate.</p>
+    <p>Most municipal bonds are sold in increments of $5,000.</p>
 
     <h5>Corporate Bonds</h5>
     <p></p>
@@ -76,11 +84,36 @@ const ArticleTypesOfBonds = {
       url: "https://www.finra.org/investors/learn-to-invest/types-investments/bonds/types-of-bonds/us-savings-bonds"
     },
     {
+      title: "“Research Center.” Individual - Comparing Series EE and Series I Savings Bonds",
+      url: "https://www.treasurydirect.gov/indiv/research/indepth/ebonds/res_e_bonds_eecomparison.htm"
+    },
+    {
       title: "“U.S. Treasury Securities.” U.S. Treasury Securities | FINRA.org",
       url: "https://www.finra.org/investors/learn-to-invest/types-investments/bonds/types-of-bonds/us-treasury-securities"
     },
+    {
+      title: "Chen, James. “What Is an Agency Bond?” Investopedia, Investopedia, 19 May 2021",
+      url: "https://www.investopedia.com/terms/a/agencybonds.asp"
+    },
+    {
+      title: "Chen, James. “Municipal Bond Definition.” Investopedia, Investopedia, 8 Feb. 2022",
+      url: "https://www.investopedia.com/terms/m/municipalbond.asp"
+    },
+    {
+      title: "Howard, Cooper. “Understanding Municipal Revenue Bonds.” Schwab Brokerage",
+      url: "https://www.schwab.com/learn/story/understanding-municipal-revenue-bonds"
+    },
+    {
+      title: "Howard, Cooper. “Understanding General Obligation Municipal Bonds.” Schwab Brokerage",
+      url: "https://www.schwab.com/learn/story/understanding-general-obligation-municipal-bonds"
+    },
+    {
+      title: "“Municipal Bonds.” Municipal Bonds | FINRA.org",
+      url: "https://www.finra.org/investors/learn-to-invest/types-investments/bonds/types-of-bonds/municipal-bonds"
+    },
   ]
 }
+
 
 
 export default ArticleTypesOfBonds;
