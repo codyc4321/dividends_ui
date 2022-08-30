@@ -56,8 +56,12 @@ const body = (
     <p>Most municipal bonds are sold in increments of $5,000.</p>
 
     <h5>Corporate Bonds</h5>
-    <p></p>
-    <p></p>
+    <p>Corporate bonds are issued by many companies of different sizes. They are the riskiest type of bond and hence pay a larger coupon rate.
+    They are usually sold to investors through various banks, and you can find them for sale in most online brokerages' websites.</p>
+    <p>Corporate bonds are assigned a &nbsp;
+    <a href="https://www.investopedia.com/terms/c/corporate-credit-rating.asp" target="_blank">credit rating</a>&nbsp;
+    from varius agencies, such as from AAA to D. The bond issuer will usually pay a higher rate the lower their credit rating, as a lower rating should mean
+    higher risk.</p>
     <p></p>
     <p></p>
     <p></p>
@@ -80,16 +84,16 @@ const ArticleTypesOfBonds = {
       url: "https://www.thebalance.com/what-are-the-different-types-of-bonds-3305600"
     },
     {
+      title: "“U.S. Treasury Securities.” U.S. Treasury Securities | FINRA.org",
+      url: "https://www.finra.org/investors/learn-to-invest/types-investments/bonds/types-of-bonds/us-treasury-securities"
+    },
+    {
       title: "“U.S. Savings Bonds.” U.S. Savings Bonds | FINRA.org",
       url: "https://www.finra.org/investors/learn-to-invest/types-investments/bonds/types-of-bonds/us-savings-bonds"
     },
     {
       title: "“Research Center.” Individual - Comparing Series EE and Series I Savings Bonds",
       url: "https://www.treasurydirect.gov/indiv/research/indepth/ebonds/res_e_bonds_eecomparison.htm"
-    },
-    {
-      title: "“U.S. Treasury Securities.” U.S. Treasury Securities | FINRA.org",
-      url: "https://www.finra.org/investors/learn-to-invest/types-investments/bonds/types-of-bonds/us-treasury-securities"
     },
     {
       title: "Chen, James. “What Is an Agency Bond?” Investopedia, Investopedia, 19 May 2021",
