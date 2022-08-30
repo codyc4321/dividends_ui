@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import MyLink from '../../shared/MyLink';
 
 
 const body = (
@@ -36,7 +36,7 @@ const body = (
     <p>Ordinary dividends are taxed as regular income on your yearly tax return. Qualified dividends are taxed as capital gains. Because most dividends are taxed as
     regular income, investors with a high income and high tax brackets will pay more in taxes from ordinary dividends. However, qualified dividends that are
     treated like capital gains are not taxed at all for single investors who make less than $40,400 per year (or $80,800 for married investors). Please see &nbsp;
-    <Link to="/articles/taxes" className="item">Taxes for dividends and capital gains</Link> for specifics on how dividends and gains are taxed.</p>
+    <MyLink path="/articles/taxes" text="Taxes for dividends and capital gains" /> for specifics on how dividends and gains are taxed.</p>
   </div>
 )
 
@@ -51,7 +51,11 @@ const ArticleDividendsVsGrowth = {
     {
       title: "Maverick, J.B. “Is Dividend Income Taxable?” Investopedia, Investopedia, 13 July 2022",
       url: "https://www.investopedia.com/ask/answers/090415/dividend-income-taxable.asp."
-    }
+    },
+    {
+      title: '"IRS Provides Tax Inflation Adjustments for Tax Year 2022." Internal Revenue Service',
+      url: "https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2022."
+    },
   ]
 }
 
