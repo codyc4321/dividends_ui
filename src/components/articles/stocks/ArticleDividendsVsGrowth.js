@@ -1,9 +1,10 @@
 import MyLink from '../../shared/MyLink';
 
+import authors from '../authors';
+
 
 const body = (
   <div>
-    <h3>Dividend vs. Growth stocks</h3>
     <p>One important distinction every new investor should understand is the advantages of either dividend or growth stocks.</p>
     <p>First we must understand what makes a dividend or growth stock. Companies go through 3 stages in their lifecycle: startup, growing, and finally, mature.</p>
     <p>In the startup phase, the company is not turning a profit, and it relies on outside funding, like selling equity to investors or taking out loans. Each month
@@ -42,6 +43,8 @@ const body = (
 
 
 const ArticleDividendsVsGrowth = {
+  title: "Dividend vs. Growth Stocks",
+  author: authors.cody,
   body: body,
   sources: [
     {

@@ -1,8 +1,9 @@
+import authors from '../authors';
+
 
 const body = (
   <div>
-    <h3>Types of Bonds</h3>
-    There are many types of bonds, and at least 5 main types:
+    <p>There are many types of bonds, and at least 5 main types:</p>
     <ul>
       <li>Treasury Bonds</li>
       <li>Savings Bonds</li>
@@ -10,6 +11,7 @@ const body = (
       <li>Municipal Bonds</li>
       <li>Corporate Bonds</li>
     </ul>
+
     <h5>Treasury Bonds</h5>
     <p>The most well-known, most common, and most important type of bond is U.S. Treasury bonds. Treasury "bonds" actually come in&nbsp;
     <a href="https://www.finra.org/investors/learn-to-invest/types-investments/bonds/types-of-bonds/us-treasury-securities" target="_blank">
@@ -25,9 +27,7 @@ const body = (
     faith and credit of the U.S. government. If the lowest risk bond (treasuries) is currently paying 3%, then higher risk bonds must pay more than 3% to
     attract potential investors. As the safest investment, they also have the lowest return.</p>
     <p>Treasuries are sold at auctions to accredited investors and companies, which then resell them to other companies or individuals in the secondary market.
-    Large funds that need safe investments, such as most insurance companies, carry a lot of treasury bonds.</p>
-
-    <p>EXPAND ON TREASURIES: bills, notes, bonds: https://www.finra.org/investors/learn-to-invest/types-investments/bonds/types-of-bonds/us-treasury-securities</p>
+    Large funds that need safe investments, such as most insurance companies, carry a lot of treasury bonds. The minimum value of a treasury bond is $100.</p>
 
     <h5>Savings Bonds</h5>
     <p></p>
@@ -63,6 +63,8 @@ const body = (
 
 
 const ArticleTypesOfBonds = {
+  title: "Types of Bonds",
+  author: authors.cody,
   body: body,
   sources: [
     {

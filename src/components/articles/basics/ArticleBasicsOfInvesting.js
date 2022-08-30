@@ -1,7 +1,8 @@
+import authors from '../authors';
+
 
 const body = (
   <div>
-    <h3>Basics of Investing</h3>
     <p>Investing has many asset classes and options, but in the most basic sense there are 4 main investments to pick from:</p>
     <ul>
       <li>Cash</li>
@@ -52,6 +53,8 @@ const body = (
 )
 
 const ArticleBasicsOfInvesting = {
+  title: "Basics of Investing",
+  author: authors.cody,
   body: body,
   sources: [
     {

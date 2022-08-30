@@ -1,11 +1,11 @@
 import MyLink from '../../shared/MyLink';
 import TickerLink from '../../shared/TickerLink';
 
+import authors from '../authors';
+
 
 const body = (
   <div>
-    <h3>Dividend Kings and Aristocrats</h3>
-
     <p>Dividend kings and aristocrats are companies that not only consistently pay a dividend, but also consistently <i>raise</i> their dividend.</p>
     <p>The only requirement for a company to be a dividend king is to have raised their dividend every single year for 50 years in a row.</p>
     <p>The criteria to be a dividend aristocrat is more specific. First, the company must have raised their dividend every year for 25 years in a row.&nbsp;
@@ -61,6 +61,8 @@ const body = (
 
 
 const ArticleDividendKings = {
+  title: "Dividend Kings and Aristocrats",
+  author: authors.cody,
   body: body,
   sources: [
     {

@@ -35,8 +35,8 @@ const Articles = () => {
       </Link>
       {/*
       <br/><br/>
-      <Link to="/articles/fake" className="item">
-        blah
+      <Link to="/articles/bond-risks" className="item">
+        Types of Bond Risk
       </Link>
       <br/><br/>
       <Link to="/articles/fake" className="item">
