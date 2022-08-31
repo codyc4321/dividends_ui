@@ -8,11 +8,26 @@ const AllDividendsDisplay = (props) => {
 
   let dividends_rows = null;
   if (props.all_dividends) {
-    dividends_rows = props.all_dividends.map((dividends_object) => {
+    dividends_rows = props.all_dividends.map((dividends_object, index) => {
+      let amountColor = {color: 'black'};
+
+      if (index + 1 < props.all_dividends.length) {
+        const nextDividend = props.all_dividends[index + 1];
+        const currentAmount = dividends_object.amount;
+        const olderAmount = nextDividend.amount;
+
+        if (currentAmount > olderAmount) {
+          amountColor = {color: 'green'};
+        }
+        if (currentAmount < olderAmount) {
+          amountColor = {color: 'red'};
+        }
+      }
+
       return (
         <tr key={dividends_object.date}>
           <td>{dividends_object.date}</td>
-          <td>{dividends_object.amount}</td>
+          <td style={amountColor}>{dividends_object.amount}</td>
         </tr>
       )
     });
