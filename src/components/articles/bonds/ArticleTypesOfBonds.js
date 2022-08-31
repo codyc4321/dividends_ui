@@ -32,14 +32,14 @@ const body = (
     <h5>Savings Bonds</h5>
     <p>Savings bonds are also issued and guarenteed by the U.S. Federal government. They can be bought directly from the U.S. Treasury, or from banks and credit unions.
     Unlike treasuries savings bonds cannot be resold, they must be held by their original owner. Savings bonds usually come in either series EE or series I forms.</p>
-    <p>EE bonds return a fixed rate over their lfietime, compounded every 6 months.</p>
+    <p>EE bonds return a fixed rate over their lifetime, compounded every 6 months.</p>
     <p>I bonds (I for inflation) pay a fixed rate determined at purchase, plus an inflation rate calculated twice per year, with interest compounded every 6 months.
     In June 2022, the fixed rate was 0% but the inflation rate was 9.62%.</p>
     <p>The minimum purchase for a savings bond is anything over $25.</p>
 
     <h5>Agency Bonds</h5>
     <p>Agency bonds are issued by Federal agencies besides the Treasury, or by government sponsored enterprises like the Federal National Mortgage Association.</p>
-    <p>Agency bonds typical pay interest every 6 months, and Federal government agency bonds are safer than bonds from goverment sponsored companies.</p>
+    <p>Agency bonds typical pay interest every 6 months, and Federal government agency bonds are safer than bonds from government sponsored companies.</p>
     <p>The minimum purchase for most agency bonds is $10,000.</p>
     <p></p>
 

@@ -88,7 +88,7 @@ const Article = (props) => {
 
     if (previousArticleData) {
       previousLink = (
-        <MyLink path={previousArticleData.path} text="Previous" />
+        <MyLink path={previousArticleData.path} text={"Previous: " + previousArticleData.title} />
       )
     }
 
@@ -98,7 +98,7 @@ const Article = (props) => {
 
     if (nextArticleData) {
       nextLink = (
-        <MyLink path={nextArticleData.path} text="Next" style={{float: 'right'}}/>
+        <MyLink path={nextArticleData.path} text={"Next: " + nextArticleData.title} style={{float: 'right'}}/>
       )
     }
   }
@@ -111,7 +111,7 @@ const Article = (props) => {
       <br/>
       {props.data.body}
       <br/>
-      <div style={{width: '35%', margin: 'auto'}}>{previousLink} {nextLink}</div>
+      <div style={{width: '50%', margin: 'auto'}}>{previousLink} {nextLink}</div>
       {sources_header}
       {sources}
     </div>
