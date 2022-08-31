@@ -44,14 +44,19 @@ const Articles = () => {
       </Link>
       <br/> */}
 
-      {/*
+
       <h3>Alternative Investments</h3>
 
       <h4>Real Estate</h4>
-      <Link to="/articles/reit-basics" className="item">
-        How do I Invest in Real Estate (What are REITs)?
+      <Link to="/articles/what-are-reits" className="item">
+        What are REITs?
       </Link>
       <br/><br/>
+      <Link to="/articles/reit-sectors" className="item">
+        REIT Market Sectors
+      </Link>
+      <br/><br/>
+      {/*
       <Link to="/articles/reit-taxes" className="item">
         What are the Tax Implications of REITs
       </Link>
