@@ -43,7 +43,7 @@ const body = (
 
 
 const ArticleDividendsVsGrowth = {
-  title: "Dividend vs. Growth Stocks",
+  title: "Dividend Stocks vs. Growth Stocks",
   author: authors.cody,
   body: body,
   sources: [

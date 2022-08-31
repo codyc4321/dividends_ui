@@ -14,7 +14,9 @@ import ArticleDividendsVsGrowth from './articles/stocks/ArticleDividendsVsGrowth
 import ArticleTaxes from './articles/stocks/ArticleTaxes';
 //bonds
 import ArticleTypesOfBonds from './articles/bonds/ArticleTypesOfBonds';
-
+//real estate
+import ArticleWhatAreREITs from './articles/real_estate/ArticleWhatAreREITs';
+import ArticleREITMarketSectors from './articles/real_estate/ArticleREITMarketSectors';
 
 // https://stackoverflow.com/questions/47228311/how-to-match-arbitrary-text-after-a-route-with-react-router
 
@@ -41,6 +43,9 @@ const App = () => {
             <Route path="/articles/taxes" exact element={<Article data={ArticleTaxes} />} />
 
             <Route path="/articles/types-of-bonds" exact element={<Article data={ArticleTypesOfBonds} />} />
+
+            <Route path="/articles/what-are-reits" exact element={<Article data={ArticleWhatAreREITs} />} />
+            <Route path="/articles/reit-sectors" exact element={<Article data={ArticleREITMarketSectors} />} />
           </Routes>
         </div>
       </BrowserRouter>

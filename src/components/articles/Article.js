@@ -1,9 +1,43 @@
-import React from 'react';
+import {useLayoutEffect} from 'react';
 
 import Citation from '../shared/Citation';
+import MyLink from '../shared/MyLink';
 
+
+const allArticlesData = [
+  {
+    path: "/articles/why-invest",
+    title: "Why Invest?"
+  },
+  {
+    path: "/articles/investing-basics",
+    title: "Basics of Investing"
+  },
+  {
+    path: "/articles/dividend-aristocrats",
+    title: "Dividend Kings and Aristocrats"
+  },
+  {
+    path: "/articles/dividends-vs-growth",
+    title: "Dividend Stocks vs. Growth Stocks"
+  },
+  {
+    path: "/articles/taxes",
+    title: "Taxes for Dividends and Capital Gains"
+  },
+  {
+    path: "/articles/types-of-bonds",
+    title: "Types of Bonds"
+  },
+
+]
 
 const Article = (props) => {
+
+  // https://stackoverflow.com/questions/45583358/open-link-at-top-of-page
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  });
 
   const sources = props.data.sources.map((source) => {
     return (
@@ -28,18 +62,56 @@ const Article = (props) => {
     }
   }
 
-  let title = null;
-  if (props.data.title) {
-    title = (<h3>{props.data.title}</h3>)
+  let title = props.data.title;
+
+  let titleTag = null;
+  if (title) {
+    titleTag = (<h3>{props.data.title}</h3>)
   }
+
+
+
+  const currentIndex = allArticlesData.findIndex((element) => title === element.title);
+  const previousIndex = currentIndex - 1;
+  const nextIndex = currentIndex + 1;
+
+  let previousArticleData = null;
+  let previousLink = null;
+
+  let nextArticleData = null;
+  let nextLink = null;
+
+  if (currentIndex !== -1) {
+    if (previousIndex >= 0) {
+      previousArticleData = allArticlesData[previousIndex];
+    }
+
+    if (previousArticleData) {
+      previousLink = (
+        <MyLink path={previousArticleData.path} text="Previous" />
+      )
+    }
+
+    if (nextIndex < allArticlesData.length) {
+      nextArticleData = allArticlesData[nextIndex];
+    }
+
+    if (nextArticleData) {
+      nextLink = (
+        <MyLink path={nextArticleData.path} text="Next" style={{float: 'right'}}/>
+      )
+    }
+  }
+
 
   return (
     <div className="ui segment">
-      {title}
+      {titleTag}
       {author_by_tag}
       <br/>
       {props.data.body}
       <br/>
+      <div style={{width: '35%', margin: 'auto'}}>{previousLink} {nextLink}</div>
       {sources_header}
       {sources}
     </div>
