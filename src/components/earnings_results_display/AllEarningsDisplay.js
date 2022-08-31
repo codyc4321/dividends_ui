@@ -24,18 +24,22 @@ const AllEarningsDisplay = (props) => {
             surprise = surprise + '%'
           }
 
-          let actual_color_style = null;
           let surprise_color_style = null;
-
           if (earnings_object.surprise[0] === '-') {
-            actual_color_style = {color: 'red'};
             surprise_color_style = {color: 'red'};
           } else if (earnings_object.surprise[0] === '+'){
-            actual_color_style = {color: 'green'}
             surprise_color_style = {color: 'green'}
           } else {
-            actual_color_style = {color: 'black'}
             surprise_color_style = {color: 'black'}
+          }
+
+          let actual_color_style = null;
+          if (earnings_object.actual < 0) {
+            actual_color_style = {color: 'red'};
+          } else if (earnings_object.actual > 0){
+            actual_color_style = {color: 'green'}
+          } else {
+            actual_color_style = {color: 'black'}
           }
 
           if (earnings_object.expected === 'no result') {
