@@ -45,7 +45,7 @@ const Articles = () => {
       </Link>
       <br/> */}
 
-      {/*
+
       <h3>Alternative Investments</h3>
 
       <h4>Real Estate</h4>
@@ -56,7 +56,7 @@ const Articles = () => {
       <Link to="/articles/reit-sectors" className="item">
         REIT Market Sectors
       </Link>
-      <br/><br/> */}
+      <br/><br/> 
 
       {/*
       <Link to="/articles/reit-taxes" className="item">
