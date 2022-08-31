@@ -33,8 +33,8 @@ const body = (
     <p>Savings bonds are also issued and guarenteed by the U.S. Federal government. They can be bought directly from the U.S. Treasury, or from banks and credit unions.
     Unlike treasuries savings bonds cannot be resold, they must be held by their original owner. Savings bonds usually come in either series EE or series I forms.</p>
     <p>EE bonds return a fixed rate over their lfietime, compounded every 6 months.</p>
-    <p>I bonds (I for inflation) pay a fixed rate determined at purchase, plus an inflation rate calculated once per year, compounded every 6 months.
-    In June 2022, the fixed rate was 0% but the inflation rate was 10%.</p>
+    <p>I bonds (I for inflation) pay a fixed rate determined at purchase, plus an inflation rate calculated twice per year, with interest compounded every 6 months.
+    In June 2022, the fixed rate was 0% but the inflation rate was 9.62%.</p>
     <p>The minimum purchase for a savings bond is anything over $25.</p>
 
     <h5>Agency Bonds</h5>
@@ -47,6 +47,7 @@ const body = (
     <p>Municipal bonds are issued by states, counties, cities, or local nonprofits, to raise money for public projects such as building parks, schools, or roads. </p>
     <p>Muncipal bonds are usually income tax-free, although they pay lower rates than corporate bonds. They are also usually state tax-free if the purchaser lives
     in the bond issuer's state. As they have tax advantages, they are popular with investors in a high tax bracket.</p>
+    <p>A problem with munis is that they are less liquid (able to be resold) than treasuries and corporate bonds.</p>
     <p>Munis come in 2 main issues, &nbsp;
     <a href="https://www.schwab.com/learn/story/understanding-general-obligation-municipal-bonds" target="_blank">general obligation bonds</a>, &nbsp;
     which are paid from the general revunue of the municipality, such as property tax,
@@ -62,7 +63,8 @@ const body = (
     <a href="https://www.investopedia.com/terms/c/corporate-credit-rating.asp" target="_blank">credit rating</a>&nbsp;
     from varius agencies, such as from AAA to D. The bond issuer will usually pay a higher rate the lower their credit rating, as a lower rating should mean
     higher risk.</p>
-    <p></p>
+    <p>Investors with an appetite of risk will invest in 'junk bonds', corporate bonds with a credit rating of BB+ or less. These
+    high risk bonds oftentime pay coupon rates of 8-10%.</p>
     <p></p>
     <p></p>
     <p></p>
@@ -115,9 +117,12 @@ const ArticleTypesOfBonds = {
       title: "“Municipal Bonds.” Municipal Bonds | FINRA.org",
       url: "https://www.finra.org/investors/learn-to-invest/types-investments/bonds/types-of-bonds/municipal-bonds"
     },
+    {
+      title: "Murry, Cierra. “Everything You Need to Know about Junk Bonds.” Investopedia, Investopedia, 8 July 2022",
+      url: "https://www.investopedia.com/articles/02/052202.asp"
+    },
   ]
 }
-
 
 
 export default ArticleTypesOfBonds;
