@@ -1,6 +1,8 @@
 import authors from '../authors';
 
 
+// https://www.reit.com/what-reit/reit-sectors
+
 const body = (
   <div>
 

@@ -60,23 +60,6 @@ const body = (
     <h5>Transparency</h5>
     <p>REITs provided audited financial reports that their investors can view, similar to ETFs and credit funds.</p>
 
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
   </div>
 )
 

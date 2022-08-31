@@ -48,7 +48,7 @@ const body = (
 )
 
 const ArticleWhyInvest = {
-  title: "Why Invest",
+  title: "Why Invest?",
   author: authors.cody,
   body: body,
   sources: [
