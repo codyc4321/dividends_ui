@@ -20,6 +20,8 @@ import ArticleREITMarketSectors from './articles/real_estate/ArticleREITMarketSe
 
 // https://stackoverflow.com/questions/47228311/how-to-match-arbitrary-text-after-a-route-with-react-router
 
+// const reload = () => window.location.reload();
+
 
 const App = () => {
   return (
@@ -46,6 +48,7 @@ const App = () => {
 
             <Route path="/articles/what-are-reits" exact element={<Article data={ArticleWhatAreREITs} />} />
             <Route path="/articles/reit-sectors" exact element={<Article data={ArticleREITMarketSectors} />} />
+
           </Routes>
         </div>
       </BrowserRouter>

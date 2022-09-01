@@ -7,6 +7,9 @@ import DisplayToggler from '../shared/DisplayToggler';
 const AllDividendsDisplay = (props) => {
 
   let dividends_rows = null;
+  let dividendIncreases = 0;
+  let dividendDecreases = 0;
+
   if (props.all_dividends) {
     dividends_rows = props.all_dividends.map((dividends_object, index) => {
       let amountColor = {color: 'black'};
@@ -18,9 +21,11 @@ const AllDividendsDisplay = (props) => {
 
         if (currentAmount > olderAmount) {
           amountColor = {color: 'green'};
+          dividendIncreases += 1
         }
         if (currentAmount < olderAmount) {
           amountColor = {color: 'red'};
+          dividendDecreases += 1
         }
       }
 
@@ -31,6 +36,17 @@ const AllDividendsDisplay = (props) => {
         </tr>
       )
     });
+  }
+
+  let dividendChangeMessage = '';
+  if (dividendIncreases > 0 && dividendDecreases === 0) {
+    dividendChangeMessage = 'increasing'
+  } else if (dividendIncreases === 0 && dividendDecreases > 0) {
+    dividendChangeMessage = 'decreasing'
+  } else if (dividendIncreases > 0 && dividendDecreases > 0) {
+    dividendChangeMessage = 'inconsistent'
+  } else if (dividendIncreases === 0 && dividendDecreases === 0) {
+    dividendChangeMessage = 'unchanging'
   }
 
   const allDividendsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name === 'showAllDividends');
@@ -62,6 +78,7 @@ const AllDividendsDisplay = (props) => {
             /> years:
             <DisplayToggler toggleCallback={props.toggleAllDividends} displaySetting={allDividendsDisplaySetting} />
       </h3>
+      <p>Dividends for this stock are {dividendChangeMessage}</p>
       {mainDisplay}
     </div>
   );
