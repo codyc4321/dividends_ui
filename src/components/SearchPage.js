@@ -66,19 +66,27 @@ const SearchPage = ({userId}) => {
   useEffect(() => {runSearch()}, [debouncedTerm]);
 
   useEffect(() => {
-    // alert(dividendsYearsBack)
+    // console.log(dividendsYearsBack)
     if (dividendsYearsBack !== '' && earningsYearsBack !== '') {
       runSearch();
     }
   }, [debouncedDividendYearsBack, debouncedEarningsYearsBack])
 
   useEffect(() => {
-    const yearsSettingsCopy = Object.assign(yearsBackSettings);
-    const dividendsYearsBackSetting = yearsSettingsCopy.find((dict) => dict.section == 'dividendsYearsBack');
+    // const yearsSettingsCopy = Object.assign(yearsBackSettings);
+    // const dividendsYearsBackSetting = yearsSettingsCopy.find((dict) => dict.section == 'dividendsYearsBack');
+    // dividendsYearsBackSetting.years_back = dividendsYearsBack;
+    // const earningsYearsBackSetting = yearsSettingsCopy.find((dict) => dict.section == 'earningsYearsBack');
+    // earningsYearsBackSetting.years_back = earningsYearsBack;
+    // setYearsBackSettings(yearsSettingsCopy);
+
+    // const yearsSettingsCopy = Object.assign(yearsBackSettings);
+    const dividendsYearsBackSetting = yearsBackSettings.find((dict) => dict.section == 'dividendsYearsBack');
     dividendsYearsBackSetting.years_back = dividendsYearsBack;
-    const earningsYearsBackSetting = yearsSettingsCopy.find((dict) => dict.section == 'earningsYearsBack');
+    const earningsYearsBackSetting = yearsBackSettings.find((dict) => dict.section == 'earningsYearsBack');
     earningsYearsBackSetting.years_back = earningsYearsBack;
-    setYearsBackSettings(yearsSettingsCopy);
+    // yearsBackSettings = [dividendsYearsBackSetting, earningsYearsBackSetting]
+    setYearsBackSettings(yearsBackSettings);
 
   }, [dividendsYearsBack, earningsYearsBack])
 
@@ -114,18 +122,24 @@ const SearchPage = ({userId}) => {
   }, [userId])
 
   useEffect(() => {
+    console.log("running user profile post");
     const user_profile_api_url = BASE_URL + '/users/' + userId
     const request_data = {
       searches: recentSearches,
-      display_settings: displaySettings
+      display_settings: displaySettings,
+      years_back_settings: yearsBackSettings
     }
 
     axios.post(user_profile_api_url, request_data)
-      // .then(response => {
-      //   console.log(response)
-      // })
+      .then(response => {
+        console.log(response)
+      })
 
-  }, [recentSearches, displaySettings])
+  }, [recentSearches, displaySettings, yearsBackSettings])
+
+  useEffect(() => {
+    alert("years back settings changed")
+  }, [yearsBackSettings])
 
   const makeSearchApiRequest = () => {
     let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack + '/' + earningsYearsBack;
