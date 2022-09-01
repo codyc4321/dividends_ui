@@ -1,7 +1,8 @@
 import React from 'react';
 
-// import './DividendResults.css';
 import DisplayToggler from '../shared/DisplayToggler';
+
+import './EarningsDisplay.css';
 
 
 const AllEarningsDisplay = (props) => {
@@ -12,6 +13,10 @@ const AllEarningsDisplay = (props) => {
   let mainDisplay = null;
 
   let earningsIsObject = typeof props.earnings === 'object';
+
+  const expectedToolTip = (<span className="tooltiptext">The earnings analysts expected</span>);
+  const actualTooltip = (<span className="tooltiptext">The actual earnings the company earned</span>);
+  const surpriseToolTip = (<span className="tooltiptext">The difference between the actual earnings and what was expected</span>);
 
   if (allEarningsDisplaySetting.visible) {
     if (earningsIsObject) {
@@ -49,9 +54,9 @@ const AllEarningsDisplay = (props) => {
           return (
             <tr key={earnings_object.date}>
               <td>{earnings_object.date}</td>
-              <td>{earnings_object.expected}</td>
-              <td style={actual_color_style}>{earnings_object.actual}</td>
-              <td style={surprise_color_style}>{surprise}</td>
+              <td className="tooltip">{earnings_object.expected} {expectedToolTip}</td>
+              <td className="tooltip" style={actual_color_style}>{earnings_object.actual} {actualTooltip}</td>
+              <td className="tooltip" style={surprise_color_style}>{surprise} {surpriseToolTip}</td>
             </tr>
           )
         });
@@ -61,9 +66,9 @@ const AllEarningsDisplay = (props) => {
             <thead>
               <tr>
                 <th>Date</th>
-                <th>Expected</th>
-                <th>Actual</th>
-                <th>Surprise (%)</th>
+                <th className="tooltip">Expected {expectedToolTip}</th>
+                <th className="tooltip">Actual {actualTooltip}</th>
+                <th className="tooltip">Surprise (%) {surpriseToolTip}</th>
               </tr>
             </thead>
             <tbody>
