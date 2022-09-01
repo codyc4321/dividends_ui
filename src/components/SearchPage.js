@@ -174,8 +174,9 @@ const SearchPage = (props) => {
 
     const intendedPath = "/search/" + term.toLowerCase()
     if (window.location.pathname !== intendedPath) {
-      window.location.pathname = intendedPath
+      window.history.replaceState(null, "Stock " + term.toUpperCase(), intendedPath)
     }
+
 
     if (term) {
 
