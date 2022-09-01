@@ -148,10 +148,10 @@ const SearchPage = (props) => {
     console.log(dividends_api_url);
 
     if (!recentSearches.includes(term)) {
-      // console.log("recent searches in makeSearchApiRequest: ", recentSearches)
-      // console.log("term in makeSearchApiRequest: ", term)
+      console.log("recent searches in makeSearchApiRequest: ", recentSearches)
+      console.log("term in makeSearchApiRequest: ", term)
       const  newSearches = [...recentSearches, term.toUpperCase()];
-      // console.log("newSearches in makeSearchApiRequest: ", newSearches)
+      console.log("newSearches in makeSearchApiRequest: ", newSearches)
       setRecentSearches(newSearches)
     }
 
@@ -171,6 +171,11 @@ const SearchPage = (props) => {
   const runSearch = () => {
     console.log("running search: ", term);
     setErrorMessage('');
+
+    const intendedPath = "/search/" + term.toLowerCase()
+    if (window.location.pathname !== intendedPath) {
+      window.location.pathname = intendedPath
+    }
 
     if (term) {
 
