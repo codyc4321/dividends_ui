@@ -14,8 +14,11 @@ const AllEarningsDisplay = (props) => {
 
   let earningsIsObject = typeof props.earnings === 'object';
 
+  const noEarningToolTip = (<span className="tooltiptext">The company either didn't exist or didn't report earnings that quarter</span>);
+  const noSurpriseToolTip = (<span className="tooltiptext">Can't calculate surprise missing a data point</span>);
+
   const expectedToolTip = (<span className="tooltiptext">The earnings analysts expected</span>);
-  const actualTooltip = (<span className="tooltiptext">The actual earnings the company earned</span>);
+  const actualToolTip = (<span className="tooltiptext">The actual earnings the company earned</span>);
   const surpriseToolTip = (<span className="tooltiptext">The difference between the actual earnings and what was expected</span>);
 
   if (allEarningsDisplaySetting.visible) {
@@ -54,9 +57,13 @@ const AllEarningsDisplay = (props) => {
           return (
             <tr key={earnings_object.date}>
               <td>{earnings_object.date}</td>
-              <td className="tooltip">{earnings_object.expected} {expectedToolTip}</td>
-              <td className="tooltip" style={actual_color_style}>{earnings_object.actual} {actualTooltip}</td>
-              <td className="tooltip" style={surprise_color_style}>{surprise} {surpriseToolTip}</td>
+              <td className="tooltip">{earnings_object.expected}
+                {earnings_object.expected === 'no result' ? noEarningToolTip: expectedToolTip}
+                </td>
+              <td className="tooltip" style={actual_color_style}>{earnings_object.actual}
+                {earnings_object.actual === 'no result' ? noEarningToolTip: actualToolTip}
+              </td>
+              <td className="tooltip" style={surprise_color_style}>{surprise} {surprise === 'N/A' ? noSurpriseToolTip : surpriseToolTip}</td>
             </tr>
           )
         });
@@ -67,7 +74,7 @@ const AllEarningsDisplay = (props) => {
               <tr>
                 <th>Date</th>
                 <th className="tooltip">Expected {expectedToolTip}</th>
-                <th className="tooltip">Actual {actualTooltip}</th>
+                <th className="tooltip">Actual {actualToolTip}</th>
                 <th className="tooltip">Surprise (%) {surpriseToolTip}</th>
               </tr>
             </thead>
