@@ -26,13 +26,18 @@ const MainDividendResultsDisplay = (props) => {
           </tr>
 
           <tr>
-            <td>Yearly dividends</td>
+            <td>Yearly Dividends</td>
             <td>${props.recent_dividend_rate}</td>
           </tr>
 
           <tr>
             <td>Yield</td>
             <td>{props.current_yield}%</td>
+          </tr>
+
+          <tr>
+            <td>Yearly Earnings</td>
+            <td>${props.recent_earnings_rate}</td>
           </tr>
 
           <tr>
