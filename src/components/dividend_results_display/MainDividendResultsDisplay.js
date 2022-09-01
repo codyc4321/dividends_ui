@@ -36,7 +36,7 @@ const MainDividendResultsDisplay = (props) => {
           </tr>
 
           <tr>
-            <td>Dividend coverage</td>
+            <td className="tooltip">Dividend coverage {dividendCoverageToolTip}</td>
             <td className="tooltip" style={{color: dividendCoverageColor}}>{props.dividend_coverage}% {dividendCoverageToolTip}</td>
           </tr>
         </tbody>
