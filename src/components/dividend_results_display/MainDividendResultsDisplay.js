@@ -1,7 +1,21 @@
 import React from 'react';
 
+import '../earnings_results_display/EarningsDisplay.css';
+
 
 const MainDividendResultsDisplay = (props) => {
+
+  let dividendCoverageColor = null;
+  if (props.dividend_coverage <= 50) {
+    dividendCoverageColor = 'green'
+  } else if (props.dividend_coverage > 50 && props.dividend_coverage < 100) {
+    dividendCoverageColor = 'orange'
+  } else if (props.dividend_coverage >= 100) {
+    dividendCoverageColor = 'red'
+  }
+
+  const dividendCoverageToolTip = (<span className="tooltiptext">The percentage of a company's earnings the dividend payouts costed. A lower number is better</span>);
+
   return(
     <div>
       <table className="ui celled table">
@@ -19,6 +33,11 @@ const MainDividendResultsDisplay = (props) => {
           <tr>
             <td>Yield</td>
             <td>{props.current_yield}%</td>
+          </tr>
+
+          <tr>
+            <td>Dividend coverage</td>
+            <td className="tooltip" style={{color: dividendCoverageColor}}>{props.dividend_coverage}% {dividendCoverageToolTip}</td>
           </tr>
         </tbody>
       </table>

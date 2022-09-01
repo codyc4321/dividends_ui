@@ -30,6 +30,7 @@ const DividendResultsDisplay = (props) => {
       current_price={props.dividendsData.current_price}
       recent_dividend_rate={props.dividendsData.recent_dividend_rate}
       current_yield={props.dividendsData.current_yield}
+      dividend_coverage={props.dividendsData.dividend_coverage}
     />
   )
 

@@ -4,7 +4,7 @@ import React from 'react';
 const HomePage = () => {
 
   document.title = "Homepage";
-  
+
   return (
     <div className="ui segment">
       <body>
@@ -19,7 +19,7 @@ const HomePage = () => {
           </ul>
           New features being are added weekly or monthly. </p>
       		<p>This site is for your benefit, so please send feature requests, bugs, and comments to &nbsp;
-          <a href="mailto:cchilderswork@gmail.com">cchilderswork@gmail.com</a>.
+          <a href="mailto:stockhistoryscreener@gmail.com">stockhistoryscreener@gmail.com</a>.
           Bug fixes are prioritized first while excellent feature requests move to the top of the new feature list.</p>
 
           <p>You can find ideas about stocks to research here at great websites such as &nbsp;
