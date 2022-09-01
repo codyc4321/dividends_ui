@@ -172,10 +172,15 @@ const SearchPage = (props) => {
     console.log("running search: ", term);
     setErrorMessage('');
 
+    const newTitle = "Stock " + term.toUpperCase();
+
     const intendedPath = "/search/" + term.toLowerCase()
     if (window.location.pathname !== intendedPath) {
-      window.history.replaceState(null, "Stock " + term.toUpperCase(), intendedPath)
+      window.history.replaceState(null, newTitle, intendedPath)
     }
+
+    // in firefox 9 or later, document.title MUST be updated AFTER window.history.replaceState
+    document.title = newTitle;
 
 
     if (term) {

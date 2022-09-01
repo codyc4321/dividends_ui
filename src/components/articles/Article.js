@@ -39,6 +39,8 @@ const Article = (props) => {
     window.scrollTo(0, 0)
   });
 
+  document.title = props.data.title;
+
   const sources = props.data.sources.map((source) => {
     return (
       <Citation

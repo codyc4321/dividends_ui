@@ -3,6 +3,9 @@ import {Link} from 'react-router-dom';
 
 
 const Articles = () => {
+
+  document.title = "Articles";
+
   return (
     <div className="ui segment">
 

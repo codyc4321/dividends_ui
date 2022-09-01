@@ -2,6 +2,9 @@ import React from 'react';
 
 
 const HomePage = () => {
+
+  document.title = "Homepage";
+  
   return (
     <div className="ui segment">
       <body>
