@@ -16,7 +16,7 @@ const Header = () => {
         <Link to="/articles" className="item">
           Articles
         </Link>
-        <GoogleAuth />
+        {/*<GoogleAuth />*/}
       </div>
     </div>
   )
