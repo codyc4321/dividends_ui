@@ -291,10 +291,10 @@ const SearchPage = (props) => {
   const renderRecentSearches = () => {
     return recentSearches.map((term) => {
       return (
-        <div key={term}>
+        <div style={{display: 'inline-block', marginRight: '20px'}} key={term}>
           <button
             onClick={() => recentSearchOnClick(term)}
-            style={{marginRight: '10px'}}
+            style={{marginRight: '0px'}}
             >
               <div>{term} </div>
           </button>
