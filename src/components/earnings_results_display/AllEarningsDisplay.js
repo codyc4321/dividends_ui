@@ -7,7 +7,7 @@ import './EarningsDisplay.css';
 
 const AllEarningsDisplay = (props) => {
 
-  const allEarningsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showAllEarnings');
+  const allEarningsDisplaySetting = props.displaySettings.find((dict) => dict.setting_name === 'showAllEarnings');
 
   let earnings_rows = null;
   let mainDisplay = null;

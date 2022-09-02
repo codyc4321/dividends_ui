@@ -4,7 +4,7 @@ import DisplayToggler from '../shared/DisplayToggler';
 
 const DividendYieldChangeDisplay = (props) => {
 
-  const yieldChangeDisplaySetting = props.displaySettings.find((dict) => dict.setting_name == 'showYieldChange');
+  const yieldChangeDisplaySetting = props.displaySettings.find((dict) => dict.setting_name === 'showYieldChange');
   let mainDisplay = null;
   if (yieldChangeDisplaySetting.visible) {
     mainDisplay = (
