@@ -6,15 +6,30 @@ import '../earnings_results_display/EarningsDisplay.css';
 const MainDividendResultsDisplay = (props) => {
 
   let dividendCoverageColor = null;
-  if (props.dividend_coverage <= 50) {
+  let dividend_coverage = props.dividend_coverage;
+  if (dividend_coverage <= 50) {
     dividendCoverageColor = 'green'
-  } else if (props.dividend_coverage > 50 && props.dividend_coverage < 100) {
+  } else if (dividend_coverage > 50 && dividend_coverage < 100) {
     dividendCoverageColor = 'orange'
-  } else if (props.dividend_coverage >= 100) {
+  } else if (dividend_coverage >= 100) {
     dividendCoverageColor = 'red'
   }
 
-  const dividendCoverageToolTip = (<span className="tooltiptext">The percentage of a company's earnings the dividend payouts costed. A lower number is better</span>);
+  if (props.recent_dividend_rate === 0 || props.recent_dividend_rate === '0') {
+    dividend_coverage = 'N/A';
+    dividendCoverageColor = 'black'
+  }
+
+  const dividendCoverageToolTip = (
+    <span className="tooltiptext">
+      The percentage of a company's earnings the dividend payouts costed. A lower number is better
+    </span>
+  );
+
+  const earningsToolTip = (<span className="tooltiptext">The earnings per share of stock</span>);
+
+  const yieldToolTip = (<span className="tooltiptext">The dividends paid divided by stock price</span>);
+
 
   return(
     <div>
@@ -31,21 +46,21 @@ const MainDividendResultsDisplay = (props) => {
           </tr>
 
           <tr>
-            <td>Yield</td>
-            <td>{props.current_yield}%</td>
+            <td className="tooltip">Yield {yieldToolTip}</td>
+            <td className="tooltip">{props.current_yield}% {yieldToolTip}</td>
           </tr>
 
           <tr>
-            <td>Yearly Earnings</td>
-            <td>${props.recent_earnings_rate}</td>
+            <td className="tooltip">Yearly Earnings {earningsToolTip}</td>
+            <td className="tooltip">${props.recent_earnings_rate} {earningsToolTip}</td>
           </tr>
 
           <tr>
             <td className="tooltip">Dividend coverage {dividendCoverageToolTip}</td>
             <td
-              className="tooltip" 
+              className="tooltip"
               style={{color: dividendCoverageColor}}>
-                {props.dividend_coverage}{props.dividend_coverage === 'N/A' ? '' : '%'} {dividendCoverageToolTip}
+                {dividend_coverage}{dividend_coverage === 'N/A' ? '' : '%'} {dividendCoverageToolTip}
             </td>
           </tr>
         </tbody>
