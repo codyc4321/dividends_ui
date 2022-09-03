@@ -42,7 +42,11 @@ const MainDividendResultsDisplay = (props) => {
 
           <tr>
             <td className="tooltip">Dividend coverage {dividendCoverageToolTip}</td>
-            <td className="tooltip" style={{color: dividendCoverageColor}}>{props.dividend_coverage}% {dividendCoverageToolTip}</td>
+            <td
+              className="tooltip" 
+              style={{color: dividendCoverageColor}}>
+                {props.dividend_coverage}{props.dividend_coverage === 'N/A' ? '' : '%'} {dividendCoverageToolTip}
+            </td>
           </tr>
         </tbody>
       </table>
