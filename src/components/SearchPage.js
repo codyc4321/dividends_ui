@@ -172,8 +172,8 @@ const SearchPage = (props) => {
     console.log("running search: ", term);
     setErrorMessage('');
 
-    const newTitle = "Stock " + term.toUpperCase();
-
+    const newTitle = term.toUpperCase() + " Dividends History, Earnings History, Price, Dividend Yield | Stock History Screener";
+ 
     const intendedPath = "/search/" + term.toLowerCase()
     if (window.location.pathname !== intendedPath) {
       window.history.replaceState(null, newTitle, intendedPath)

@@ -7,7 +7,7 @@ import MyLink from '../shared/MyLink';
 const allArticlesData = [
   {
     path: "/articles/why-invest",
-    title: "Why Invest?"
+    title: "Why Invest in the Stock Market"
   },
   {
     path: "/articles/investing-basics",
@@ -39,7 +39,7 @@ const Article = (props) => {
     window.scrollTo(0, 0)
   });
 
-  document.title = props.data.title;
+  document.title = props.data.title + " | Stock History Screener";
 
   const sources = props.data.sources.map((source) => {
     return (

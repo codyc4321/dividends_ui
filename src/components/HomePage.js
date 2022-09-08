@@ -3,7 +3,7 @@ import React from 'react';
 
 const HomePage = () => {
 
-  document.title = "Homepage";
+  document.title = "Stock History Screener | Free Investing Tool";
 
   return (
     <div className="ui segment">

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const Articles = () => {
 
-  document.title = "Articles";
+  document.title = "Investing Articles at Stock History Screener";
 
   return (
     <div className="ui segment">
