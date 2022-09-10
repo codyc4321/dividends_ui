@@ -28,8 +28,11 @@ const SearchPage = (props) => {
   const [earningsYearsBack, setEarningsYearsBack] = useState('5');
   const [debouncedEarningsYearsBack, setDebouncedEarningsYearsBack] = useState('5');
   const [errorMessage, setErrorMessage] = useState('');
-  const [currentRequest, setCurrentRequest] = useState(false);
-  const [axiosAbortController, setAxiosAbortController] = useState(null);
+  const [isFirstRequest, setIsFirstRequest] = useState(true);
+
+  // const firstAxiosController = new AbortController();
+  const [axiosAbortController, setAxiosAbortController] = useState({signal: null});
+
   const [dividendsData, setDividendsData] = useState(
     {
       current_price: '',
@@ -128,6 +131,8 @@ const SearchPage = (props) => {
         // })
     }
   }
+
+
   const makeSearchApiRequest = () => {
     let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack + '/' + earningsYearsBack;
     console.log("dividends_api_url being requested")
@@ -138,25 +143,29 @@ const SearchPage = (props) => {
       setRecentSearches(newSearches)
     }
 
-    if (currentRequest) {
-      axiosAbortController.abort()
-    }
+    // if (currentRequest) {
+    //   axiosAbortController.abort()
+    // }
 
     // https://stackoverflow.com/questions/38329209/how-to-cancel-abort-ajax-request-in-axios
 
     // https://stackoverflow.com/questions/71137878/how-to-integrate-abortcontroller-with-axios-and-react
 
-    const axiosController = new AbortController();
-    setAxiosAbortController(axiosController)
+    // const axiosController = new AbortController();
+    // setAxiosAbortController(axiosController)
 
-    setCurrentRequest(true);
+    // setCurrentRequest(true);
+    // if (!isFirstRequest) {
+    //   axiosAbortController.abort()
+    // }
 
-    axios.get(dividends_api_url, {signal: axiosController.signal})
+    axios.get(dividends_api_url, {signal: axiosAbortController.signal})
       .then(response => {
         console.log("the data from dividends api")
         console.log(response.data)
         setLoading(false);
-        setCurrentRequest(false);
+        // setCurrentRequest(false);
+        setIsFirstRequest(false);
 
         setDividendsData(response.data);
         if (response.data.name) {
@@ -169,6 +178,10 @@ const SearchPage = (props) => {
         setErrorMessage(error.message);
       })
   }
+
+  useEffect(() => {
+    makeSearchApiRequest();
+  }, [axiosAbortController])
 
   const runSearch = () => {
     console.log("running search: ", term);
@@ -188,13 +201,16 @@ const SearchPage = (props) => {
     if (term) {
 
       setLoading(true);
+      const axiosController = new AbortController();
 
       if (!dividendsYearsBack) {
         setDividendsYearsBack('3', () => {
-          makeSearchApiRequest()
+          // makeSearchApiRequest()
+          setAxiosAbortController(axiosController)
         });
       } else {
-        makeSearchApiRequest()
+        // makeSearchApiRequest()
+        setAxiosAbortController(axiosController)
       }
     }
   }
