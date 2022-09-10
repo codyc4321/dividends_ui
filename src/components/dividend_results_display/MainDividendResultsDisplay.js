@@ -43,6 +43,13 @@ const MainDividendResultsDisplay = (props) => {
     return display
   }
 
+  let peRatio = '';
+  if (props.recent_earnings_rate) {
+    const ratio = props.current_price / props.recent_earnings_rate;
+    // https://www.jacklmoore.com/notes/rounding-in-javascript/
+    peRatio = Number(Math.round(ratio + 'e2') +'e-2')
+  }
+
   return(
     <div>
       <table className="ui celled table">
@@ -73,6 +80,12 @@ const MainDividendResultsDisplay = (props) => {
               className="tooltip"
               style={{color: dividendCoverageColor}}>
                 {dividend_coverage}{dividend_coverage === 'N/A' ? '' : '%'} {dividendCoverageToolTip}
+            </td>
+          </tr>
+          <tr>
+            <td className="tooltip">P/E ratio {dividendCoverageToolTip}</td>
+            <td
+              className="tooltip">{peRatio} {dividendCoverageToolTip}
             </td>
           </tr>
         </tbody>
