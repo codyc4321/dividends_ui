@@ -30,6 +30,18 @@ const MainDividendResultsDisplay = (props) => {
 
   const yieldToolTip = (<span className="tooltiptext">The dividends paid divided by stock price</span>);
 
+  const yearly_earnings_display = () => {
+    const floatNumber = parseFloat(props.recent_earnings_rate);
+    let display = null;
+    if (floatNumber < 0) {
+      const stringNumber = floatNumber.toString()
+      const stringNumberSansNegativeSign = stringNumber.slice(1)
+      display = "-$" + stringNumberSansNegativeSign
+    } else {
+      display = "$" + floatNumber
+    }
+    return display
+  }
 
   return(
     <div>
@@ -52,7 +64,7 @@ const MainDividendResultsDisplay = (props) => {
 
           <tr>
             <td className="tooltip">Yearly Earnings {earningsToolTip}</td>
-            <td className="tooltip">${props.recent_earnings_rate} {earningsToolTip}</td>
+            <td className="tooltip">{yearly_earnings_display()} {earningsToolTip}</td>
           </tr>
 
           <tr>
