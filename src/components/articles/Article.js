@@ -72,7 +72,6 @@ const Article = (props) => {
   }
 
 
-
   const currentIndex = allArticlesData.findIndex((element) => title === element.title);
   const previousIndex = currentIndex - 1;
   const nextIndex = currentIndex + 1;
@@ -113,7 +112,7 @@ const Article = (props) => {
       <br/>
       {props.data.body}
       <br/>
-      <div style={{width: '50%', margin: 'auto'}}>{previousLink} {nextLink}</div>
+      <div style={{width: '65%', margin: 'auto'}}>{previousLink} {nextLink}</div>
       {sources_header}
       {sources}
     </div>
