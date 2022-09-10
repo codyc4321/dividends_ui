@@ -145,6 +145,10 @@ const SearchPage = (props) => {
 
   async function callDividendsApi(url) {
     const response = await axios.get(url, {})
+    // const data = await response.json();
+    console.log(response);
+    const data = await response.data;
+    console.log(data)
       // .then(response => {
       //   // console.log(response.data)
       //   while (true) {
@@ -158,7 +162,7 @@ const SearchPage = (props) => {
       //   setLoading(false);
       //   setErrorMessage(error.message);
       // })
-    return response;
+    return data;
   }
 
 
@@ -175,8 +179,9 @@ const SearchPage = (props) => {
       setRecentSearches(newSearches)
     }
 
-    let response = callDividendsApi(dividends_api_url);
-    console.log("callDividendsApi response: ", response.data)
+    const response = callDividendsApi(dividends_api_url);
+    // console.log("callDividendsApi response: ", response.data)
+
 
     // axios.get(dividends_api_url, {})
     //   .then(response => {
