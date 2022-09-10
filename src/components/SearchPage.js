@@ -176,7 +176,7 @@ const SearchPage = (props) => {
     }
 
     let response = callDividendsApi(dividends_api_url);
-    console.log(response)
+    console.log("callDividendsApi response: ", response.data)
 
     // axios.get(dividends_api_url, {})
     //   .then(response => {
