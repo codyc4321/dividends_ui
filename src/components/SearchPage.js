@@ -28,6 +28,8 @@ const SearchPage = (props) => {
   const [earningsYearsBack, setEarningsYearsBack] = useState('5');
   const [debouncedEarningsYearsBack, setDebouncedEarningsYearsBack] = useState('5');
   const [errorMessage, setErrorMessage] = useState('');
+  const [currentRequest, setCurrentRequest] = useState(false);
+  const [axiosAbortController, setAxiosAbortController] = useState(null);
   const [dividendsData, setDividendsData] = useState(
     {
       current_price: '',
@@ -132,17 +134,27 @@ const SearchPage = (props) => {
     console.log(dividends_api_url);
 
     if (!recentSearches.includes(term)) {
-      console.log("recent searches in makeSearchApiRequest: ", recentSearches)
-      console.log("term in makeSearchApiRequest: ", term)
       const  newSearches = [...recentSearches, term.toUpperCase()];
-      console.log("newSearches in makeSearchApiRequest: ", newSearches)
       setRecentSearches(newSearches)
     }
 
-    axios.get(dividends_api_url, {})
+    if (currentRequest) {
+      axiosAbortController.abort()
+    }
+
+
+    const axiosController = new AbortController();
+    setAxiosAbortController(axiosController)
+
+    setCurrentRequest(true);
+
+    axios.get(dividends_api_url, {signal: axiosController.signal})
       .then(response => {
-        // console.log(response.data)
+        console.log("the data from dividends api")
+        console.log(response.data)
         setLoading(false);
+        setCurrentRequest(false);
+
         setDividendsData(response.data);
         if (response.data.name) {
           document.title = response.data.name + TITLE_ENDING;
