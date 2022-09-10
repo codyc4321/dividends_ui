@@ -28,9 +28,6 @@ const SearchPage = (props) => {
   const [earningsYearsBack, setEarningsYearsBack] = useState('5');
   const [debouncedEarningsYearsBack, setDebouncedEarningsYearsBack] = useState('5');
   const [errorMessage, setErrorMessage] = useState('');
-  const [isFirstRequest, setIsFirstRequest] = useState(true);
-
-  // const firstAxiosController = new AbortController();
   const [axiosAbortController, setAxiosAbortController] = useState({signal: null});
 
   const [dividendsData, setDividendsData] = useState(
@@ -143,30 +140,12 @@ const SearchPage = (props) => {
       setRecentSearches(newSearches)
     }
 
-    // if (currentRequest) {
-    //   axiosAbortController.abort()
-    // }
-
     // https://stackoverflow.com/questions/38329209/how-to-cancel-abort-ajax-request-in-axios
-
     // https://stackoverflow.com/questions/71137878/how-to-integrate-abortcontroller-with-axios-and-react
-
-    // const axiosController = new AbortController();
-    // setAxiosAbortController(axiosController)
-
-    // setCurrentRequest(true);
-    // if (!isFirstRequest) {
-    //   axiosAbortController.abort()
-    // }
 
     axios.get(dividends_api_url, {signal: axiosAbortController.signal})
       .then(response => {
-        console.log("the data from dividends api")
-        console.log(response.data)
         setLoading(false);
-        // setCurrentRequest(false);
-        setIsFirstRequest(false);
-
         setDividendsData(response.data);
         if (response.data.name) {
           document.title = response.data.name + TITLE_ENDING;
