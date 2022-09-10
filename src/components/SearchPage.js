@@ -142,6 +142,9 @@ const SearchPage = (props) => {
       axiosAbortController.abort()
     }
 
+    // https://stackoverflow.com/questions/38329209/how-to-cancel-abort-ajax-request-in-axios
+
+    // https://stackoverflow.com/questions/71137878/how-to-integrate-abortcontroller-with-axios-and-react
 
     const axiosController = new AbortController();
     setAxiosAbortController(axiosController)
