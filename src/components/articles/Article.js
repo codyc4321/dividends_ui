@@ -1,5 +1,7 @@
 import {useLayoutEffect} from 'react';
 
+import { Helmet } from "react-helmet";
+
 import Citation from '../shared/Citation';
 import MyLink from '../shared/MyLink';
 
@@ -107,6 +109,10 @@ const Article = (props) => {
 
   return (
     <div className="ui segment">
+      <Helmet>
+        <meta name="description" content="My fake helmet tag" />
+      </Helmet>
+
       {titleTag}
       {author_by_tag}
       <br/>

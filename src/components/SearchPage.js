@@ -16,7 +16,7 @@ const HOST = process.env.REACT_APP_HOSTNAME
 const PROTOCOL = process.env.REACT_APP_PROTOCOL
 const PORT = process.env.REACT_APP_PORT
 const BASE_URL = PROTOCOL + '://' + HOST + ':' + PORT
-
+const TITLE_ENDING = " Dividends History, Earnings History, Price, Dividend Yield | Stock History Screener"
 
 const SearchPage = (props) => {
 
@@ -160,6 +160,9 @@ const SearchPage = (props) => {
         // console.log(response.data)
         setLoading(false);
         setDividendsData(response.data);
+        if (response.data.name) {
+          document.title = response.data.name + TITLE_ENDING;
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -172,8 +175,8 @@ const SearchPage = (props) => {
     console.log("running search: ", term);
     setErrorMessage('');
 
-    const newTitle = term.toUpperCase() + " Dividends History, Earnings History, Price, Dividend Yield | Stock History Screener";
- 
+    const newTitle = term.toUpperCase() + TITLE_ENDING;
+
     const intendedPath = "/search/" + term.toLowerCase()
     if (window.location.pathname !== intendedPath) {
       window.history.replaceState(null, newTitle, intendedPath)
