@@ -56,14 +56,7 @@ const SearchPage = (props) => {
   }
   const [term, setTerm] = useState(DEFAULT_STOCK);
   const [debouncedTerm, setDebouncedTerm] = useState(DEFAULT_STOCK);
-  // const [recentSearches, setRecentSearches] = useState([DEFAULT_STOCK.toUpperCase()]);
   const [recentSearches, setRecentSearches] = useState([]);
-
-  // useEffect(() => {
-  //   if (!recentSearches.includes(debounceTerm)) {
-  //     setRecentSearches([...recentSearches, debounceTerm])
-  //   }
-  // }, [debounceTerm])
 
   useEffect(() => {
     if (urlPathSearchTerm) {
@@ -72,9 +65,6 @@ const SearchPage = (props) => {
       runSearch();
     }
   }, [urlPathSearchTerm])
-  // console.log(props)
-  // const searchTermInUrlPath = props.match.params.searchTerm;
-  // console.log(searchTermInUrlPath);
 
   debounceTerm(setDebouncedTerm, term, 1500);
   debounceTerm(setDebouncedDividendYearsBack, dividendsYearsBack, 1500);
@@ -83,7 +73,6 @@ const SearchPage = (props) => {
   useEffect(() => {runSearch()}, [debouncedTerm]);
 
   useEffect(() => {
-    // alert(dividendsYearsBack)
     if (dividendsYearsBack !== '' && earningsYearsBack !== '') {
       runSearch();
     }
@@ -95,22 +84,17 @@ const SearchPage = (props) => {
       const user_profile_api_url = BASE_URL + '/users/' + userId
       axios.get(user_profile_api_url, {})
         .then(response => {
-          // console.log(response)
 
           const recent_searches_response = response.data.searches;
           const saved_recent_searches = [];
           recent_searches_response.map(dict => {
             saved_recent_searches.push(dict.search_term)
           })
-          // console.log("recent searches: ", recentSearches)
-          // console.log("saved searches: ", saved_recent_searches)
           const full_searches = [...recentSearches, ...saved_recent_searches];
-          // console.log("full searches: ", full_searches)
           // https://www.javascripttutorial.net/array/javascript-remove-duplicates-from-array/
           let uniqueSearches = full_searches.filter((item, index) => {
             return full_searches.indexOf(item) === index;
           });
-          // console.log("unique searches: ", uniqueSearches)
           setRecentSearches(uniqueSearches);
           setDisplaySettings(response.data.display_settings);
           if (uniqueSearches !== saved_recent_searches) {
@@ -234,7 +218,7 @@ const SearchPage = (props) => {
   const generateToggleDisplaySetting = (setting_name) => {
     return function() {
       const otherSettings = displaySettings.filter((dict) => dict.setting_name !== setting_name);
-      const specifiedSetting = displaySettings.find((dict) => dict.setting_name == setting_name);
+      const specifiedSetting = displaySettings.find((dict) => dict.setting_name === setting_name);
       specifiedSetting.visible = !specifiedSetting.visible
       const newDisplaySettings = [...otherSettings, specifiedSetting]
       setDisplaySettings(newDisplaySettings)
@@ -242,9 +226,16 @@ const SearchPage = (props) => {
   }
 
   const onTermUpdate = (term) => {
-    const trimmed = term.trim()
-    const upperCased = trimmed.toUpperCase();
-    setTerm(upperCased);
+    if (!term) {
+      setTerm('')
+    }
+    else {
+      const trimmed = term.trim()
+      const lettersRegex = /^[A-Za-z]+$/;
+      const lettersOnly = trimmed.match(lettersRegex).join``
+      const upperCased = lettersOnly.toUpperCase();
+      setTerm(upperCased);
+    }
   }
 
   const renderMainContent = () => {
