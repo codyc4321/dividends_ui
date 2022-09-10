@@ -142,30 +142,56 @@ const SearchPage = (props) => {
         // })
     }
   }
+
+  async function callDividendsApi(url) {
+    const response = await axios.get(url, {})
+      // .then(response => {
+      //   // console.log(response.data)
+      //   while (true) {
+      //
+      //   }
+      //   setLoading(false);
+      //   setDividendsData(response.data);
+      // })
+      // .catch((error) => {
+      //   console.log(error.message);
+      //   setLoading(false);
+      //   setErrorMessage(error.message);
+      // })
+    return response;
+  }
+
+
   const makeSearchApiRequest = () => {
     let dividends_api_url = BASE_URL + '/dividends/' + term + '/' + dividendsYearsBack + '/' + earningsYearsBack;
     console.log("dividends_api_url being requested")
     console.log(dividends_api_url);
 
     if (!recentSearches.includes(term)) {
-      console.log("recent searches in makeSearchApiRequest: ", recentSearches)
-      console.log("term in makeSearchApiRequest: ", term)
+      // console.log("recent searches in makeSearchApiRequest: ", recentSearches)
+      // console.log("term in makeSearchApiRequest: ", term)
       const  newSearches = [...recentSearches, term.toUpperCase()];
-      console.log("newSearches in makeSearchApiRequest: ", newSearches)
+      // console.log("newSearches in makeSearchApiRequest: ", newSearches)
       setRecentSearches(newSearches)
     }
 
-    axios.get(dividends_api_url, {})
-      .then(response => {
-        // console.log(response.data)
-        setLoading(false);
-        setDividendsData(response.data);
-      })
-      .catch((error) => {
-        console.log(error.message);
-        setLoading(false);
-        setErrorMessage(error.message);
-      })
+    let response = callDividendsApi(dividends_api_url);
+    console.log(response)
+
+    // axios.get(dividends_api_url, {})
+    //   .then(response => {
+    //     // console.log(response.data)
+    //     while (true) {
+    //
+    //     }
+    //     setLoading(false);
+    //     setDividendsData(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error.message);
+    //     setLoading(false);
+    //     setErrorMessage(error.message);
+    //   })
   }
 
   const runSearch = () => {
@@ -231,7 +257,7 @@ const SearchPage = (props) => {
   const generateToggleDisplaySetting = (setting_name) => {
     return function() {
       const otherSettings = displaySettings.filter((dict) => dict.setting_name !== setting_name);
-      const specifiedSetting = displaySettings.find((dict) => dict.setting_name == setting_name);
+      const specifiedSetting = displaySettings.find((dict) => dict.setting_name === setting_name);
       specifiedSetting.visible = !specifiedSetting.visible
       const newDisplaySettings = [...otherSettings, specifiedSetting]
       setDisplaySettings(newDisplaySettings)
