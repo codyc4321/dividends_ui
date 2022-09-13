@@ -44,6 +44,7 @@ const body = (
 
 const ArticleDividendsVsGrowth = {
   title: "Dividend Stocks vs. Growth Stocks",
+  meta_description: "Learn about dividend stocks and growth stocks, and which one is correct for your portfolio at this point in your life",
   author: authors.cody,
   body: body,
   sources: [

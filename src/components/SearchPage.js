@@ -10,7 +10,7 @@ import DividendResultsDisplay from './dividend_results_display/DividendResultsDi
 import AllEarningsDisplay from './earnings_results_display/AllEarningsDisplay';
 import SettingsView from './settings/SettingsView';
 import debounceTerm from '../hooks';
-
+import MetaTags from './MetaTags';
 
 const HOST = process.env.REACT_APP_HOSTNAME
 const PROTOCOL = process.env.REACT_APP_PROTOCOL
@@ -315,12 +315,16 @@ const SearchPage = (props) => {
   // console.log("displaySettings: ", displaySettings);
 
   return (
-    <div className="ui container" style={{marginTop: '10px'}}>
-      <SearchBar term={term} onTermUpdate={onTermUpdate} />
-      {renderRecentSearches()}
+    <div>
+      <MetaTags description="Search for stock information by ticker symbol, search for dividends data, dividends history, earnings history" />
 
-      <div className="ui segment">
-        {renderMainContent()}
+      <div className="ui container" style={{marginTop: '10px'}}>
+        <SearchBar term={term} onTermUpdate={onTermUpdate} />
+        {renderRecentSearches()}
+
+        <div className="ui segment">
+          {renderMainContent()}
+        </div>
       </div>
     </div>
   )

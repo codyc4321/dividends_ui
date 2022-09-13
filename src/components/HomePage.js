@@ -1,5 +1,7 @@
 import React from 'react';
 
+import MetaTags from './MetaTags';
+
 
 const HomePage = () => {
 
@@ -7,6 +9,7 @@ const HomePage = () => {
 
   return (
     <div className="ui segment">
+      <MetaTags description="www.stockhistoryscreener.com is the best source for complete tabulation of historical stock data, dividends data, and earnings data" />
       <body>
       		<p>Welcome to <a href="/search">stockhistoryscreener.com</a>, your one stop shop for the most thorough tabulation of historical financial data for the stock market.</p>
 

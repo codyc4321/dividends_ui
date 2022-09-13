@@ -49,6 +49,7 @@ const body = (
 
 const ArticleWhyInvest = {
   title: "Why Invest in the Stock Market",
+  meta_description: "Learn why to invest, and how you can use your money to make more money",
   author: authors.cody,
   body: body,
   sources: [

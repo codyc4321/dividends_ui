@@ -113,6 +113,7 @@ const body = (
 
 const ArticleBasicsOfInvesting = {
   title: "Basics of Investing",
+  meta_description: "Learn about the basics of investing, and how stocks, bonds, cash, and preferred stocks work",
   author: authors.cody,
   body: body,
   sources: [
