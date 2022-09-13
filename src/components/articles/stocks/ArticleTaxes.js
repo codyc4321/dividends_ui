@@ -156,6 +156,7 @@ const body = (
 
 const ArticleTaxes = {
   title: "Taxes for Dividends and Capital Gains",
+  meta_description: "Learn about the tax rates for dividend taxes, capital gains taxes, and qualified dividend taxes",
   body: body,
   sources: [
     {

@@ -78,6 +78,7 @@ const body = (
 
 const ArticleTypesOfBonds = {
   title: "Types of Bonds",
+  meta_description: "Learn about the different types of bonds, such a treasures, corporate bonds, and municipal bonds",
   author: authors.cody,
   body: body,
   sources: [

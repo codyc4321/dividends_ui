@@ -62,6 +62,7 @@ const body = (
 
 const ArticleDividendKings = {
   title: "Dividend Kings and Aristocrats",
+  meta_description: "Learn about the dividend kings and aristocrats, when it makes sense to buy dividend kings and aristocrats, and dividend growth stocks",
   author: authors.cody,
   body: body,
   sources: [
