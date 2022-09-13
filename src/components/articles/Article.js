@@ -2,6 +2,7 @@ import {useLayoutEffect} from 'react';
 
 import Citation from '../shared/Citation';
 import MyLink from '../shared/MyLink';
+import MetaTags from '../MetaTags';
 
 
 const allArticlesData = [
@@ -104,17 +105,19 @@ const Article = (props) => {
     }
   }
 
-
   return (
-    <div className="ui segment">
-      {titleTag}
-      {author_by_tag}
-      <br/>
-      {props.data.body}
-      <br/>
-      <div style={{width: '65%', margin: 'auto'}}>{previousLink} {nextLink}</div>
-      {sources_header}
-      {sources}
+    <div>
+      <MetaTags description={props.data.meta_description} />
+      <div className="ui segment">
+        {titleTag}
+        {author_by_tag}
+        <br/>
+        {props.data.body}
+        <br/>
+        <div style={{width: '65%', margin: 'auto'}}>{previousLink} {nextLink}</div>
+        {sources_header}
+        {sources}
+      </div>
     </div>
   )
 }
