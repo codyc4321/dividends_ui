@@ -64,6 +64,25 @@ const MainDividendResultsDisplay = (props) => {
           </tr>
 
           <tr>
+            <td className="tooltip">Yearly Earnings {earningsToolTip}</td>
+            <td className="tooltip">{yearly_earnings_display()} {earningsToolTip}</td>
+          </tr>
+
+          <tr>
+            <td className="tooltip">P/E ratio {priceToEarningsToolTip}</td>
+            <td
+              className="tooltip">{peRatio} {priceToEarningsToolTip}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br/>
+
+      <table className="ui celled table">
+        <tbody>
+
+          <tr>
             <td>Yearly Dividends</td>
             <td>${props.recent_dividend_rate}</td>
           </tr>
@@ -74,11 +93,6 @@ const MainDividendResultsDisplay = (props) => {
           </tr>
 
           <tr>
-            <td className="tooltip">Yearly Earnings {earningsToolTip}</td>
-            <td className="tooltip">{yearly_earnings_display()} {earningsToolTip}</td>
-          </tr>
-
-          <tr>
             <td className="tooltip">Dividend coverage {dividendCoverageToolTip}</td>
             <td
               className="tooltip"
@@ -86,12 +100,7 @@ const MainDividendResultsDisplay = (props) => {
                 {dividend_coverage}{dividend_coverage === 'N/A' ? '' : '%'} {dividendCoverageToolTip}
             </td>
           </tr>
-          <tr>
-            <td className="tooltip">P/E ratio {priceToEarningsToolTip}</td>
-            <td
-              className="tooltip">{peRatio} {priceToEarningsToolTip}
-            </td>
-          </tr>
+          
         </tbody>
       </table>
     </div>
