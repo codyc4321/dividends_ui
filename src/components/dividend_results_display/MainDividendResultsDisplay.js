@@ -30,6 +30,10 @@ const MainDividendResultsDisplay = (props) => {
 
   const yieldToolTip = (<span className="tooltiptext">The dividends paid divided by stock price</span>);
 
+  const priceToEarningsToolTip = (
+    <span className="tooltiptext">The stock price dividend by last year's earnings. A lower number is better</span>
+  );
+
   const yearly_earnings_display = () => {
     const floatNumber = parseFloat(props.recent_earnings_rate);
     let display = null;
@@ -83,9 +87,9 @@ const MainDividendResultsDisplay = (props) => {
             </td>
           </tr>
           <tr>
-            <td className="tooltip">P/E ratio {dividendCoverageToolTip}</td>
+            <td className="tooltip">P/E ratio {priceToEarningsToolTip}</td>
             <td
-              className="tooltip">{peRatio} {dividendCoverageToolTip}
+              className="tooltip">{peRatio} {priceToEarningsToolTip}
             </td>
           </tr>
         </tbody>
